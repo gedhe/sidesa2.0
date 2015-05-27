@@ -99,7 +99,7 @@ class edit_input_kk_sementara(wx.Frame):
         # generated method, don't edit
         wx.Frame.__init__(self, id=wxID_EDIT_INPUT_KK_SEMENTARA,
               name=u'edit_input_kk_sementara', parent=prnt, pos=wx.Point(406,
-              76), size=wx.Size(888, 639), style=wx.FRAME_NO_TASKBAR,
+              78), size=wx.Size(888, 639), style=wx.FRAME_NO_TASKBAR,
               title=u'Edit Anggota Kartu Keluarga Sementara')
         self.SetClientSize(wx.Size(888, 639))
         self.Center(wx.BOTH)
@@ -110,7 +110,7 @@ class edit_input_kk_sementara(wx.Frame):
 
         self.input_no_kk = wx.TextCtrl(id=wxID_EDIT_INPUT_KK_SEMENTARAINPUT_NO_KK,
               name=u'input_no_kk', parent=self, pos=wx.Point(8, 168),
-              size=wx.Size(240, 25), style=0, value=u'')
+              size=wx.Size(240, 25), style=wx.TAB_TRAVERSAL, value=u'')
 
         self.input_alamat = wx.TextCtrl(id=wxID_EDIT_INPUT_KK_SEMENTARAINPUT_ALAMAT,
               name=u'input_alamat', parent=self, pos=wx.Point(272, 168),

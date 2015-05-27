@@ -17,16 +17,15 @@ def create(parent):
     return tambah_kk_sementara(parent)
 
 [wxID_TAMBAH_KK_SEMENTARA, wxID_TAMBAH_KK_SEMENTARACARI_KK, 
- wxID_TAMBAH_KK_SEMENTARACEK_AKTA_CERAI, 
- wxID_TAMBAH_KK_SEMENTARACEK_AKTA_KEMATIAN, 
- wxID_TAMBAH_KK_SEMENTARACEK_AKTA_LAHIR, 
- wxID_TAMBAH_KK_SEMENTARACEK_AKTA_NIKAH, wxID_TAMBAH_KK_SEMENTARACEK_KITAS, 
- wxID_TAMBAH_KK_SEMENTARACEK_KTP, wxID_TAMBAH_KK_SEMENTARACEK_PASPORT, 
- wxID_TAMBAH_KK_SEMENTARACEK_VISA, wxID_TAMBAH_KK_SEMENTARADOKUMEN, 
- wxID_TAMBAH_KK_SEMENTARAINPUT_ALAMAT, wxID_TAMBAH_KK_SEMENTARAINPUT_AYAH, 
- wxID_TAMBAH_KK_SEMENTARAINPUT_DUSUN, wxID_TAMBAH_KK_SEMENTARAINPUT_IBU, 
- wxID_TAMBAH_KK_SEMENTARAINPUT_NAMA, wxID_TAMBAH_KK_SEMENTARAINPUT_NIK, 
- wxID_TAMBAH_KK_SEMENTARAINPUT_NO_KK, 
+ wxID_TAMBAH_KK_SEMENTARADOKUMEN, wxID_TAMBAH_KK_SEMENTARADOKUMEN1, 
+ wxID_TAMBAH_KK_SEMENTARADOKUMEN2, wxID_TAMBAH_KK_SEMENTARADOKUMEN3, 
+ wxID_TAMBAH_KK_SEMENTARADOKUMEN4, wxID_TAMBAH_KK_SEMENTARADOKUMEN5, 
+ wxID_TAMBAH_KK_SEMENTARADOKUMEN6, wxID_TAMBAH_KK_SEMENTARADOKUMEN7, 
+ wxID_TAMBAH_KK_SEMENTARADOKUMEN8, wxID_TAMBAH_KK_SEMENTARAINPUT_ALAMAT, 
+ wxID_TAMBAH_KK_SEMENTARAINPUT_AYAH, wxID_TAMBAH_KK_SEMENTARAINPUT_DUSUN, 
+ wxID_TAMBAH_KK_SEMENTARAINPUT_IBU, wxID_TAMBAH_KK_SEMENTARAINPUT_NAMA, 
+ wxID_TAMBAH_KK_SEMENTARAINPUT_NIK, wxID_TAMBAH_KK_SEMENTARAINPUT_NO_KK, 
+ wxID_TAMBAH_KK_SEMENTARAINPUT_RT, wxID_TAMBAH_KK_SEMENTARAINPUT_RW, 
  wxID_TAMBAH_KK_SEMENTARAINPUT_TEMPAT_LAHIR, 
  wxID_TAMBAH_KK_SEMENTARAISIPENDUDUK, wxID_TAMBAH_KK_SEMENTARAKEMBALI, 
  wxID_TAMBAH_KK_SEMENTARALABEL_AGAMA, wxID_TAMBAH_KK_SEMENTARALABEL_ALAMAT, 
@@ -68,10 +67,11 @@ def create(parent):
  wxID_TAMBAH_KK_SEMENTARAPILIHAN_STATUS_TINGGAL, 
  wxID_TAMBAH_KK_SEMENTARAPILIHAN_WARGANEGARA, 
  wxID_TAMBAH_KK_SEMENTARAPILIHPHOTO, wxID_TAMBAH_KK_SEMENTARASTATICTEXT1, 
+ wxID_TAMBAH_KK_SEMENTARASTATICTEXT2, wxID_TAMBAH_KK_SEMENTARASTATICTEXT3, 
  wxID_TAMBAH_KK_SEMENTARATANGGAL_LAHIR, wxID_TAMBAH_KK_SEMENTARATOMBOL_CARI, 
  wxID_TAMBAH_KK_SEMENTARATOMBOL_TAMBAH_DATA, 
  wxID_TAMBAH_KK_SEMENTARATOMBOL_TAMBAH_KEMBALI, 
-] = [wx.NewId() for _init_ctrls in range(68)]
+] = [wx.NewId() for _init_ctrls in range(72)]
 
 class tambah_kk_sementara(wx.Frame):
     def _init_coll_isipenduduk_Columns(self, parent):
@@ -82,16 +82,24 @@ class tambah_kk_sementara(wx.Frame):
         parent.InsertColumn(col=1, format=wx.LIST_FORMAT_LEFT,
               heading='Nama Kepala Keluarga', width=250)
         parent.InsertColumn(col=2, format=wx.LIST_FORMAT_LEFT, heading='Alamat',
-              width=360)
+              width=260)
+        parent.InsertColumn(col=3, format=wx.LIST_FORMAT_LEFT, heading='Dusun',
+              width=100)
+        parent.InsertColumn(col=4, format=wx.LIST_FORMAT_LEFT, heading='RT',
+              width=40)
+        parent.InsertColumn(col=5, format=wx.LIST_FORMAT_LEFT, heading='RW',
+              width=40)
 
     def _init_ctrls(self, prnt):
         # generated method, don't edit
         wx.Frame.__init__(self, id=wxID_TAMBAH_KK_SEMENTARA,
-              name=u'tambah_kk_sementara', parent=prnt, pos=wx.Point(468, 76),
-              size=wx.Size(888, 639), style=wx.FRAME_NO_TASKBAR,
+              name=u'tambah_kk_sementara', parent=prnt, pos=wx.Point(403, 78),
+              size=wx.Size(888, 639),
+              style=wx.FRAME_NO_TASKBAR | wx.TAB_TRAVERSAL,
               title=u'Tambah Anggota Kartu Keluarga Sementara')
         self.SetClientSize(wx.Size(888, 639))
         self.Center(wx.BOTH)
+        self.SetAutoLayout(True)
 
         self.label_nomor_kk = wx.StaticText(id=wxID_TAMBAH_KK_SEMENTARALABEL_NOMOR_KK,
               label=u'Nomor KK', name=u'label_nomor_kk', parent=self,
@@ -99,23 +107,23 @@ class tambah_kk_sementara(wx.Frame):
 
         self.input_no_kk = wx.TextCtrl(id=wxID_TAMBAH_KK_SEMENTARAINPUT_NO_KK,
               name=u'input_no_kk', parent=self, pos=wx.Point(8, 168),
-              size=wx.Size(240, 25), style=wx.TE_READONLY, value=u'')
+              size=wx.Size(240, 25), style=wx.TE_PROCESS_TAB, value=u'')
 
         self.input_alamat = wx.TextCtrl(id=wxID_TAMBAH_KK_SEMENTARAINPUT_ALAMAT,
-              name=u'input_alamat', parent=self, pos=wx.Point(272, 168),
-              size=wx.Size(288, 25), style=wx.TE_READONLY, value=u'')
+              name=u'input_alamat', parent=self, pos=wx.Point(256, 168),
+              size=wx.Size(288, 25), style=wx.TE_PROCESS_TAB, value=u'')
 
         self.input_dusun = wx.TextCtrl(id=wxID_TAMBAH_KK_SEMENTARAINPUT_DUSUN,
-              name=u'input_dusun', parent=self, pos=wx.Point(592, 168),
-              size=wx.Size(280, 25), style=wx.TE_READONLY, value=u'')
+              name=u'input_dusun', parent=self, pos=wx.Point(552, 168),
+              size=wx.Size(192, 25), style=0, value=u'')
 
         self.label_alamat = wx.StaticText(id=wxID_TAMBAH_KK_SEMENTARALABEL_ALAMAT,
               label=u'Alamat', name=u'label_alamat', parent=self,
-              pos=wx.Point(272, 152), size=wx.Size(47, 17), style=0)
+              pos=wx.Point(256, 152), size=wx.Size(47, 17), style=0)
 
         self.label_dusun = wx.StaticText(id=wxID_TAMBAH_KK_SEMENTARALABEL_DUSUN,
-              label=u'Dusun - RT - RW', name=u'label_dusun', parent=self,
-              pos=wx.Point(592, 152), size=wx.Size(144, 17), style=0)
+              label=u'Dusun', name=u'label_dusun', parent=self,
+              pos=wx.Point(552, 152), size=wx.Size(144, 17), style=0)
 
         self.photo = wx.StaticBitmap(bitmap=wx.Bitmap('/opt/sidesa/png/photo.png',
               wx.BITMAP_TYPE_PNG), id=wxID_TAMBAH_KK_SEMENTARAPHOTO,
@@ -399,49 +407,9 @@ class tambah_kk_sementara(wx.Frame):
         self.kembali.Bind(wx.EVT_BUTTON, self.OnKembaliButton,
               id=wxID_TAMBAH_KK_SEMENTARAKEMBALI)
 
-        self.cek_akta_lahir = wx.CheckBox(id=wxID_TAMBAH_KK_SEMENTARACEK_AKTA_LAHIR,
-              label=u'Akta Kelahiran', name=u'cek_akta_lahir', parent=self,
-              pos=wx.Point(16, 456), size=wx.Size(208, 24), style=0)
-        self.cek_akta_lahir.SetValue(False)
-
         self.dokumen = wx.StaticText(id=wxID_TAMBAH_KK_SEMENTARADOKUMEN,
               label=u'Kepemilikan Dokumen', name=u'dokumen', parent=self,
               pos=wx.Point(24, 440), size=wx.Size(304, 17), style=0)
-
-        self.cek_akta_nikah = wx.CheckBox(id=wxID_TAMBAH_KK_SEMENTARACEK_AKTA_NIKAH,
-              label=u'Akta Nikah', name=u'cek_akta_nikah', parent=self,
-              pos=wx.Point(16, 472), size=wx.Size(160, 40), style=0)
-        self.cek_akta_nikah.SetValue(False)
-
-        self.cek_akta_cerai = wx.CheckBox(id=wxID_TAMBAH_KK_SEMENTARACEK_AKTA_CERAI,
-              label=u'Akta Cerai', name=u'cek_akta_cerai', parent=self,
-              pos=wx.Point(16, 496), size=wx.Size(200, 32), style=0)
-        self.cek_akta_cerai.SetValue(False)
-
-        self.cek_akta_kematian = wx.CheckBox(id=wxID_TAMBAH_KK_SEMENTARACEK_AKTA_KEMATIAN,
-              label=u'Akta Kematian', name=u'cek_akta_kematian', parent=self,
-              pos=wx.Point(152, 456), size=wx.Size(184, 24), style=0)
-        self.cek_akta_kematian.SetValue(False)
-
-        self.cek_ktp = wx.CheckBox(id=wxID_TAMBAH_KK_SEMENTARACEK_KTP,
-              label=u'KTP Sementara', name=u'cek_ktp', parent=self,
-              pos=wx.Point(152, 480), size=wx.Size(128, 24), style=0)
-        self.cek_ktp.SetValue(False)
-
-        self.cek_kitas = wx.CheckBox(id=wxID_TAMBAH_KK_SEMENTARACEK_KITAS,
-              label=u'KITAS', name=u'cek_kitas', parent=self, pos=wx.Point(152,
-              496), size=wx.Size(144, 32), style=0)
-        self.cek_kitas.SetValue(False)
-
-        self.cek_visa = wx.CheckBox(id=wxID_TAMBAH_KK_SEMENTARACEK_VISA,
-              label=u'Visa', name=u'cek_visa', parent=self, pos=wx.Point(288,
-              448), size=wx.Size(200, 40), style=0)
-        self.cek_visa.SetValue(False)
-
-        self.cek_pasport = wx.CheckBox(id=wxID_TAMBAH_KK_SEMENTARACEK_PASPORT,
-              label=u'Pasport', name=u'cek_pasport', parent=self,
-              pos=wx.Point(288, 472), size=wx.Size(267, 40), style=0)
-        self.cek_pasport.SetValue(False)
 
         self.label_data_penduduk = wx.StaticText(id=wxID_TAMBAH_KK_SEMENTARALABEL_DATA_PENDUDUK,
               label=u'FORM DATA PENDUDUK', name=u'label_data_penduduk',
@@ -462,13 +430,79 @@ class tambah_kk_sementara(wx.Frame):
 
         self.cari_kk = wx.TextCtrl(id=wxID_TAMBAH_KK_SEMENTARACARI_KK,
               name=u'cari_kk', parent=self, pos=wx.Point(552, 128),
-              size=wx.Size(224, 24), style=0, value='')
+              size=wx.Size(224, 24), style=wx.TE_PROCESS_TAB, value='')
 
         self.tombol_cari = wx.Button(id=wxID_TAMBAH_KK_SEMENTARATOMBOL_CARI,
               label=u'Cari', name=u'tombol_cari', parent=self, pos=wx.Point(784,
               128), size=wx.Size(85, 24), style=0)
         self.tombol_cari.Bind(wx.EVT_BUTTON, self.OnTombol_cariButton,
               id=wxID_TAMBAH_KK_SEMENTARATOMBOL_CARI)
+
+        self.input_rt = wx.TextCtrl(id=wxID_TAMBAH_KK_SEMENTARAINPUT_RT,
+              name=u'input_rt', parent=self, pos=wx.Point(752, 168),
+              size=wx.Size(56, 27), style=0, value=u'')
+
+        self.input_rw = wx.TextCtrl(id=wxID_TAMBAH_KK_SEMENTARAINPUT_RW,
+              name=u'input_rw', parent=self, pos=wx.Point(816, 168),
+              size=wx.Size(56, 27), style=0, value=u'')
+
+        self.staticText2 = wx.StaticText(id=wxID_TAMBAH_KK_SEMENTARASTATICTEXT2,
+              label=u'RT', name='staticText2', parent=self, pos=wx.Point(760,
+              152), size=wx.Size(24, 16), style=0)
+
+        self.staticText3 = wx.StaticText(id=wxID_TAMBAH_KK_SEMENTARASTATICTEXT3,
+              label=u'RW', name='staticText3', parent=self, pos=wx.Point(824,
+              152), size=wx.Size(19, 17), style=0)
+
+        self.dokumen1 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
+              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
+              'Paspor'], id=wxID_TAMBAH_KK_SEMENTARADOKUMEN1, name=u'dokumen1',
+              parent=self, pos=wx.Point(24, 464), size=wx.Size(187, 27),
+              style=0, value='')
+
+        self.dokumen3 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
+              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
+              'Paspor'], id=wxID_TAMBAH_KK_SEMENTARADOKUMEN3, name=u'dokumen3',
+              parent=self, pos=wx.Point(224, 464), size=wx.Size(187, 27),
+              style=0, value='')
+
+        self.dokumen5 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
+              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
+              'Paspor'], id=wxID_TAMBAH_KK_SEMENTARADOKUMEN5, name=u'dokumen5',
+              parent=self, pos=wx.Point(424, 464), size=wx.Size(187, 27),
+              style=0, value='')
+
+        self.dokumen7 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
+              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
+              'Paspor'], id=wxID_TAMBAH_KK_SEMENTARADOKUMEN7, name=u'dokumen7',
+              parent=self, pos=wx.Point(632, 464), size=wx.Size(187, 27),
+              style=0, value='')
+
+        self.dokumen2 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
+              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
+              'Paspor'], id=wxID_TAMBAH_KK_SEMENTARADOKUMEN2, name=u'dokumen2',
+              parent=self, pos=wx.Point(24, 504), size=wx.Size(187, 27),
+              style=0, value='')
+
+        self.dokumen4 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
+              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
+              'Paspor'], id=wxID_TAMBAH_KK_SEMENTARADOKUMEN4, name=u'dokumen4',
+              parent=self, pos=wx.Point(224, 504), size=wx.Size(187, 27),
+              style=0, value='')
+        self.dokumen4.Bind(wx.EVT_COMBOBOX, self.OnComboBox6Combobox,
+              id=wxID_TAMBAH_KK_SEMENTARADOKUMEN4)
+
+        self.dokumen6 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
+              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
+              'Paspor'], id=wxID_TAMBAH_KK_SEMENTARADOKUMEN6, name=u'dokumen6',
+              parent=self, pos=wx.Point(424, 504), size=wx.Size(187, 27),
+              style=0, value='')
+
+        self.dokumen8 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
+              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
+              'Paspor'], id=wxID_TAMBAH_KK_SEMENTARADOKUMEN8, name=u'dokumen8',
+              parent=self, pos=wx.Point(632, 504), size=wx.Size(187, 27),
+              style=0, value='')
 
     def __init__(self, parent):
         self._init_ctrls(parent)
@@ -480,9 +514,12 @@ class tambah_kk_sementara(wx.Frame):
         hasil = cur.fetchall() 
         nokk = self.isipenduduk.GetItemCount() 
         for i in hasil : 
-            self.isipenduduk.InsertStringItem(nokk, "%s"%i[47]) 
-            self.isipenduduk.SetStringItem(nokk,1,"%s"%i[45]) 
-            self.isipenduduk.SetStringItem(nokk,2,"%s"%i[18]) 
+            self.isipenduduk.InsertStringItem(nokk, "%s"%i[49]) 
+            self.isipenduduk.SetStringItem(nokk,1,"%s"%i[47]) 
+            self.isipenduduk.SetStringItem(nokk,2,"%s"%i[19])
+            self.isipenduduk.SetStringItem(nokk,3,"%s"%i[18])
+            self.isipenduduk.SetStringItem(nokk,4,"%s"%i[17]) 
+            self.isipenduduk.SetStringItem(nokk,5,"%s"%i[16])
             nokk = nokk + 1
     
     def Isi_Object(self) : 
@@ -491,11 +528,11 @@ class tambah_kk_sementara(wx.Frame):
         cur.execute(sql)
         hasil = cur.fetchone()  
         if hasil : 
-            self.input_no_kk.SetValue(str(hasil[47])) 
-            self.input_alamat.SetValue(str(hasil[17]))
-            self.input_dusun.SetValue(str(hasil[16]))
-            self.input_rt.SetValue(str(hasil[14]))
-            self.input_rw.SetValue(str(hasil[13]))
+            self.input_no_kk.SetValue(str(hasil[49])) 
+            self.input_alamat.SetValue(str(hasil[19]))
+            self.input_dusun.SetValue(str(hasil[18]))
+            self.input_rt.SetValue(str(hasil[17]))
+            self.input_rw.SetValue(str(hasil[16]))
             
         else : 
             self.pesan = wx.MessageDialog(self,"Data Tidak Ada","Konfirmasi",wx.OK) 
@@ -536,16 +573,28 @@ class tambah_kk_sementara(wx.Frame):
         pilihankehamilan = str(self.pilihan_kehamilan.GetValue())
         inputalamat = str(self.input_alamat.GetValue())
         inputdusun = str(self.input_dusun.GetValue())
+        inputrt = str(self.input_rt.GetValue())
+        inputrw = str(self.input_rw.GetValue())
+        pilihandokumen1 = str(self.dokumen1.GetValue())
+        pilihandokumen2 = str(self.dokumen2.GetValue())
+        pilihandokumen3 = str(self.dokumen3.GetValue())
+        pilihandokumen4 = str(self.dokumen4.GetValue())
+        pilihandokumen5 = str(self.dokumen5.GetValue())
+        pilihandokumen6 = str(self.dokumen6.GetValue())
+        pilihandokumen7 = str(self.dokumen7.GetValue())
+        pilihandokumen8 = str(self.dokumen8.GetValue())
         if pilihanshdk == 'Kepala Keluarga':
            self.pesan = wx.MessageDialog(self,"Kepala Keluarga Sudah Ada","Konfirmasi",wx.OK) 
            self.pesan.ShowModal() 
         else :     
-            add_keluarga="INSERT INTO penduduk (no_kk, no_nik, nama_lengkap, jenis_kelamin, tempat_lahir, tanggal_lahir, gol_darah, agama, warganegara, pendidikan_akhir, pendidikan_saat_ini, pekerjaan_utama, pekerjaan_lain, status_kawin, status_kependudukan, status_tinggal, difabelitas, kontrasepsi, kehamilan, shdk, nama_ayah, nama_ibu, alamat, nama_dusun) VALUES('"+(inputnokk)+"', '"+(inputnik)+"', '"+(inputnama)+"', '"+(pilihanjeniskelamin)+"', '"+(inputtempatlahir)+"', '"+(tanggallahir)+"', '"+(pilihangolongandarah)+"', '"+(pilihanagama)+"', '"+(pilihanwarganegara)+"', '"+(pilihanpendidikanterakhir)+"', '"+(pilihanpendidikanditempuh)+"', '"+(pilihanpekerjaan)+"', '"+(pilihanpekerjaanlainnya)+"', '"+(pilihanstatus)+"', '"+(pilihanstatuskependudukan)+"', '"+(pilihanstatustinggal)+"', '"+(pilihandifabelitas)+"', '"+(pilihankontrasepsi)+"', '"+(pilihankehamilan)+"', '"+(pilihanshdk)+"', '"+(inputayah)+"', '"+(inputibu)+"', '"+(inputalamat)+"', '"+(inputdusun)+"')"
+            add_keluarga="INSERT INTO penduduk (no_kk, no_nik, nama_lengkap, jenis_kelamin, tempat_lahir, tanggal_lahir, gol_darah, agama, warganegara, pendidikan_akhir, pendidikan_saat_ini, pekerjaan_utama, pekerjaan_lain, status_kawin, status_kependudukan, status_tinggal, difabelitas, kontrasepsi, kehamilan, shdk, nama_ayah, nama_ibu, alamat, nama_dusun, rt, rw, dokumen1, dokumen2, dokumen3, dokumen4, dokumen5, dokumen6, dokumen7, dokumen8) VALUES('"+(inputnokk)+"', '"+(inputnik)+"', '"+(inputnama)+"', '"+(pilihanjeniskelamin)+"', '"+(inputtempatlahir)+"', '"+(tanggallahir)+"', '"+(pilihangolongandarah)+"', '"+(pilihanagama)+"', '"+(pilihanwarganegara)+"', '"+(pilihanpendidikanterakhir)+"', '"+(pilihanpendidikanditempuh)+"', '"+(pilihanpekerjaan)+"', '"+(pilihanpekerjaanlainnya)+"', '"+(pilihanstatus)+"', '"+(pilihanstatuskependudukan)+"', '"+(pilihanstatustinggal)+"', '"+(pilihandifabelitas)+"', '"+(pilihankontrasepsi)+"', '"+(pilihankehamilan)+"', '"+(pilihanshdk)+"', '"+(inputayah)+"', '"+(inputibu)+"', '"+(inputalamat)+"', '"+(inputdusun)+"', '"+(inputrt)+"', '"+(inputrw)+"', '"+(pilihandokumen1)+"', '"+(pilihandokumen2)+"', '"+(pilihandokumen3)+"', '"+(pilihandokumen4)+"', '"+(pilihandokumen5)+"', '"+(pilihandokumen6)+"', '"+(pilihandokumen7)+"', '"+(pilihandokumen8)+"')"        
             cur.execute(add_keluarga)
             db.commit()
             self.input_no_kk.Clear()
             self.input_alamat.Clear()
             self.input_dusun.Clear()
+            self.input_rt.Clear()
+            self.input_rw.Clear()
             self.input_nik.Clear()
             self.input_nama.Clear()
             self.pilihan_jenis_kelamin.SetValue('')
@@ -567,6 +616,17 @@ class tambah_kk_sementara(wx.Frame):
             self.pilihan_shdk.SetValue('')
             self.input_ayah.Clear()
             self.input_ibu.Clear()
+            self.dokumen1.SetValue('')
+            self.dokumen2.SetValue('')
+            self.dokumen3.SetValue('')
+            self.dokumen4.SetValue('')
+            self.dokumen5.SetValue('')
+            self.dokumen6.SetValue('')
+            self.dokumen7.SetValue('')
+            self.dokumen8.SetValue('')
+            self.pesan = wx.MessageDialog(self,"Data Sudah Tersimpan","Konfirmasi",wx.OK) 
+            self.pesan.ShowModal() 
+
         
         
     def OnTombol_tambah_kembaliButton(self, event):
@@ -594,16 +654,28 @@ class tambah_kk_sementara(wx.Frame):
         pilihankehamilan = str(self.pilihan_kehamilan.GetValue())
         inputalamat = str(self.input_alamat.GetValue())
         inputdusun = str(self.input_dusun.GetValue())
+        inputrt = str(self.input_rt.GetValue())
+        inputrw = str(self.input_rw.GetValue())
+        pilihandokumen1 = str(self.dokumen1.GetValue())
+        pilihandokumen2 = str(self.dokumen2.GetValue())
+        pilihandokumen3 = str(self.dokumen3.GetValue())
+        pilihandokumen4 = str(self.dokumen4.GetValue())
+        pilihandokumen5 = str(self.dokumen5.GetValue())
+        pilihandokumen6 = str(self.dokumen6.GetValue())
+        pilihandokumen7 = str(self.dokumen7.GetValue())
+        pilihandokumen8 = str(self.dokumen8.GetValue())
         if pilihanshdk == 'Kepala Keluarga':
            self.pesan = wx.MessageDialog(self,"Kepala Keluarga Sudah Ada","Konfirmasi",wx.OK) 
            self.pesan.ShowModal() 
         else :     
-            add_keluarga="INSERT INTO penduduk (no_kk, no_nik, nama_lengkap, jenis_kelamin, tempat_lahir, tanggal_lahir, gol_darah, agama, warganegara, pendidikan_akhir, pendidikan_saat_ini, pekerjaan_utama, pekerjaan_lain, status_kawin, status_kependudukan, status_tinggal, difabelitas, kontrasepsi, kehamilan, shdk, nama_ayah, nama_ibu, alamat, nama_dusun) VALUES('"+(inputnokk)+"', '"+(inputnik)+"', '"+(inputnama)+"', '"+(pilihanjeniskelamin)+"', '"+(inputtempatlahir)+"', '"+(tanggallahir)+"', '"+(pilihangolongandarah)+"', '"+(pilihanagama)+"', '"+(pilihanwarganegara)+"', '"+(pilihanpendidikanterakhir)+"', '"+(pilihanpendidikanditempuh)+"', '"+(pilihanpekerjaan)+"', '"+(pilihanpekerjaanlainnya)+"', '"+(pilihanstatus)+"', '"+(pilihanstatuskependudukan)+"', '"+(pilihanstatustinggal)+"', '"+(pilihandifabelitas)+"', '"+(pilihankontrasepsi)+"', '"+(pilihankehamilan)+"', '"+(pilihanshdk)+"', '"+(inputayah)+"', '"+(inputibu)+"', '"+(inputalamat)+"', '"+(inputdusun)+"')"
+            add_keluarga="INSERT INTO penduduk (no_kk, no_nik, nama_lengkap, jenis_kelamin, tempat_lahir, tanggal_lahir, gol_darah, agama, warganegara, pendidikan_akhir, pendidikan_saat_ini, pekerjaan_utama, pekerjaan_lain, status_kawin, status_kependudukan, status_tinggal, difabelitas, kontrasepsi, kehamilan, shdk, nama_ayah, nama_ibu, alamat, nama_dusun, rt, rw, dokumen1, dokumen2, dokumen3, dokumen4, dokumen5, dokumen6, dokumen7, dokumen8) VALUES('"+(inputnokk)+"', '"+(inputnik)+"', '"+(inputnama)+"', '"+(pilihanjeniskelamin)+"', '"+(inputtempatlahir)+"', '"+(tanggallahir)+"', '"+(pilihangolongandarah)+"', '"+(pilihanagama)+"', '"+(pilihanwarganegara)+"', '"+(pilihanpendidikanterakhir)+"', '"+(pilihanpendidikanditempuh)+"', '"+(pilihanpekerjaan)+"', '"+(pilihanpekerjaanlainnya)+"', '"+(pilihanstatus)+"', '"+(pilihanstatuskependudukan)+"', '"+(pilihanstatustinggal)+"', '"+(pilihandifabelitas)+"', '"+(pilihankontrasepsi)+"', '"+(pilihankehamilan)+"', '"+(pilihanshdk)+"', '"+(inputayah)+"', '"+(inputibu)+"', '"+(inputalamat)+"', '"+(inputdusun)+"', '"+(inputrt)+"', '"+(inputrw)+"', '"+(pilihandokumen1)+"', '"+(pilihandokumen2)+"', '"+(pilihandokumen3)+"', '"+(pilihandokumen4)+"', '"+(pilihandokumen5)+"', '"+(pilihandokumen6)+"', '"+(pilihandokumen7)+"', '"+(pilihandokumen8)+"')"        
             cur.execute(add_keluarga)
             db.commit()
             self.input_no_kk.Clear()
             self.input_alamat.Clear()
             self.input_dusun.Clear()
+            self.input_rt.Clear()
+            self.input_rw.Clear()
             self.input_nik.Clear()
             self.input_nama.Clear()
             self.pilihan_jenis_kelamin.SetValue('')
@@ -625,10 +697,21 @@ class tambah_kk_sementara(wx.Frame):
             self.pilihan_shdk.SetValue('')
             self.input_ayah.Clear()
             self.input_ibu.Clear()
+            self.dokumen1.SetValue('')
+            self.dokumen2.SetValue('')
+            self.dokumen3.SetValue('')
+            self.dokumen4.SetValue('')
+            self.dokumen5.SetValue('')
+            self.dokumen6.SetValue('')
+            self.dokumen7.SetValue('')
+            self.dokumen8.SetValue('')
+            self.pesan = wx.MessageDialog(self,"Data Sudah Tersimpan","Konfirmasi",wx.OK) 
+            self.pesan.ShowModal() 
             self.main=data_penduduk.create(None)
             self.main.Show()
             self.Close()
             self.Destroy()
+            
 
     def OnKembaliButton(self, event):
         self.main=data_penduduk.create(None)
@@ -653,4 +736,8 @@ class tambah_kk_sementara(wx.Frame):
         self.cari_kk.SetValue(b) 
         self.Isi_Object()
         event.Skip()
-            
+
+    def OnComboBox6Combobox(self, event):
+        event.Skip()
+
+

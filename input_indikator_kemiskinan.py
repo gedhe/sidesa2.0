@@ -8,26 +8,26 @@ def create(parent):
     return indikator(parent)
 
 [wxID_INDIKATOR, wxID_INDIKATORGENBITMAPTEXTBUTTON1, 
- wxID_INDIKATORINPUT_INDIKATOR1, wxID_INDIKATORINPUT_INDIKATOR2, 
- wxID_INDIKATORINPUT_INDIKATOR3, wxID_INDIKATORINPUT_INDIKATOR4, 
- wxID_INDIKATORINPUT_INDIKATOR5, wxID_INDIKATORINPUT_INDIKATOR6, 
- wxID_INDIKATORINPUT_INDIKATOR7, wxID_INDIKATORINPUT_INDIKATOR8, 
- wxID_INDIKATORINPUT_INDIKATOR9, wxID_INDIKATORSTATICTEXT1, 
- wxID_INDIKATORSTATICTEXT10, wxID_INDIKATORSTATICTEXT11, 
- wxID_INDIKATORSTATICTEXT12, wxID_INDIKATORSTATICTEXT2, 
- wxID_INDIKATORSTATICTEXT3, wxID_INDIKATORSTATICTEXT4, 
- wxID_INDIKATORSTATICTEXT5, wxID_INDIKATORSTATICTEXT6, 
- wxID_INDIKATORSTATICTEXT7, wxID_INDIKATORSTATICTEXT8, 
- wxID_INDIKATORSTATICTEXT9, wxID_INDIKATORTEXTCTRL1, wxID_INDIKATORTEXTCTRL2, 
- wxID_INDIKATORTEXTCTRL3, wxID_INDIKATORTOMBOL_KEMBALI_KEMENU, 
- wxID_INDIKATORTOMBOL_SIMPAN_DATA, 
+ wxID_INDIKATORINPUT_INDIKATOR1, wxID_INDIKATORINPUT_INDIKATOR10, 
+ wxID_INDIKATORINPUT_INDIKATOR11, wxID_INDIKATORINPUT_INDIKATOR12, 
+ wxID_INDIKATORINPUT_INDIKATOR2, wxID_INDIKATORINPUT_INDIKATOR3, 
+ wxID_INDIKATORINPUT_INDIKATOR4, wxID_INDIKATORINPUT_INDIKATOR5, 
+ wxID_INDIKATORINPUT_INDIKATOR6, wxID_INDIKATORINPUT_INDIKATOR7, 
+ wxID_INDIKATORINPUT_INDIKATOR8, wxID_INDIKATORINPUT_INDIKATOR9, 
+ wxID_INDIKATORSTATICTEXT1, wxID_INDIKATORSTATICTEXT10, 
+ wxID_INDIKATORSTATICTEXT11, wxID_INDIKATORSTATICTEXT12, 
+ wxID_INDIKATORSTATICTEXT2, wxID_INDIKATORSTATICTEXT3, 
+ wxID_INDIKATORSTATICTEXT4, wxID_INDIKATORSTATICTEXT5, 
+ wxID_INDIKATORSTATICTEXT6, wxID_INDIKATORSTATICTEXT7, 
+ wxID_INDIKATORSTATICTEXT8, wxID_INDIKATORSTATICTEXT9, 
+ wxID_INDIKATORTOMBOL_KEMBALI_KEMENU, wxID_INDIKATORTOMBOL_SIMPAN_DATA, 
 ] = [wx.NewId() for _init_ctrls in range(28)]
 
 class indikator(wx.Frame):
     def _init_ctrls(self, prnt):
         # generated method, don't edit
         wx.Frame.__init__(self, id=wxID_INDIKATOR, name=u'indikator',
-              parent=prnt, pos=wx.Point(321, 270), size=wx.Size(927, 445),
+              parent=prnt, pos=wx.Point(399, 194), size=wx.Size(927, 445),
               style=wx.FRAME_NO_TASKBAR, title=u'Input Indikator Kemiskinan')
         self.SetClientSize(wx.Size(927, 445))
         self.Center(wx.BOTH)
@@ -125,16 +125,16 @@ class indikator(wx.Frame):
               name='genBitmapTextButton1', parent=self, pos=wx.Point(176, 408),
               size=wx.Size(144, 31), style=0)
 
-        self.textCtrl1 = wx.TextCtrl(id=wxID_INDIKATORTEXTCTRL1,
-              name='textCtrl1', parent=self, pos=wx.Point(56, 304),
+        self.input_indikator10 = wx.TextCtrl(id=wxID_INDIKATORINPUT_INDIKATOR10,
+              name=u'input_indikator10', parent=self, pos=wx.Point(56, 304),
               size=wx.Size(840, 25), style=0, value=u'')
 
-        self.textCtrl2 = wx.TextCtrl(id=wxID_INDIKATORTEXTCTRL2,
-              name='textCtrl2', parent=self, pos=wx.Point(56, 336),
+        self.input_indikator11 = wx.TextCtrl(id=wxID_INDIKATORINPUT_INDIKATOR11,
+              name=u'input_indikator11', parent=self, pos=wx.Point(56, 336),
               size=wx.Size(840, 25), style=0, value=u'')
 
-        self.textCtrl3 = wx.TextCtrl(id=wxID_INDIKATORTEXTCTRL3,
-              name='textCtrl3', parent=self, pos=wx.Point(56, 368),
+        self.input_indikator12 = wx.TextCtrl(id=wxID_INDIKATORINPUT_INDIKATOR12,
+              name=u'input_indikator12', parent=self, pos=wx.Point(56, 368),
               size=wx.Size(840, 25), style=0, value=u'')
 
         self.staticText10 = wx.StaticText(id=wxID_INDIKATORSTATICTEXT10,
@@ -153,7 +153,18 @@ class indikator(wx.Frame):
         self._init_ctrls(parent)
 
     def OnTombol_simpan_dataButton(self, event):
-        event.Skip()
+        inputindikator1 = str(self.input_indikator1.GetValue())
+        inputindikator2 = str(self.input_indikator2.GetValue())
+        inputindikator3 = str(self.input_indikator3.GetValue())
+        inputindikator4 = str(self.input_indikator4.GetValue())
+        inputindikator5 = str(self.input_indikator5.GetValue())
+        inputindikator6 = str(self.input_indikator6.GetValue())
+        inputindikator7 = str(self.input_indikator7.GetValue())
+        inputindikator8 = str(self.input_indikator8.GetValue())
+        inputindikator9 = str(self.input_indikator9.GetValue())
+        inputindikator10 = str(self.input_indikator10.GetValue())
+        inputindikator11 = str(self.input_indikator11.GetValue())
+        
 
     def OnTombol_kembali_kemenuButton(self, event):
         self.Close()

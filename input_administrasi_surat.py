@@ -17,7 +17,7 @@ class adm_surat(wx.Frame):
     def _init_ctrls(self, prnt):
         # generated method, don't edit
         wx.Frame.__init__(self, id=wxID_ADM_SURAT, name=u'adm_surat',
-              parent=prnt, pos=wx.Point(606, 380), size=wx.Size(417, 102),
+              parent=prnt, pos=wx.Point(641, 356), size=wx.Size(417, 102),
               style=wx.DEFAULT_FRAME_STYLE, title=u'Administrasi Persuratan')
         self.SetClientSize(wx.Size(417, 102))
         self.Center(wx.BOTH)

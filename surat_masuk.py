@@ -4,17 +4,22 @@ import wx
 import wx.richtext
 import wx.lib.buttons
 import input_administrasi_surat
+import sqlite3
+
+
+db = sqlite3.connect('/opt/sidesa/sidesa')
+cur = db.cursor()
 
 def create(parent):
     return surat_masuk(parent)
 
-[wxID_SURAT_MASUK, wxID_SURAT_MASUKDARI, wxID_SURAT_MASUKDATEPICKERCTRL1, 
- wxID_SURAT_MASUKINPUT_KETERANGAN, wxID_SURAT_MASUKINPUT_NOMOR_SURAT, 
- wxID_SURAT_MASUKKOTAK_SURAT_MASUK, wxID_SURAT_MASUKLABEL_ISI_SINGKAT_SURAT, 
- wxID_SURAT_MASUKLABEL_KETERANGAN, wxID_SURAT_MASUKLABEL_NOMOR_SURAT_MASUK, 
- wxID_SURAT_MASUKLABEL_TANGGAL_SURAT, wxID_SURAT_MASUKLABEL_TUJUAN_SURAT, 
- wxID_SURAT_MASUKPERIHAL, wxID_SURAT_MASUKRICHTEXTCTRL1, 
- wxID_SURAT_MASUKTEXTCTRL1, wxID_SURAT_MASUKTEXTCTRL2, 
+[wxID_SURAT_MASUK, wxID_SURAT_MASUKDARI, wxID_SURAT_MASUKINPUT_KETERANGAN, 
+ wxID_SURAT_MASUKINPUT_NOMOR_SURAT, wxID_SURAT_MASUKINPUT_PERIHAL, 
+ wxID_SURAT_MASUKKEPADA, wxID_SURAT_MASUKKOTAK_SURAT_MASUK, 
+ wxID_SURAT_MASUKLABEL_ISI_SINGKAT_SURAT, wxID_SURAT_MASUKLABEL_KETERANGAN, 
+ wxID_SURAT_MASUKLABEL_NOMOR_SURAT_MASUK, wxID_SURAT_MASUKLABEL_TANGGAL_SURAT, 
+ wxID_SURAT_MASUKLABEL_TUJUAN_SURAT, wxID_SURAT_MASUKPERIHAL, 
+ wxID_SURAT_MASUKRICHTEXTCTRL1, wxID_SURAT_MASUKTANGGAL, 
  wxID_SURAT_MASUKTOMBOL_KE_MENU_SURAT, wxID_SURAT_MASUKTOMBOL_SIMPAN, 
  wxID_SURAT_MASUKTUJUAN, 
 ] = [wx.NewId() for _init_ctrls in range(18)]
@@ -83,8 +88,8 @@ class surat_masuk(wx.Frame):
               self.OnTombol_ke_menu_suratButton,
               id=wxID_SURAT_MASUKTOMBOL_KE_MENU_SURAT)
 
-        self.datePickerCtrl1 = wx.DatePickerCtrl(id=wxID_SURAT_MASUKDATEPICKERCTRL1,
-              name='datePickerCtrl1', parent=self, pos=wx.Point(168, 72),
+        self.tanggal = wx.DatePickerCtrl(id=wxID_SURAT_MASUKTANGGAL,
+              name=u'tanggal', parent=self, pos=wx.Point(168, 72),
               size=wx.Size(168, 26), style=wx.DP_SHOWCENTURY)
 
         self.richTextCtrl1 = wx.richtext.RichTextCtrl(id=wxID_SURAT_MASUKRICHTEXTCTRL1,
@@ -95,16 +100,16 @@ class surat_masuk(wx.Frame):
               name=u'tujuan', parent=self, pos=wx.Point(488, 112),
               size=wx.Size(48, 15), style=0)
 
-        self.textCtrl1 = wx.TextCtrl(id=wxID_SURAT_MASUKTEXTCTRL1,
-              name='textCtrl1', parent=self, pos=wx.Point(552, 104),
-              size=wx.Size(272, 25), style=0, value='')
+        self.kepada = wx.TextCtrl(id=wxID_SURAT_MASUKKEPADA, name=u'kepada',
+              parent=self, pos=wx.Point(552, 104), size=wx.Size(272, 25),
+              style=0, value='')
 
         self.perihal = wx.StaticText(id=wxID_SURAT_MASUKPERIHAL,
               label=u'Perihal', name=u'perihal', parent=self, pos=wx.Point(488,
               48), size=wx.Size(44, 15), style=0)
 
-        self.textCtrl2 = wx.TextCtrl(id=wxID_SURAT_MASUKTEXTCTRL2,
-              name='textCtrl2', parent=self, pos=wx.Point(552, 40),
+        self.input_perihal = wx.TextCtrl(id=wxID_SURAT_MASUKINPUT_PERIHAL,
+              name=u'input_perihal', parent=self, pos=wx.Point(552, 40),
               size=wx.Size(272, 25), style=0, value='')
 
     def __init__(self, parent):
@@ -116,16 +121,21 @@ class surat_masuk(wx.Frame):
         self.Close()
 
     def OnTombol_simpanButton(self, event):
-        inputsuratmasuk = str(self.input_tambak.GetValue())
-        inputjumlah = str(self.input_jumlah.GetValue())
-        inputpemilik = str(self.input_pemilik.GetValue())
+        inputsuratmasuk = str(self.input_nomor_surat.GetValue())
+        inputtanggal = str(self.tanggal.GetValue())
+        inputdari = str(self.dari.GetValue())
+        inputkepada = str(self.kepada.GetValue())
+        inputperihal = str(self.input_perihal.GetValue())
         inputketerangan = str(self.richTextCtrl1.GetValue())
-        add_tambak="INSERT INTO potensipariwisata (namapotensi, jumlah, pemilik, keterangan) VALUES('"+(inputtambak)+"', '"+(inputjumlah)+"', '"+(inputpemilik)+"', '"+(inputketerangan)+"')"
-        cur.execute(add_tambak)
-        db.commit()
-        self.input_tambak.SetValue('')
-        self.input_jumlah.Clear()
-        self.input_pemilik.Clear()
+        inputdisposisi = str(self.input_keterangan.GetValue())
+        add_surat = "INSERT INTO suratmasuk (keterangan, no_surat, tanggal, dari, kepada, perihal,disposisi) VALUES('"+(inputketerangan)+"', '"+(inputsuratmasuk)+"', '"+(inputtanggal)+"', '"+(inputdari)+"', '"+(inputkepada)+"', '"+(inputperihal)+"', '"+(inputdisposisi)+"')"
+        cur.execute(add_surat)
+        self.input_nomor_surat.Clear()
+        
+        self.dari.Clear()
+        self.kepada.Clear()
+        self.input_perihal.Clear()
         self.richTextCtrl1.Clear()
-        self.pesan = wx.MessageDialog(self,"Data Baru Tambak Disimpan","Konfirmasi",wx.OK) 
+        self.input_keterangan.Clear()
+        self.pesan = wx.MessageDialog(self,"Data Surat Masuk Disimpan","Konfirmasi",wx.OK) 
         self.pesan.ShowModal()

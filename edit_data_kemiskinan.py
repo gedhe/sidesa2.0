@@ -13,45 +13,52 @@ def create(parent):
 
 [wxID_EDIT_DATA_KEMISKINAN, wxID_EDIT_DATA_KEMISKINANBUTTON1, 
  wxID_EDIT_DATA_KEMISKINANBUTTON2, wxID_EDIT_DATA_KEMISKINANBUTTON3, 
- wxID_EDIT_DATA_KEMISKINANCARI_KK, wxID_EDIT_DATA_KEMISKINANCEK_BLSM, 
- wxID_EDIT_DATA_KEMISKINANCEK_BSM, wxID_EDIT_DATA_KEMISKINANCEK_JKN, 
- wxID_EDIT_DATA_KEMISKINANCEK_PKD, wxID_EDIT_DATA_KEMISKINANCEK_PKH, 
- wxID_EDIT_DATA_KEMISKINANCEK_PPD, wxID_EDIT_DATA_KEMISKINANCEK_PROLAIN, 
- wxID_EDIT_DATA_KEMISKINANCEK_RASKIN, wxID_EDIT_DATA_KEMISKINANINPUT_ALAMAT, 
- wxID_EDIT_DATA_KEMISKINANNAMA_KK, wxID_EDIT_DATA_KEMISKINANNOMOR_KK, 
- wxID_EDIT_DATA_KEMISKINANPENDUDUK, wxID_EDIT_DATA_KEMISKINANSTATICTEXT1, 
- wxID_EDIT_DATA_KEMISKINANSTATICTEXT2, wxID_EDIT_DATA_KEMISKINANSTATICTEXT3, 
- wxID_EDIT_DATA_KEMISKINANSTATICTEXT4, wxID_EDIT_DATA_KEMISKINANSTATICTEXT5, 
- wxID_EDIT_DATA_KEMISKINANSTATICTEXT6, wxID_EDIT_DATA_KEMISKINANSTATUS_MISKIN, 
-] = [wx.NewId() for _init_ctrls in range(24)]
+ wxID_EDIT_DATA_KEMISKINANCARI_KK, wxID_EDIT_DATA_KEMISKINANINPUT_ALAMAT, 
+ wxID_EDIT_DATA_KEMISKINANISIPENDUDUK, wxID_EDIT_DATA_KEMISKINANNAMA_KK, 
+ wxID_EDIT_DATA_KEMISKINANNOMOR_KK, wxID_EDIT_DATA_KEMISKINANPROG1, 
+ wxID_EDIT_DATA_KEMISKINANPROG2, wxID_EDIT_DATA_KEMISKINANPROG3, 
+ wxID_EDIT_DATA_KEMISKINANPROG4, wxID_EDIT_DATA_KEMISKINANPROG5, 
+ wxID_EDIT_DATA_KEMISKINANPROG6, wxID_EDIT_DATA_KEMISKINANPROG7, 
+ wxID_EDIT_DATA_KEMISKINANPROG8, wxID_EDIT_DATA_KEMISKINANSTATICTEXT1, 
+ wxID_EDIT_DATA_KEMISKINANSTATICTEXT10, wxID_EDIT_DATA_KEMISKINANSTATICTEXT11, 
+ wxID_EDIT_DATA_KEMISKINANSTATICTEXT12, wxID_EDIT_DATA_KEMISKINANSTATICTEXT13, 
+ wxID_EDIT_DATA_KEMISKINANSTATICTEXT14, wxID_EDIT_DATA_KEMISKINANSTATICTEXT2, 
+ wxID_EDIT_DATA_KEMISKINANSTATICTEXT3, wxID_EDIT_DATA_KEMISKINANSTATICTEXT4, 
+ wxID_EDIT_DATA_KEMISKINANSTATICTEXT5, wxID_EDIT_DATA_KEMISKINANSTATICTEXT6, 
+ wxID_EDIT_DATA_KEMISKINANSTATICTEXT7, wxID_EDIT_DATA_KEMISKINANSTATICTEXT8, 
+ wxID_EDIT_DATA_KEMISKINANSTATICTEXT9, wxID_EDIT_DATA_KEMISKINANSTATUS_MISKIN, 
+] = [wx.NewId() for _init_ctrls in range(32)]
 
-class edit_data_kemiskinan(wx.Frame):
-    def _init_coll_penduduk_Columns(self, parent):
+class edit_data_kemiskinan(wx.Dialog):
+    
+    def _init_coll_isipenduduk_Columns(self, parent):
         # generated method, don't edit
 
         parent.InsertColumn(col=0, format=wx.LIST_FORMAT_LEFT,
               heading='Nomor KK', width=150)
         parent.InsertColumn(col=1, format=wx.LIST_FORMAT_LEFT,
-              heading='Nama KK', width=150)
+              heading='Nama Kepala Keluarga', width=250)
         parent.InsertColumn(col=2, format=wx.LIST_FORMAT_LEFT, heading='Alamat',
-              width=160)
+              width=260)
+        parent.InsertColumn(col=3, format=wx.LIST_FORMAT_LEFT,
+              heading='Status Kemiskinan', width=100)
 
     def _init_ctrls(self, prnt):
         # generated method, don't edit
-        wx.Frame.__init__(self, id=wxID_EDIT_DATA_KEMISKINAN,
-              name=u'edit_data_kemiskinan', parent=prnt, pos=wx.Point(427, 180),
+        wx.Dialog.__init__(self, id=wxID_EDIT_DATA_KEMISKINAN,
+              name=u'edit_data_kemiskinan', parent=prnt, pos=wx.Point(428, 180),
               size=wx.Size(843, 453), style=wx.FRAME_NO_TASKBAR,
               title=u'Edit Data Kemiskinan')
         self.SetClientSize(wx.Size(843, 453))
         self.Center(wx.BOTH)
 
-        self.penduduk = wx.ListCtrl(id=wxID_EDIT_DATA_KEMISKINANPENDUDUK,
+        self.isipenduduk = wx.ListCtrl(id=wxID_EDIT_DATA_KEMISKINANISIPENDUDUK,
               name=u'penduduk', parent=self, pos=wx.Point(16, 8),
               size=wx.Size(808, 184), style=wx.LC_REPORT)
-        self._init_coll_penduduk_Columns(self.penduduk)
-        self.penduduk.Bind(wx.EVT_LIST_ITEM_SELECTED,
+        self._init_coll_isipenduduk_Columns(self.isipenduduk)
+        self.isipenduduk.Bind(wx.EVT_LIST_ITEM_SELECTED,
               self.OnIsipendudukListItemSelected,
-              id=wxID_EDIT_DATA_KEMISKINANPENDUDUK)
+              id=wxID_EDIT_DATA_KEMISKINANISIPENDUDUK)
 
         self.staticText1 = wx.StaticText(id=wxID_EDIT_DATA_KEMISKINANSTATICTEXT1,
               label=u'Nomor Kartu Keluarga', name='staticText1', parent=self,
@@ -71,7 +78,7 @@ class edit_data_kemiskinan(wx.Frame):
 
         self.nomor_kk = wx.TextCtrl(id=wxID_EDIT_DATA_KEMISKINANNOMOR_KK,
               name=u'nomor_kk', parent=self, pos=wx.Point(96, 232),
-              size=wx.Size(312, 25), style=0, value='')
+              size=wx.Size(312, 25), style=wx.TE_READONLY, value='')
 
         self.staticText3 = wx.StaticText(id=wxID_EDIT_DATA_KEMISKINANSTATICTEXT3,
               label=u'Alamat', name='staticText3', parent=self,
@@ -79,7 +86,7 @@ class edit_data_kemiskinan(wx.Frame):
 
         self.input_alamat = wx.TextCtrl(id=wxID_EDIT_DATA_KEMISKINANINPUT_ALAMAT,
               name=u'input_alamat', parent=self, pos=wx.Point(472, 232),
-              size=wx.Size(352, 25), style=0, value='')
+              size=wx.Size(352, 25), style=wx.TE_READONLY, value=u'')
 
         self.staticText4 = wx.StaticText(id=wxID_EDIT_DATA_KEMISKINANSTATICTEXT4,
               label=u'Nama KK', name='staticText4', parent=self,
@@ -87,7 +94,7 @@ class edit_data_kemiskinan(wx.Frame):
 
         self.nama_kk = wx.TextCtrl(id=wxID_EDIT_DATA_KEMISKINANNAMA_KK,
               name=u'nama_kk', parent=self, pos=wx.Point(96, 264),
-              size=wx.Size(312, 25), style=0, value='')
+              size=wx.Size(312, 25), style=wx.TE_READONLY, value=u'')
 
         self.staticText5 = wx.StaticText(id=wxID_EDIT_DATA_KEMISKINANSTATICTEXT5,
               label=u'Status Kemiskinan', name='staticText5', parent=self,
@@ -103,46 +110,6 @@ class edit_data_kemiskinan(wx.Frame):
               parent=self, pos=wx.Point(16, 296), size=wx.Size(185, 15),
               style=0)
 
-        self.cek_raskin = wx.CheckBox(id=wxID_EDIT_DATA_KEMISKINANCEK_RASKIN,
-              label=u'Raskin', name=u'cek_raskin', parent=self, pos=wx.Point(16,
-              320), size=wx.Size(89, 18), style=0)
-        self.cek_raskin.SetValue(False)
-
-        self.cek_jkn = wx.CheckBox(id=wxID_EDIT_DATA_KEMISKINANCEK_JKN,
-              label=u'JKN', name=u'cek_jkn', parent=self, pos=wx.Point(16, 344),
-              size=wx.Size(89, 18), style=0)
-        self.cek_jkn.SetValue(False)
-
-        self.cek_blsm = wx.CheckBox(id=wxID_EDIT_DATA_KEMISKINANCEK_BLSM,
-              label=u'BLSM', name=u'cek_blsm', parent=self, pos=wx.Point(16,
-              368), size=wx.Size(89, 18), style=0)
-        self.cek_blsm.SetValue(False)
-
-        self.cek_bsm = wx.CheckBox(id=wxID_EDIT_DATA_KEMISKINANCEK_BSM,
-              label=u'BSM', name=u'cek_bsm', parent=self, pos=wx.Point(192,
-              320), size=wx.Size(89, 18), style=0)
-        self.cek_bsm.SetValue(False)
-
-        self.cek_pkh = wx.CheckBox(id=wxID_EDIT_DATA_KEMISKINANCEK_PKH,
-              label=u'PKH', name=u'cek_pkh', parent=self, pos=wx.Point(192,
-              344), size=wx.Size(89, 18), style=0)
-        self.cek_pkh.SetValue(False)
-
-        self.cek_pkd = wx.CheckBox(id=wxID_EDIT_DATA_KEMISKINANCEK_PKD,
-              label=u'Program Kesehatan Daerah', name=u'cek_pkd', parent=self,
-              pos=wx.Point(192, 368), size=wx.Size(208, 18), style=0)
-        self.cek_pkd.SetValue(False)
-
-        self.cek_ppd = wx.CheckBox(id=wxID_EDIT_DATA_KEMISKINANCEK_PPD,
-              label=u'Program Pendidikan Daerah', name=u'cek_ppd', parent=self,
-              pos=wx.Point(416, 320), size=wx.Size(208, 18), style=0)
-        self.cek_ppd.SetValue(False)
-
-        self.cek_prolain = wx.CheckBox(id=wxID_EDIT_DATA_KEMISKINANCEK_PROLAIN,
-              label=u'Program Lain', name=u'cek_prolain', parent=self,
-              pos=wx.Point(416, 344), size=wx.Size(200, 18), style=0)
-        self.cek_prolain.SetValue(False)
-
         self.button2 = wx.Button(id=wxID_EDIT_DATA_KEMISKINANBUTTON2,
               label=u'Simpan Data', name='button2', parent=self,
               pos=wx.Point(232, 400), size=wx.Size(192, 30), style=0)
@@ -155,20 +122,111 @@ class edit_data_kemiskinan(wx.Frame):
         self.button3.Bind(wx.EVT_BUTTON, self.OnButton3Button,
               id=wxID_EDIT_DATA_KEMISKINANBUTTON3)
 
+        self.prog1 = wx.ComboBox(choices=['RASKIN'], id=wxID_EDIT_DATA_KEMISKINANPROG1, name=u'prog1',
+              parent=self, pos=wx.Point(24, 320), size=wx.Size(187, 27),
+              style=0, value=u'')
+        self.prog1.SetLabel(u'')
+
+        self.prog2 = wx.ComboBox(choices=['JKN'], id=wxID_EDIT_DATA_KEMISKINANPROG2, name=u'prog2',
+              parent=self, pos=wx.Point(24, 360), size=wx.Size(187, 27),
+              style=0, value=u'')
+        self.prog2.SetLabel(u'')
+
+        self.prog3 = wx.ComboBox(choices=['BLSM'], id=wxID_EDIT_DATA_KEMISKINANPROG3, name=u'prog3',
+              parent=self, pos=wx.Point(232, 320), size=wx.Size(187, 27),
+              style=0, value=u'')
+        self.prog3.SetLabel(u'')
+
+        self.prog4 = wx.ComboBox(choices=['BSM'], id=wxID_EDIT_DATA_KEMISKINANPROG4, name=u'prog4',
+              parent=self, pos=wx.Point(232, 360), size=wx.Size(187, 27),
+              style=0, value=u'')
+        self.prog4.SetLabel(u'')
+
+        self.prog5 = wx.ComboBox(choices=['PKH'], id=wxID_EDIT_DATA_KEMISKINANPROG5, name=u'prog5',
+              parent=self, pos=wx.Point(440, 320), size=wx.Size(187, 27),
+              style=0, value=u'')
+        self.prog5.SetLabel(u'')
+
+        self.prog6 = wx.ComboBox(choices=['Prog. Kesehatan Daerah'], id=wxID_EDIT_DATA_KEMISKINANPROG6, name=u'prog6',
+              parent=self, pos=wx.Point(440, 360), size=wx.Size(187, 27),
+              style=0, value=u'')
+        self.prog6.SetLabel(u'')
+
+        self.prog7 = wx.ComboBox(choices=['Prog. Pendidikan Daerah'], id=wxID_EDIT_DATA_KEMISKINANPROG7, name=u'prog7',
+              parent=self, pos=wx.Point(648, 320), size=wx.Size(187, 27),
+              style=0, value=u'')
+        self.prog7.SetLabel(u'')
+
+        self.staticText7 = wx.StaticText(id=wxID_EDIT_DATA_KEMISKINANSTATICTEXT7,
+              label=u'1', name='staticText7', parent=self, pos=wx.Point(8, 328),
+              size=wx.Size(9, 17), style=0)
+
+        self.staticText8 = wx.StaticText(id=wxID_EDIT_DATA_KEMISKINANSTATICTEXT8,
+              label=u'2', name='staticText8', parent=self, pos=wx.Point(8, 368),
+              size=wx.Size(9, 17), style=0)
+
+        self.staticText9 = wx.StaticText(id=wxID_EDIT_DATA_KEMISKINANSTATICTEXT9,
+              label=u'3', name='staticText9', parent=self, pos=wx.Point(216,
+              328), size=wx.Size(9, 17), style=0)
+
+        self.staticText10 = wx.StaticText(id=wxID_EDIT_DATA_KEMISKINANSTATICTEXT10,
+              label=u'4', name='staticText10', parent=self, pos=wx.Point(216,
+              368), size=wx.Size(9, 17), style=0)
+
+        self.staticText11 = wx.StaticText(id=wxID_EDIT_DATA_KEMISKINANSTATICTEXT11,
+              label=u'5', name='staticText11', parent=self, pos=wx.Point(424,
+              328), size=wx.Size(9, 17), style=0)
+
+        self.staticText12 = wx.StaticText(id=wxID_EDIT_DATA_KEMISKINANSTATICTEXT12,
+              label=u'6', name='staticText12', parent=self, pos=wx.Point(424,
+              368), size=wx.Size(9, 17), style=0)
+
+        self.staticText13 = wx.StaticText(id=wxID_EDIT_DATA_KEMISKINANSTATICTEXT13,
+              label=u'7', name='staticText13', parent=self, pos=wx.Point(632,
+              328), size=wx.Size(9, 17), style=0)
+
+        self.staticText14 = wx.StaticText(id=wxID_EDIT_DATA_KEMISKINANSTATICTEXT14,
+              label=u'8', name='staticText14', parent=self, pos=wx.Point(632,
+              368), size=wx.Size(9, 17), style=0)
+
+        self.prog8 = wx.ComboBox(choices=['Prog. Lain'], id=wxID_EDIT_DATA_KEMISKINANPROG8, name=u'prog8',
+              parent=self, pos=wx.Point(648, 360), size=wx.Size(187, 27),
+              style=0, value=u'')
+        self.prog8.SetLabel(u'')
+
     def __init__(self, parent):
         self._init_ctrls(parent)
+        self.awal()
+    
+    def awal(self):
         self.IsiList()
+        self.cari_kk.SetValue('')
+        self.nama_kk.SetValue('')
+        self.input_alamat.SetValue('')
+        self.status_miskin.SetValue('')
+        self.nomor_kk.SetValue('')
+        self.prog1.SetValue('')
+        self.prog2.SetValue('')
+        self.prog3.SetValue('')
+        self.prog4.SetValue('')
+        self.prog5.SetValue('')
+        self.prog6.SetValue('')
+        self.prog7.SetValue('')
+        self.prog8.SetValue('')    
         
-    def IsiList(self):    
-        sql = "SELECT * FROM penduduk WHERE shdk='Kepala Keluarga'"
+    def IsiList(self): 
+        self.isipenduduk.DeleteAllItems()    
+        sql = "SELECT * FROM penduduk WHERE shdk='Kepala Keluarga' AND kematian='Tidak'"
         cur.execute(sql) 
         hasil = cur.fetchall() 
-        nokk = self.penduduk.GetItemCount() 
+        nokk = self.isipenduduk.GetItemCount() 
         for i in hasil : 
-            self.penduduk.InsertStringItem(nokk, "%s"%i[46]) 
-            self.penduduk.SetStringItem(nokk,1,"%s"%i[44]) 
-            self.penduduk.SetStringItem(nokk,2,"%s"%i[16]) 
-            nokk = nokk + 1 
+            self.isipenduduk.InsertStringItem(nokk, "%s"%i[16]) 
+            self.isipenduduk.SetStringItem(nokk,1,"%s"%i[17]) 
+            self.isipenduduk.SetStringItem(nokk,2,"%s"%i[21])
+            self.isipenduduk.SetStringItem(nokk,3,"%s"%i[30])
+            
+            nokk = nokk + 1
     
     def Isi_Object(self) : 
         carikk=str(self.cari_kk.GetValue())
@@ -176,61 +234,52 @@ class edit_data_kemiskinan(wx.Frame):
         cur.execute(sql)
         hasil = cur.fetchone()  
         if hasil : 
-            self.nomor_kk.SetValue(str(hasil[46]))
-            self.nama_kk.SetValue(str(hasil[44])) 
-            self.input_alamat.SetValue(str(hasil[16]))
-            self.status_miskin.SetValue(str(hasil[12]))
-            self.cek_raskin.SetValue(bool('hasil[11]'))
-            self.cek_jkn.SetValue(bool('hasil[10]'))
-            self.cek_blsm.SetValue(bool(hasil[9]))
-            self.cek_bsm.SetValue(bool(hasil[8]))
-            self.cek_pkh.SetValue(bool(hasil[7]))
-            self.cek_pkd.SetValue(bool(hasil[6]))
-            self.cek_ppd.SetValue(bool(hasil[5]))
-            self.cek_prolain.SetValue(bool(hasil[4]))
+            self.nomor_kk.SetValue(str(hasil[16]))
+            self.nama_kk.SetValue(str(hasil[17]))
+            self.input_alamat.SetValue(str(hasil[21]))
+            self.status_miskin.SetValue(str(hasil[30]))
+            self.prog1.SetValue(str(hasil[49]))
+            self.prog2.SetValue(str(hasil[50]))
+            self.prog3.SetValue(str(hasil[51]))
+            self.prog4.SetValue(str(hasil[52]))
+            self.prog5.SetValue(str(hasil[53]))
+            self.prog6.SetValue(str(hasil[54]))
+            self.prog7.SetValue(str(hasil[55]))
+            self.prog8.SetValue(str(hasil[56]))
         else : 
             self.pesan = wx.MessageDialog(self,"Data Tidak Ada","Konfirmasi",wx.OK) 
             self.pesan.ShowModal() 
             self.cari_kk.Clear()
-            self.cari_kk.SetFocus()   
-
+            self.cari_kk.SetFocus()
+            
     def OnButton3Button(self, event):
         self.Close()
     
     def OnIsipendudukListItemSelected(self, event):
         self.currentItem = event.m_itemIndex # mengambil no index baris yang dipilih 
-        b=self.penduduk.GetItem(self.currentItem).GetText() # no index baris dikonversi ke text/ string 
+        b=self.isipenduduk.GetItem(self.currentItem).GetText() # no index baris dikonversi ke text/ string 
         self.cari_kk.SetValue(b) 
         self.Isi_Object()
         event.Skip()    
 
     def OnButton2Button(self, event):
         miskin = str(self.status_miskin.GetValue())
+         
         nomorkk = str(self.nomor_kk.GetValue())
-        cekraskin = str(self.cek_raskin.GetValue())
-        cekjkn = str(self.cek_jkn.GetValue())
-        cekblsm = str(self.cek_blsm.GetValue())
-        cekbsm = str(self.cek_bsm.GetValue())
-        cekpkh = str(self.cek_pkh.GetValue())
-        cekpkd = str(self.cek_pkd.GetValue())
-        cekppd = str(self.cek_ppd.GetValue())
-        cekprolain = str(self.cek_prolain.GetValue())
-        sql = "UPDATE penduduk SET kemiskinan = '"+miskin+"', raskin = '"+cekraskin+"', jkn = '"+cekjkn+"', blsm = '"+cekblsm+"', bsm ='"+cekbsm+"', pkh = '"+cekpkh+"', progkesda = '"+cekpkd+"', propeda = '"+cekppd+"', proglain = '"+cekprolain+"'   WHERE no_kk = '"+nomorkk+"'"
+        cekraskin = str(self.prog1.GetValue())
+        cekjkn = str(self.prog2.GetValue())
+        cekblsm = str(self.prog3.GetValue())
+        cekbsm = str(self.prog4.GetValue())
+        cekpkh = str(self.prog5.GetValue())
+        cekpkd = str(self.prog6.GetValue())
+        cekppd = str(self.prog7.GetValue())
+        cekprolain = str(self.prog8.GetValue())
+        sql = "UPDATE penduduk SET kemiskinan = '"+miskin+"', promis1 = '"+cekraskin+"', promis2 = '"+cekjkn+"', promis3 = '"+cekblsm+"', promis4 ='"+cekbsm+"', promis5 = '"+cekpkh+"', promis6 = '"+cekpkd+"', promis7 = '"+cekppd+"', promis8 = '"+cekprolain+"'   WHERE no_kk = '"+nomorkk+"'"
         cur.execute(sql)
         db.commit()
-        self.nomor_kk.Clear()
-        self.nama_kk.Clear() 
-        self.input_alamat.Clear()
-        self.status_miskin.SetValue('')
-        self.cari_kk.Clear()
-        self.cek_raskin.SetValue(False)
-        self.cek_jkn.SetValue(False)
-        self.cek_blsm.SetValue(False)
-        self.cek_bsm.SetValue(False)
-        self.cek_pkh.SetValue(False)
-        self.cek_pkd.SetValue(False)
-        self.cek_ppd.SetValue(False)
-        self.cek_prolain.SetValue(False)
+         
         self.pesan = wx.MessageDialog(self,"Data Kemiskinan Telah Disimpan","Konfirmasi",wx.OK) 
-        self.pesan.ShowModal() 
-        event.Skip()
+        self.pesan.ShowModal()
+        self.awal()
+        
+   

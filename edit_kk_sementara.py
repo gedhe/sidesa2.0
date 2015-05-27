@@ -1,5 +1,6 @@
 #Boa:Frame:edit_kk_sementara
 
+
 import os
 import wx
 import wx.lib.buttons
@@ -7,28 +8,28 @@ import edit_data_penduduk
 import sqlite3
 import string
 import gettext
+import peringatan
 
-def connect():
-    db = sqlite3.connect('sidesa')
-    return db
-    db.close()
+
+db = sqlite3.connect('/opt/sidesa/sidesa')
+cur = db.cursor()
 
 def create(parent):
     return edit_kk_sementara(parent)
 
-[wxID_EDIT_KK_SEMENTARA, wxID_EDIT_KK_SEMENTARABUTTON1, 
- wxID_EDIT_KK_SEMENTARACEK_AKTA_CERAI, 
- wxID_EDIT_KK_SEMENTARACEK_AKTA_KEMATIAN, 
- wxID_EDIT_KK_SEMENTARACEK_AKTA_LAHIR, wxID_EDIT_KK_SEMENTARACEK_AKTA_NIKAH, 
- wxID_EDIT_KK_SEMENTARACEK_KITAS, wxID_EDIT_KK_SEMENTARACEK_KTP, 
- wxID_EDIT_KK_SEMENTARACEK_PASPORT, wxID_EDIT_KK_SEMENTARACEK_VISA, 
- wxID_EDIT_KK_SEMENTARADAFTAR, wxID_EDIT_KK_SEMENTARADOKUMEN, 
- wxID_EDIT_KK_SEMENTARAINPUT_ALAMAT, wxID_EDIT_KK_SEMENTARAINPUT_AYAH, 
- wxID_EDIT_KK_SEMENTARAINPUT_DUSUN, wxID_EDIT_KK_SEMENTARAINPUT_IBU, 
- wxID_EDIT_KK_SEMENTARAINPUT_NAMA, wxID_EDIT_KK_SEMENTARAINPUT_NIK, 
- wxID_EDIT_KK_SEMENTARAINPUT_NO_KK, wxID_EDIT_KK_SEMENTARAINPUT_TEMPAT_LAHIR, 
- wxID_EDIT_KK_SEMENTARAKEMBALI, wxID_EDIT_KK_SEMENTARALABEL_AGAMA, 
- wxID_EDIT_KK_SEMENTARALABEL_ALAMAT, 
+[wxID_EDIT_KK_SEMENTARA, wxID_EDIT_KK_SEMENTARACARI_KK, 
+ wxID_EDIT_KK_SEMENTARADOKUMEN, wxID_EDIT_KK_SEMENTARADOKUMEN1, 
+ wxID_EDIT_KK_SEMENTARADOKUMEN2, wxID_EDIT_KK_SEMENTARADOKUMEN3, 
+ wxID_EDIT_KK_SEMENTARADOKUMEN4, wxID_EDIT_KK_SEMENTARADOKUMEN5, 
+ wxID_EDIT_KK_SEMENTARADOKUMEN6, wxID_EDIT_KK_SEMENTARADOKUMEN7, 
+ wxID_EDIT_KK_SEMENTARADOKUMEN8, wxID_EDIT_KK_SEMENTARAINPUT_ALAMAT, 
+ wxID_EDIT_KK_SEMENTARAINPUT_AYAH, wxID_EDIT_KK_SEMENTARAINPUT_DUSUN, 
+ wxID_EDIT_KK_SEMENTARAINPUT_IBU, wxID_EDIT_KK_SEMENTARAINPUT_NAMA, 
+ wxID_EDIT_KK_SEMENTARAINPUT_NIK, wxID_EDIT_KK_SEMENTARAINPUT_NO, 
+ wxID_EDIT_KK_SEMENTARAINPUT_NO_KK, wxID_EDIT_KK_SEMENTARAINPUT_RT, 
+ wxID_EDIT_KK_SEMENTARAINPUT_RW, wxID_EDIT_KK_SEMENTARAINPUT_TEMPAT_LAHIR, 
+ wxID_EDIT_KK_SEMENTARAISIPENDUDUK, wxID_EDIT_KK_SEMENTARAKEMBALI, 
+ wxID_EDIT_KK_SEMENTARALABEL_AGAMA, wxID_EDIT_KK_SEMENTARALABEL_ALAMAT, 
  wxID_EDIT_KK_SEMENTARALABEL_DATA_PENDUDUK, 
  wxID_EDIT_KK_SEMENTARALABEL_DIFABELITAS, wxID_EDIT_KK_SEMENTARALABEL_DUSUN, 
  wxID_EDIT_KK_SEMENTARALABEL_GOLONGAN_DARAH, 
@@ -62,28 +63,36 @@ def create(parent):
  wxID_EDIT_KK_SEMENTARAPILIHAN_STATUS_KEPENDUDUKAN, 
  wxID_EDIT_KK_SEMENTARAPILIHAN_STATUS_TINGGAL, 
  wxID_EDIT_KK_SEMENTARAPILIHAN_WARGANEGARA, wxID_EDIT_KK_SEMENTARAPILIHPHOTO, 
- wxID_EDIT_KK_SEMENTARASTATICTEXT1, wxID_EDIT_KK_SEMENTARATANGGAL_LAHIR, 
- wxID_EDIT_KK_SEMENTARATEXTCTRL1, wxID_EDIT_KK_SEMENTARATOMBOL_TAMBAH_DATA, 
-] = [wx.NewId() for _init_ctrls in range(67)]
+ wxID_EDIT_KK_SEMENTARASTATICTEXT1, wxID_EDIT_KK_SEMENTARASTATICTEXT2, 
+ wxID_EDIT_KK_SEMENTARASTATICTEXT3, wxID_EDIT_KK_SEMENTARATANGGAL_LAHIR, 
+ wxID_EDIT_KK_SEMENTARATOMBOL_CARI, wxID_EDIT_KK_SEMENTARATOMBOL_TAMBAH_DATA, 
+ wxID_EDIT_KK_SEMENTARATOMBOL_TAMBAH_KEMBALI, 
+] = [wx.NewId() for _init_ctrls in range(73)]
 
 class edit_kk_sementara(wx.Frame):
-    def _init_coll_daftar_Columns(self, parent):
+    def _init_coll_isipenduduk_Columns(self, parent):
         # generated method, don't edit
 
         parent.InsertColumn(col=0, format=wx.LIST_FORMAT_LEFT,
               heading='Nomor KK', width=150)
-        parent.InsertColumn(col=1, format=wx.LIST_FORMAT_LEFT, heading='Alamat',
-              width=150)
-        parent.InsertColumn(col=2, format=wx.LIST_FORMAT_LEFT,
-              heading='Nama Kepala Keluarga', width=160)
+        parent.InsertColumn(col=1, format=wx.LIST_FORMAT_LEFT,
+              heading='Nama Kepala Keluarga', width=250)
+        parent.InsertColumn(col=2, format=wx.LIST_FORMAT_LEFT, heading='Alamat',
+              width=260)
+        parent.InsertColumn(col=3, format=wx.LIST_FORMAT_LEFT, heading='Dusun',
+              width=100)
+        parent.InsertColumn(col=4, format=wx.LIST_FORMAT_LEFT, heading='RT',
+              width=40)
+        parent.InsertColumn(col=5, format=wx.LIST_FORMAT_LEFT, heading='RW',
+              width=40)
 
     def _init_ctrls(self, prnt):
         # generated method, don't edit
         wx.Frame.__init__(self, id=wxID_EDIT_KK_SEMENTARA,
-              name=u'edit_kk_sementara', parent=prnt, pos=wx.Point(406, 81),
-              size=wx.Size(888, 652), style=wx.FRAME_NO_TASKBAR,
-              title=u'Edit KK Sementara')
-        self.SetClientSize(wx.Size(888, 652))
+              name=u'edit_kk_sementara', parent=prnt, pos=wx.Point(413, 78),
+              size=wx.Size(888, 639), style=wx.FRAME_NO_TASKBAR,
+              title=u'Edit Kartu Keluarga Sementara')
+        self.SetClientSize(wx.Size(888, 639))
         self.Center(wx.BOTH)
 
         self.label_nomor_kk = wx.StaticText(id=wxID_EDIT_KK_SEMENTARALABEL_NOMOR_KK,
@@ -92,23 +101,23 @@ class edit_kk_sementara(wx.Frame):
 
         self.input_no_kk = wx.TextCtrl(id=wxID_EDIT_KK_SEMENTARAINPUT_NO_KK,
               name=u'input_no_kk', parent=self, pos=wx.Point(8, 168),
-              size=wx.Size(240, 25), style=0, value=u'')
+              size=wx.Size(240, 25), style=wx.TE_READONLY, value=u'')
 
         self.input_alamat = wx.TextCtrl(id=wxID_EDIT_KK_SEMENTARAINPUT_ALAMAT,
-              name=u'input_alamat', parent=self, pos=wx.Point(272, 168),
-              size=wx.Size(288, 25), style=0, value=u'')
+              name=u'input_alamat', parent=self, pos=wx.Point(256, 168),
+              size=wx.Size(288, 25), style=wx.TE_READONLY, value=u'')
 
         self.input_dusun = wx.TextCtrl(id=wxID_EDIT_KK_SEMENTARAINPUT_DUSUN,
-              name=u'input_dusun', parent=self, pos=wx.Point(592, 168),
-              size=wx.Size(280, 25), style=0, value=u'')
+              name=u'input_dusun', parent=self, pos=wx.Point(552, 168),
+              size=wx.Size(192, 25), style=wx.TE_READONLY, value=u'')
 
         self.label_alamat = wx.StaticText(id=wxID_EDIT_KK_SEMENTARALABEL_ALAMAT,
               label=u'Alamat', name=u'label_alamat', parent=self,
-              pos=wx.Point(272, 152), size=wx.Size(47, 17), style=0)
+              pos=wx.Point(256, 152), size=wx.Size(47, 17), style=0)
 
         self.label_dusun = wx.StaticText(id=wxID_EDIT_KK_SEMENTARALABEL_DUSUN,
-              label=u'Dusun - RT - RW', name=u'label_dusun', parent=self,
-              pos=wx.Point(592, 152), size=wx.Size(144, 17), style=0)
+              label=u'Dusun', name=u'label_dusun', parent=self,
+              pos=wx.Point(552, 152), size=wx.Size(144, 17), style=0)
 
         self.photo = wx.StaticBitmap(bitmap=wx.Bitmap('/opt/sidesa/png/photo.png',
               wx.BITMAP_TYPE_PNG), id=wxID_EDIT_KK_SEMENTARAPHOTO,
@@ -372,97 +381,202 @@ class edit_kk_sementara(wx.Frame):
               size=wx.Size(200, 26), style=wx.DP_SHOWCENTURY)
 
         self.tombol_tambah_data = wx.Button(id=wxID_EDIT_KK_SEMENTARATOMBOL_TAMBAH_DATA,
-              label=u'Update Data', name=u'tombol_tambah_data', parent=self,
-              pos=wx.Point(248, 600), size=wx.Size(200, 32), style=0)
+              label=u'Tambah Data', name=u'tombol_tambah_data', parent=self,
+              pos=wx.Point(128, 600), size=wx.Size(200, 32), style=0)
         self.tombol_tambah_data.Bind(wx.EVT_BUTTON,
               self.OnTombol_tambah_dataButton,
               id=wxID_EDIT_KK_SEMENTARATOMBOL_TAMBAH_DATA)
 
+        self.tombol_tambah_kembali = wx.Button(id=wxID_EDIT_KK_SEMENTARATOMBOL_TAMBAH_KEMBALI,
+              label=u'Tambah Dan Keluar', name=u'tombol_tambah_kembali',
+              parent=self, pos=wx.Point(344, 600), size=wx.Size(224, 32),
+              style=0)
+        self.tombol_tambah_kembali.Bind(wx.EVT_BUTTON,
+              self.OnTombol_tambah_kembaliButton,
+              id=wxID_EDIT_KK_SEMENTARATOMBOL_TAMBAH_KEMBALI)
+
         self.kembali = wx.Button(id=wxID_EDIT_KK_SEMENTARAKEMBALI,
               label=u'Kembali Ke Menu', name=u'kembali', parent=self,
-              pos=wx.Point(472, 600), size=wx.Size(208, 32), style=0)
+              pos=wx.Point(584, 600), size=wx.Size(208, 32), style=0)
         self.kembali.Bind(wx.EVT_BUTTON, self.OnKembaliButton,
               id=wxID_EDIT_KK_SEMENTARAKEMBALI)
-
-        self.cek_akta_lahir = wx.CheckBox(id=wxID_EDIT_KK_SEMENTARACEK_AKTA_LAHIR,
-              label=u'Akta Kelahiran', name=u'cek_akta_lahir', parent=self,
-              pos=wx.Point(16, 456), size=wx.Size(208, 24), style=0)
-        self.cek_akta_lahir.SetValue(False)
 
         self.dokumen = wx.StaticText(id=wxID_EDIT_KK_SEMENTARADOKUMEN,
               label=u'Kepemilikan Dokumen', name=u'dokumen', parent=self,
               pos=wx.Point(24, 440), size=wx.Size(304, 17), style=0)
 
-        self.cek_akta_nikah = wx.CheckBox(id=wxID_EDIT_KK_SEMENTARACEK_AKTA_NIKAH,
-              label=u'Akta Nikah', name=u'cek_akta_nikah', parent=self,
-              pos=wx.Point(16, 472), size=wx.Size(160, 40), style=0)
-        self.cek_akta_nikah.SetValue(False)
-
-        self.cek_akta_cerai = wx.CheckBox(id=wxID_EDIT_KK_SEMENTARACEK_AKTA_CERAI,
-              label=u'Akta Cerai', name=u'cek_akta_cerai', parent=self,
-              pos=wx.Point(16, 496), size=wx.Size(200, 32), style=0)
-        self.cek_akta_cerai.SetValue(False)
-
-        self.cek_akta_kematian = wx.CheckBox(id=wxID_EDIT_KK_SEMENTARACEK_AKTA_KEMATIAN,
-              label=u'Akta Kematian', name=u'cek_akta_kematian', parent=self,
-              pos=wx.Point(152, 456), size=wx.Size(184, 24), style=0)
-        self.cek_akta_kematian.SetValue(False)
-
-        self.cek_ktp = wx.CheckBox(id=wxID_EDIT_KK_SEMENTARACEK_KTP,
-              label=u'KTP Sementara', name=u'cek_ktp', parent=self,
-              pos=wx.Point(152, 480), size=wx.Size(128, 24), style=0)
-        self.cek_ktp.SetValue(False)
-
-        self.cek_kitas = wx.CheckBox(id=wxID_EDIT_KK_SEMENTARACEK_KITAS,
-              label=u'KITAS', name=u'cek_kitas', parent=self, pos=wx.Point(152,
-              496), size=wx.Size(144, 32), style=0)
-        self.cek_kitas.SetValue(False)
-
-        self.cek_visa = wx.CheckBox(id=wxID_EDIT_KK_SEMENTARACEK_VISA,
-              label=u'Visa', name=u'cek_visa', parent=self, pos=wx.Point(288,
-              448), size=wx.Size(200, 40), style=0)
-        self.cek_visa.SetValue(False)
-
-        self.cek_pasport = wx.CheckBox(id=wxID_EDIT_KK_SEMENTARACEK_PASPORT,
-              label=u'Pasport', name=u'cek_pasport', parent=self,
-              pos=wx.Point(288, 472), size=wx.Size(267, 40), style=0)
-        self.cek_pasport.SetValue(False)
-
         self.label_data_penduduk = wx.StaticText(id=wxID_EDIT_KK_SEMENTARALABEL_DATA_PENDUDUK,
-              label=u'FORM EDIT DATA KK SEMENTARA', name=u'label_data_penduduk',
+              label=u'FORM DATA PENDUDUK', name=u'label_data_penduduk',
               parent=self, pos=wx.Point(336, 0), size=wx.Size(216, 17),
               style=0)
 
-        self.daftar = wx.ListCtrl(id=wxID_EDIT_KK_SEMENTARADAFTAR,
-              name=u'daftar', parent=self, pos=wx.Point(16, 16),
+        self.isipenduduk = wx.ListCtrl(id=wxID_EDIT_KK_SEMENTARAISIPENDUDUK,
+              name=u'isipenduduk', parent=self, pos=wx.Point(16, 16),
               size=wx.Size(856, 104), style=wx.LC_REPORT)
-        self._init_coll_daftar_Columns(self.daftar)
+        self._init_coll_isipenduduk_Columns(self.isipenduduk)
+        self.isipenduduk.Bind(wx.EVT_LIST_ITEM_SELECTED,
+              self.OnIsipendudukListItemSelected,
+              id=wxID_EDIT_KK_SEMENTARAISIPENDUDUK)
 
         self.staticText1 = wx.StaticText(id=wxID_EDIT_KK_SEMENTARASTATICTEXT1,
               label=u'Nomor Kartu Keluarga', name='staticText1', parent=self,
               pos=wx.Point(400, 128), size=wx.Size(145, 15), style=0)
 
-        self.textCtrl1 = wx.TextCtrl(id=wxID_EDIT_KK_SEMENTARATEXTCTRL1,
-              name='textCtrl1', parent=self, pos=wx.Point(552, 128),
+        self.cari_kk = wx.TextCtrl(id=wxID_EDIT_KK_SEMENTARACARI_KK,
+              name=u'cari_kk', parent=self, pos=wx.Point(552, 128),
               size=wx.Size(224, 24), style=0, value='')
 
-        self.button1 = wx.Button(id=wxID_EDIT_KK_SEMENTARABUTTON1,
-              label=u'Cari', name='button1', parent=self, pos=wx.Point(784,
+        self.tombol_cari = wx.Button(id=wxID_EDIT_KK_SEMENTARATOMBOL_CARI,
+              label=u'Cari', name=u'tombol_cari', parent=self, pos=wx.Point(784,
               128), size=wx.Size(85, 24), style=0)
+        self.tombol_cari.Bind(wx.EVT_BUTTON, self.OnTombol_cariButton,
+              id=wxID_EDIT_KK_SEMENTARATOMBOL_CARI)
+
+        self.input_rt = wx.TextCtrl(id=wxID_EDIT_KK_SEMENTARAINPUT_RT,
+              name=u'input_rt', parent=self, pos=wx.Point(752, 168),
+              size=wx.Size(56, 27), style=0, value=u'')
+
+        self.input_rw = wx.TextCtrl(id=wxID_EDIT_KK_SEMENTARAINPUT_RW,
+              name=u'input_rw', parent=self, pos=wx.Point(816, 168),
+              size=wx.Size(56, 27), style=0, value=u'')
+
+        self.input_no = wx.TextCtrl(id=wxID_EDIT_KK_SEMENTARAINPUT_NO,
+              name=u'input_no', parent=self, pos=wx.Point(-100, -100),
+              size=wx.Size(56, 27), style=0, value=u'')
+
+        self.staticText2 = wx.StaticText(id=wxID_EDIT_KK_SEMENTARASTATICTEXT2,
+              label=u'RT', name='staticText2', parent=self, pos=wx.Point(760,
+              152), size=wx.Size(24, 16), style=0)
+
+        self.staticText3 = wx.StaticText(id=wxID_EDIT_KK_SEMENTARASTATICTEXT3,
+              label=u'RW', name='staticText3', parent=self, pos=wx.Point(824,
+              152), size=wx.Size(19, 17), style=0)
+
+        self.dokumen1 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
+              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
+              'Paspor'], id=wxID_EDIT_KK_SEMENTARADOKUMEN1, name=u'dokumen1',
+              parent=self, pos=wx.Point(24, 464), size=wx.Size(187, 27),
+              style=0, value='')
+
+        self.dokumen3 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
+              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
+              'Paspor'], id=wxID_EDIT_KK_SEMENTARADOKUMEN3, name=u'dokumen3',
+              parent=self, pos=wx.Point(224, 464), size=wx.Size(187, 27),
+              style=0, value='')
+
+        self.dokumen5 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
+              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
+              'Paspor'], id=wxID_EDIT_KK_SEMENTARADOKUMEN5, name=u'dokumen5',
+              parent=self, pos=wx.Point(424, 464), size=wx.Size(187, 27),
+              style=0, value='')
+
+        self.dokumen7 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
+              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
+              'Paspor'], id=wxID_EDIT_KK_SEMENTARADOKUMEN7, name=u'dokumen7',
+              parent=self, pos=wx.Point(632, 464), size=wx.Size(187, 27),
+              style=0, value='')
+
+        self.dokumen2 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
+              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
+              'Paspor'], id=wxID_EDIT_KK_SEMENTARADOKUMEN2, name=u'dokumen2',
+              parent=self, pos=wx.Point(24, 504), size=wx.Size(187, 27),
+              style=0, value='')
+
+        self.dokumen4 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
+              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
+              'Paspor'], id=wxID_EDIT_KK_SEMENTARADOKUMEN4, name=u'dokumen4',
+              parent=self, pos=wx.Point(224, 504), size=wx.Size(187, 27),
+              style=0, value='')
+        self.dokumen4.Bind(wx.EVT_COMBOBOX, self.OnComboBox6Combobox,
+              id=wxID_EDIT_KK_SEMENTARADOKUMEN4)
+
+        self.dokumen6 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
+              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
+              'Paspor'], id=wxID_EDIT_KK_SEMENTARADOKUMEN6, name=u'dokumen6',
+              parent=self, pos=wx.Point(424, 504), size=wx.Size(187, 27),
+              style=0, value='')
+
+        self.dokumen8 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
+              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
+              'Paspor'], id=wxID_EDIT_KK_SEMENTARADOKUMEN8, name=u'dokumen8',
+              parent=self, pos=wx.Point(632, 504), size=wx.Size(187, 27),
+              style=0, value='')
 
     def __init__(self, parent):
         self._init_ctrls(parent)
-      
+        self.IsiList()
+                    
+    def IsiList(self):    
+        sql = "SELECT * FROM penduduk WHERE shdk='Kepala Keluarga'"
+        cur.execute(sql) 
+        hasil = cur.fetchall() 
+        nokk = self.isipenduduk.GetItemCount() 
+        for i in hasil : 
+            self.isipenduduk.InsertStringItem(nokk, "%s"%i[49]) 
+            self.isipenduduk.SetStringItem(nokk,1,"%s"%i[47]) 
+            self.isipenduduk.SetStringItem(nokk,2,"%s"%i[19])
+            self.isipenduduk.SetStringItem(nokk,3,"%s"%i[18])
+            self.isipenduduk.SetStringItem(nokk,4,"%s"%i[17]) 
+            self.isipenduduk.SetStringItem(nokk,5,"%s"%i[16])
+            nokk = nokk + 1
+    
+    def Isi_Object(self) : 
+        carikk=str(self.cari_kk.GetValue())
+        sql="SELECT * FROM penduduk WHERE no_kk='%s'"%(carikk)
+        cur.execute(sql)
+        hasil = cur.fetchone()  
+        if hasil : 
+            self.input_no_kk.SetValue(str(hasil[49])) 
+            self.input_alamat.SetValue(str(hasil[19]))
+            self.input_dusun.SetValue(str(hasil[18]))
+            self.input_rt.SetValue(str(hasil[17]))
+            self.input_rw.SetValue(str(hasil[16]))
+            self.input_nik.SetValue(str(hasil[48]))
+            self.input_nama.SetValue(str(hasil[47]))
+            self.pilihan_jenis_kelamin.SetValue(str(hasil[46]))
+            self.input_tempat_lahir.SetValue(str(hasil[45]))
+            #self.tanggal_lahir.SetValue(str(hasil[44]))
+            self.pilihan_golongan_darah.SetValue(str(hasil[43]))
+            self.pilihan_agama.SetValue(str(hasil[42]))
+            self.pilihan_warganegara.SetValue(str(hasil[41]))
+            self.pilihan_pendidikan_terakhir.SetValue(str(hasil[40]))
+            self.pilihan_pendidikan_ditempuh.SetValue(str(hasil[39]))
+            self.pilihan_pekerjaan.SetValue(str(hasil[38]))
+            self.pilihan_pekerjaan_lainnya.SetValue(str(hasil[37]))
+            self.pilihan_status.SetValue(str(hasil[36]))
+            self.pilihan_status_kependudukan.SetValue(str(hasil[35]))
+            self.pilihan_status_tinggal.SetValue(str(hasil[34]))
+            self.pilihan_difabelitas.SetValue(str(hasil[33]))
+            self.pilihan_kontrasepsi.SetValue(str(hasil[32]))
+            self.pilihan_kehamilan.SetValue(str(hasil[31]))
+            self.pilihan_shdk.SetValue(str(hasil[22]))
+            self.input_ayah.SetValue(str(hasil[21]))
+            self.input_ibu.SetValue(str(hasil[20]))
+            self.dokumen1.SetValue(str(hasil[30]))
+            self.dokumen2.SetValue(str(hasil[29]))
+            self.dokumen3.SetValue(str(hasil[28]))
+            self.dokumen4.SetValue(str(hasil[27]))
+            self.dokumen5.SetValue(str(hasil[26]))
+            self.dokumen6.SetValue(str(hasil[25]))
+            self.dokumen7.SetValue(str(hasil[24]))
+            self.dokumen8.SetValue(str(hasil[23]))
+            self.input_no.SetValue(str(hasil[0]))
+            
+        else : 
+            self.pesan = wx.MessageDialog(self,"Data Tidak Ada","Konfirmasi",wx.OK) 
+            self.pesan.ShowModal() 
+            self.cari_kk.Clear()
+            self.cari_kk.SetFocus()
         
+   
     def OnTombol_kembali_kemenuButton(self, event):
         self.main=data_penduduk.create(None)
         self.main.Show()
         self.Close()
+        self.Destroy()
 
-    def OnTombol_kepemilikan_dokumenButton(self, event):
-        event.Skip()
-  
     def OnTombol_tambah_dataButton(self, event):
+    
         inputnokk = str(self.input_no_kk.GetValue())
         inputnik = str(self.input_nik.GetValue())
         inputnama = str(self.input_nama.GetValue())
@@ -487,77 +601,151 @@ class edit_kk_sementara(wx.Frame):
         pilihankehamilan = str(self.pilihan_kehamilan.GetValue())
         inputalamat = str(self.input_alamat.GetValue())
         inputdusun = str(self.input_dusun.GetValue())
-        db = connect()
-        cursor = db.cursor()
-        add_keluarga="INSERT INTO penduduk (no_kk, no_nik, nama_lengkap, jenis_kelamin, tempat_lahir, tanggal_lahir, gol_darah, agama, warganegara, pendidikan_akhir, pendidikan_saat_ini, pekerjaan_utama, pekerjaan_lain, status_kawin, status_kependudukan, status_tinggal, difabelitas, kontrasepsi, kehamilan, shdk, nama_ayah, nama_ibu, alamat, nama_dusun) VALUES('"+(inputnokk)+"', '"+(inputnik)+"', '"+(inputnama)+"', '"+(pilihanjeniskelamin)+"', '"+(inputtempatlahir)+"', '"+(tanggallahir)+"', '"+(pilihangolongandarah)+"', '"+(pilihanagama)+"', '"+(pilihanwarganegara)+"', '"+(pilihanpendidikanterakhir)+"', '"+(pilihanpendidikanditempuh)+"', '"+(pilihanpekerjaan)+"', '"+(pilihanpekerjaanlainnya)+"', '"+(pilihanstatus)+"', '"+(pilihanstatuskependudukan)+"', '"+(pilihanstatustinggal)+"', '"+(pilihandifabelitas)+"', '"+(pilihankontrasepsi)+"', '"+(pilihankehamilan)+"', '"+(pilihanshdk)+"', '"+(inputayah)+"', '"+(inputibu)+"', '"+(inputalamat)+"', '"+(inputdusun)+"')"
-        cursor.execute(add_keluarga)
+        inputrt = str(self.input_rt.GetValue())
+        inputrw = str(self.input_rw.GetValue())
+        pilihandokumen1 = str(self.dokumen1.GetValue())
+        pilihandokumen2 = str(self.dokumen2.GetValue())
+        pilihandokumen3 = str(self.dokumen3.GetValue())
+        pilihandokumen4 = str(self.dokumen4.GetValue())
+        pilihandokumen5 = str(self.dokumen5.GetValue())
+        pilihandokumen6 = str(self.dokumen6.GetValue())
+        pilihandokumen7 = str(self.dokumen7.GetValue())
+        pilihandokumen8 = str(self.dokumen8.GetValue())
+        inputno = str(self.input_no.GetValue())
+        add_keluarga="UPDATE penduduk SET no_kk='"+(inputnokk)+"', no_nik='"+(inputnik)+"', nama_lengkap='"+(inputnama)+"', jenis_kelamin='"+(pilihanjeniskelamin)+"', tempat_lahir='"+(inputtempatlahir)+"', tanggal_lahir='"+(tanggallahir)+"', gol_darah='"+(pilihangolongandarah)+"', agama='"+(pilihanagama)+"', warganegara='"+(pilihanwarganegara)+"', pendidikan_akhir='"+(pilihanpendidikanterakhir)+"', pendidikan_saat_ini='"+(pilihanpendidikanditempuh)+"', pekerjaan_utama='"+(pilihanpekerjaan)+"', pekerjaan_lain='"+(pilihanpekerjaanlainnya)+"', status_kawin='"+(pilihanstatus)+"', status_kependudukan='"+(pilihanstatuskependudukan)+"', status_tinggal='"+(pilihanstatustinggal)+"', difabelitas='"+(pilihandifabelitas)+"', kontrasepsi='"+(pilihankontrasepsi)+"', kehamilan='"+(pilihankehamilan)+"', shdk='"+(pilihanshdk)+"', nama_ayah='"+(inputayah)+"', nama_ibu='"+(inputibu)+"', alamat='"+(inputalamat)+"', nama_dusun='"+(inputdusun)+"', rt='"+(inputrt)+"', rw='"+(inputrw)+"', dokumen1='"+(pilihandokumen1)+"', dokumen2='"+(pilihandokumen2)+"', dokumen3='"+(pilihandokumen3)+"', dokumen4='"+(pilihandokumen4)+"', dokumen5='"+(pilihandokumen5)+"', dokumen6='"+(pilihandokumen6)+"', dokumen7='"+(pilihandokumen7)+"', dokumen8='"+(pilihandokumen8)+"' WHERE no='"+(inputno)+"'"        
+        cur.execute(add_keluarga)
         db.commit()
         self.input_no_kk.Clear()
         self.input_alamat.Clear()
         self.input_dusun.Clear()
+        self.input_rt.Clear()
+        self.input_rw.Clear()
         self.input_nik.Clear()
         self.input_nama.Clear()
-        self.pilihan_jenis_kelamin.Bind(wx.EVT_COMBOBOX, on_select)
+        self.pilihan_jenis_kelamin.SetValue('')
         self.input_tempat_lahir.Clear()
         #self.tanggal_lahir.Clear()
-        self.pilihan_golongan_darah()
-        self.pilihan_agama()
-        self.pilihan_warganegara.Clear()
-        self.pilihan_pendidikan_terakhir.Clear()
-        self.pilihan_pendidikan_ditempuh.Clear()
-        self.pilihan_pekerjaan.Clear()
-        self.pilihan_pekerjaan_lainnya.Clear()
-        self.pilihan_status.Clear()
-        self.pilihan_status_kependudukan.Clear()
-        self.pilihan_status_tinggal.Clear()
-        self.pilihan_difabelitas.Clear()
-        self.pilihan_kontrasepsi.Clear()
-        self.pilihan_kehamilan.Clear()
-        self.pilihan_shdk.Clear()
+        self.pilihan_golongan_darah.SetValue('')
+        self.pilihan_agama.SetValue('')
+        self.pilihan_warganegara.SetValue('')
+        self.pilihan_pendidikan_terakhir.SetValue('')
+        self.pilihan_pendidikan_ditempuh.SetValue('')
+        self.pilihan_pekerjaan.SetValue('')
+        self.pilihan_pekerjaan_lainnya.SetValue('')
+        self.pilihan_status.SetValue('')
+        self.pilihan_status_kependudukan.SetValue('')
+        self.pilihan_status_tinggal.SetValue('')
+        self.pilihan_difabelitas.SetValue('')
+        self.pilihan_kontrasepsi.SetValue('')
+        self.pilihan_kehamilan.SetValue('')
+        self.pilihan_shdk.SetValue('')
         self.input_ayah.Clear()
         self.input_ibu.Clear()
+        self.dokumen1.SetValue('')
+        self.dokumen2.SetValue('')
+        self.dokumen3.SetValue('')
+        self.dokumen4.SetValue('')
+        self.dokumen5.SetValue('')
+        self.dokumen6.SetValue('')
+        self.dokumen7.SetValue('')
+        self.dokumen8.SetValue('')
+        self.input_no.Clear()
+        self.pesan = wx.MessageDialog(self,"Data Sudah Tersimpan","Konfirmasi",wx.OK) 
+        self.pesan.ShowModal() 
+
         
-        
-       
-        
-        db.close()
         
     def OnTombol_tambah_kembaliButton(self, event):
         inputnokk = str(self.input_no_kk.GetValue())
-        inputalamat = str(self.input_alamat.GetValue())
-        inputdusun = str(self.input_dusun.GetValue())
         inputnik = str(self.input_nik.GetValue())
         inputnama = str(self.input_nama.GetValue())
         inputtempatlahir = str(self.input_tempat_lahir.GetValue())
-        pilihanjeniskelamin = str(self.pilihan_jenis_kelamin.GetCurrentSelection())
+        pilihanjeniskelamin = str(self.pilihan_jenis_kelamin.GetValue())
         tanggallahir = str(self.tanggal_lahir.GetValue())
-        pilihangolongandarah = str(self.pilihan_golongan_darah.GetCurrentSelection())
-        pilihanagama = str(self.pilihan_agama.GetCurrentSelection())
-        pilihanwarganegara = str(self.pilihan_warganegara.GetCurrentSelection())
-        pilihanpendidikanterakhir = str(self.pilihan_pendidikan_terakhir.GetCurrentSelection())
-        pilihanpendidikanditempuh = str(self.pilihan_pendidikan_ditempuh.GetCurrentSelection())
-        pilihanpekerjaan = str(self.pilihan_pekerjaan.GetCurrentSelection())
-        pilihanpekerjaanlainnya = str(self.pilihan_pekerjaan_lainnya.GetCurrentSelection())
-        pilihanstatus = str(self.pilihan_status.GetCurrentSelection())
-        pilihanstatuskependudukan = str(self.pilihan_status_kependudukan.GetCurrentSelection())
-        pilihanstatustinggal = str(self.pilihan_status_tinggal.GetCurrentSelection())
-        pilihandifabelitas = str(self.pilihan_difabelitas.GetCurrentSelection())
-        pilihankontrasepsi = str(self.pilihan_kontrasepsi.GetCurrentSelection())
-        pilihanshdk = str(self.pilihan_shdk.GetCurrentSelection())
+        pilihangolongandarah = str(self.pilihan_golongan_darah.GetValue())
+        pilihanagama = str(self.pilihan_agama.GetValue())
+        pilihanwarganegara = str(self.pilihan_warganegara.GetValue())
+        pilihanpendidikanterakhir = str(self.pilihan_pendidikan_terakhir.GetValue())
+        pilihanpendidikanditempuh = str(self.pilihan_pendidikan_ditempuh.GetValue())
+        pilihanpekerjaan = str(self.pilihan_pekerjaan.GetValue())
+        pilihanpekerjaanlainnya = str(self.pilihan_pekerjaan_lainnya.GetValue())
+        pilihanstatus = str(self.pilihan_status.GetValue())
+        pilihanstatuskependudukan = str(self.pilihan_status_kependudukan.GetValue())
+        pilihanstatustinggal = str(self.pilihan_status_tinggal.GetValue())
+        pilihandifabelitas = str(self.pilihan_difabelitas.GetValue())
+        pilihankontrasepsi = str(self.pilihan_kontrasepsi.GetValue())
+        pilihanshdk = str(self.pilihan_shdk.GetValue())
         inputayah = str(self.input_ayah.GetValue())
         inputibu = str(self.input_ibu.GetValue())
-        pilihankehamilan = str(self.pilihan_kehamilan.GetCurrentSelection())
-        db = connect()
-        cursor = db.cursor()
-        add_keluarga="INSERT INTO penduduk (no_kk, no_nik, nama_lengkap, jenis_kelamin, tempat_lahir, tanggal_lahir, gol_darah, agama, warganegara, pendidikan_akhir, pendidikan_saat_ini, pekerjaan_utama, pekerjaan_lain, status_kawin, status_kependudukan, status_tinggal, difabelitas, kontrasepsi, kehamilan, shdk, nama_ayah, nama_ibu, alamat, nama_dusun) VALUES('"+(inputnokk)+"', '"+(inputnik)+"', '"+(inputnama)+"', '"+(pilihanjeniskelamin)+"', '"+(inputtempatlahir)+"', '"+(tanggallahir)+"', '"+(pilihangolongandarah)+"', '"+(pilihanagama)+"', '"+(pilihanwarganegara)+"', '"+(pilihanpendidikanterakhir)+"', '"+(pilihanpendidikanditempuh)+"', '"+(pilihanpekerjaan)+"', '"+(pilihanpekerjaanlainnya)+"', '"+(pilihanstatus)+"', '"+(pilihanstatuskependudukan)+"', '"+(pilihanstatustinggal)+"', '"+(pilihandifabelitas)+"', '"+(pilihankontrasepsi)+"', '"+(pilihankehamilan)+"', '"+(pilihanshdk)+"', '"+(inputayah)+"', '"+(inputibu)+"', '"+(inputalamat)+"', '"+(inputdusun)+"')"
-        cursor.execute(add_keluarga)
-        db.commit()
-        self.Close()
+        pilihankehamilan = str(self.pilihan_kehamilan.GetValue())
+        inputalamat = str(self.input_alamat.GetValue())
+        inputdusun = str(self.input_dusun.GetValue())
+        inputrt = str(self.input_rt.GetValue())
+        inputrw = str(self.input_rw.GetValue())
+        pilihandokumen1 = str(self.dokumen1.GetValue())
+        pilihandokumen2 = str(self.dokumen2.GetValue())
+        pilihandokumen3 = str(self.dokumen3.GetValue())
+        pilihandokumen4 = str(self.dokumen4.GetValue())
+        pilihandokumen5 = str(self.dokumen5.GetValue())
+        pilihandokumen6 = str(self.dokumen6.GetValue())
+        pilihandokumen7 = str(self.dokumen7.GetValue())
+        pilihandokumen8 = str(self.dokumen8.GetValue())
+        if pilihanshdk == 'Kepala Keluarga':
+           self.pesan = wx.MessageDialog(self,"Kepala Keluarga Sudah Ada","Konfirmasi",wx.OK) 
+           self.pesan.ShowModal() 
+        else :     
+            add_keluarga="INSERT INTO penduduk (no_kk, no_nik, nama_lengkap, jenis_kelamin, tempat_lahir, tanggal_lahir, gol_darah, agama, warganegara, pendidikan_akhir, pendidikan_saat_ini, pekerjaan_utama, pekerjaan_lain, status_kawin, status_kependudukan, status_tinggal, difabelitas, kontrasepsi, kehamilan, shdk, nama_ayah, nama_ibu, alamat, nama_dusun, rt, rw, dokumen1, dokumen2, dokumen3, dokumen4, dokumen5, dokumen6, dokumen7, dokumen8) VALUES('"+(inputnokk)+"', '"+(inputnik)+"', '"+(inputnama)+"', '"+(pilihanjeniskelamin)+"', '"+(inputtempatlahir)+"', '"+(tanggallahir)+"', '"+(pilihangolongandarah)+"', '"+(pilihanagama)+"', '"+(pilihanwarganegara)+"', '"+(pilihanpendidikanterakhir)+"', '"+(pilihanpendidikanditempuh)+"', '"+(pilihanpekerjaan)+"', '"+(pilihanpekerjaanlainnya)+"', '"+(pilihanstatus)+"', '"+(pilihanstatuskependudukan)+"', '"+(pilihanstatustinggal)+"', '"+(pilihandifabelitas)+"', '"+(pilihankontrasepsi)+"', '"+(pilihankehamilan)+"', '"+(pilihanshdk)+"', '"+(inputayah)+"', '"+(inputibu)+"', '"+(inputalamat)+"', '"+(inputdusun)+"', '"+(inputrt)+"', '"+(inputrw)+"', '"+(pilihandokumen1)+"', '"+(pilihandokumen2)+"', '"+(pilihandokumen3)+"', '"+(pilihandokumen4)+"', '"+(pilihandokumen5)+"', '"+(pilihandokumen6)+"', '"+(pilihandokumen7)+"', '"+(pilihandokumen8)+"')"        
+            cur.execute(add_keluarga)
+            db.commit()
+            self.input_no_kk.Clear()
+            self.input_alamat.Clear()
+            self.input_dusun.Clear()
+            self.input_rt.Clear()
+            self.input_rw.Clear()
+            self.input_nik.Clear()
+            self.input_nama.Clear()
+            self.pilihan_jenis_kelamin.SetValue('')
+            self.input_tempat_lahir.Clear()
+            #self.tanggal_lahir.Clear()
+            self.pilihan_golongan_darah.SetValue('')
+            self.pilihan_agama.SetValue('')
+            self.pilihan_warganegara.SetValue('')
+            self.pilihan_pendidikan_terakhir.SetValue('')
+            self.pilihan_pendidikan_ditempuh.SetValue('')
+            self.pilihan_pekerjaan.SetValue('')
+            self.pilihan_pekerjaan_lainnya.SetValue('')
+            self.pilihan_status.SetValue('')
+            self.pilihan_status_kependudukan.SetValue('')
+            self.pilihan_status_tinggal.SetValue('')
+            self.pilihan_difabelitas.SetValue('')
+            self.pilihan_kontrasepsi.SetValue('')
+            self.pilihan_kehamilan.SetValue('')
+            self.pilihan_shdk.SetValue('')
+            self.input_ayah.Clear()
+            self.input_ibu.Clear()
+            self.dokumen1.SetValue('')
+            self.dokumen2.SetValue('')
+            self.dokumen3.SetValue('')
+            self.dokumen4.SetValue('')
+            self.dokumen5.SetValue('')
+            self.dokumen6.SetValue('')
+            self.dokumen7.SetValue('')
+            self.dokumen8.SetValue('')
+            self.pesan = wx.MessageDialog(self,"Data Sudah Tersimpan","Konfirmasi",wx.OK) 
+            self.pesan.ShowModal() 
+            self.main=data_penduduk.create(None)
+            self.main.Show()
+            self.Close()
+            self.Destroy()
+            
 
     def OnKembaliButton(self, event):
         self.main=edit_data_penduduk.create(None)
         self.main.Show()
         self.Close()
+
+    def OnTombol_cariButton(self, event):
+        self.Isi_Object()
 
     def OnPilihan_status_tinggalCombobox(self, event):
         event.Skip()
@@ -567,3 +755,15 @@ class edit_kk_sementara(wx.Frame):
 
     def OnPilihan_kontrasepsiCombobox(self, event):
         event.Skip()
+    
+    def OnIsipendudukListItemSelected(self, event):
+        self.currentItem = event.m_itemIndex # mengambil no index baris yang dipilih 
+        b=self.isipenduduk.GetItem(self.currentItem).GetText() # no index baris dikonversi ke text/ string 
+        self.cari_kk.SetValue(b) 
+        self.Isi_Object()
+        event.Skip()
+
+    def OnComboBox6Combobox(self, event):
+        event.Skip()
+
+

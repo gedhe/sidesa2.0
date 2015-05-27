@@ -4,9 +4,9 @@ import wx
 import input_administrasi_surat
 import sqlite3
 from subprocess import call
-from pyPdf import PdfFileReader
-from reportlab.pdfgen import canvas
-from reportlab.lib.pagesizes import letter
+from odf.opendocument import OpenDocumentText
+from odf.text import P
+
 
 
 db = sqlite3.connect('/opt/sidesa/sidesa')
@@ -20,34 +20,35 @@ def create(parent):
  wxID_PEMBUATAN_SURAT_KELUARBUTTON1, wxID_PEMBUATAN_SURAT_KELUARBUTTON2, 
  wxID_PEMBUATAN_SURAT_KELUARBUTTON3, wxID_PEMBUATAN_SURAT_KELUARCARI_PENDUDUK, 
  wxID_PEMBUATAN_SURAT_KELUARCOMBOBOX1, 
- wxID_PEMBUATAN_SURAT_KELUARDATEPICKERCTRL1, 
+ wxID_PEMBUATAN_SURAT_KELUARDATEPICKERCTRL1, wxID_PEMBUATAN_SURAT_KELUARDESA, 
  wxID_PEMBUATAN_SURAT_KELUARDIFABELITAS, wxID_PEMBUATAN_SURAT_KELUAREMAIL, 
  wxID_PEMBUATAN_SURAT_KELUARGOL_DARAH, 
  wxID_PEMBUATAN_SURAT_KELUARJENIS_KELAMIN, 
+ wxID_PEMBUATAN_SURAT_KELUARKABUPATEN, wxID_PEMBUATAN_SURAT_KELUARKECAMATAN, 
  wxID_PEMBUATAN_SURAT_KELUARKEHAMILAN, wxID_PEMBUATAN_SURAT_KELUARKEMATIAN, 
  wxID_PEMBUATAN_SURAT_KELUARKEMISKINAN, 
  wxID_PEMBUATAN_SURAT_KELUARKONTRASEPSI, 
  wxID_PEMBUATAN_SURAT_KELUARLIST_SURAT, wxID_PEMBUATAN_SURAT_KELUARNAMA_AYAH, 
- wxID_PEMBUATAN_SURAT_KELUARNAMA_DESA, wxID_PEMBUATAN_SURAT_KELUARNAMA_DUSUN, 
- wxID_PEMBUATAN_SURAT_KELUARNAMA_IBU, 
+ wxID_PEMBUATAN_SURAT_KELUARNAMA_CAMAT, wxID_PEMBUATAN_SURAT_KELUARNAMA_DESA, 
+ wxID_PEMBUATAN_SURAT_KELUARNAMA_DUSUN, wxID_PEMBUATAN_SURAT_KELUARNAMA_IBU, 
  wxID_PEMBUATAN_SURAT_KELUARNAMA_KABUPATEN, 
  wxID_PEMBUATAN_SURAT_KELUARNAMA_KADES, 
  wxID_PEMBUATAN_SURAT_KELUARNAMA_KECAMATAN, 
  wxID_PEMBUATAN_SURAT_KELUARNAMA_LENGKAP, 
  wxID_PEMBUATAN_SURAT_KELUARNAMA_PROPINSI, 
  wxID_PEMBUATAN_SURAT_KELUARNAMA_SEKDES, 
- wxID_PEMBUATAN_SURAT_KELUARNEGARAKERJA, wxID_PEMBUATAN_SURAT_KELUARNO_KK, 
- wxID_PEMBUATAN_SURAT_KELUARNO_NIK, wxID_PEMBUATAN_SURAT_KELUARNO_SURAT, 
- wxID_PEMBUATAN_SURAT_KELUARNO_TELP, 
+ wxID_PEMBUATAN_SURAT_KELUARNEGARAKERJA, wxID_PEMBUATAN_SURAT_KELUARNOKODE, 
+ wxID_PEMBUATAN_SURAT_KELUARNO_KK, wxID_PEMBUATAN_SURAT_KELUARNO_NIK, 
+ wxID_PEMBUATAN_SURAT_KELUARNO_SURAT, wxID_PEMBUATAN_SURAT_KELUARNO_TELP, 
  wxID_PEMBUATAN_SURAT_KELUARPEKERJAAN_LAIN, 
  wxID_PEMBUATAN_SURAT_KELUARPEKERJAAN_UTAMA, 
  wxID_PEMBUATAN_SURAT_KELUARPENDIDIKAN_AKHIR, 
  wxID_PEMBUATAN_SURAT_KELUARPENDIDIKAN_SAAT_INI, 
  wxID_PEMBUATAN_SURAT_KELUARPENDUDUK, 
  wxID_PEMBUATAN_SURAT_KELUARPERUSAHAANKERJA, 
- wxID_PEMBUATAN_SURAT_KELUARPINDAHKERJA, wxID_PEMBUATAN_SURAT_KELUARRT, 
- wxID_PEMBUATAN_SURAT_KELUARRW, wxID_PEMBUATAN_SURAT_KELUARSHDK, 
- wxID_PEMBUATAN_SURAT_KELUARSTATICTEXT1, 
+ wxID_PEMBUATAN_SURAT_KELUARPINDAHKERJA, wxID_PEMBUATAN_SURAT_KELUARPROPINSI, 
+ wxID_PEMBUATAN_SURAT_KELUARRT, wxID_PEMBUATAN_SURAT_KELUARRW, 
+ wxID_PEMBUATAN_SURAT_KELUARSHDK, wxID_PEMBUATAN_SURAT_KELUARSTATICTEXT1, 
  wxID_PEMBUATAN_SURAT_KELUARSTATICTEXT2, 
  wxID_PEMBUATAN_SURAT_KELUARSTATICTEXT3, 
  wxID_PEMBUATAN_SURAT_KELUARSTATICTEXT4, 
@@ -60,7 +61,7 @@ def create(parent):
  wxID_PEMBUATAN_SURAT_KELUARTEMPAT_LAHIR, 
  wxID_PEMBUATAN_SURAT_KELUARTGL_SURAT, wxID_PEMBUATAN_SURAT_KELUARWARGANEGARA, 
  wxID_PEMBUATAN_SURAT_KELUARWEBSITE, 
-] = [wx.NewId() for _init_ctrls in range(58)]
+] = [wx.NewId() for _init_ctrls in range(64)]
 
 class pembuatan_surat_keluar(wx.Frame):
     def _init_coll_list_surat_Columns(self, parent):
@@ -90,8 +91,8 @@ class pembuatan_surat_keluar(wx.Frame):
     def _init_ctrls(self, prnt):
         # generated method, don't edit
         wx.Frame.__init__(self, id=wxID_PEMBUATAN_SURAT_KELUAR,
-              name=u'pembuatan_surat_keluar', parent=prnt, pos=wx.Point(450,
-              199), size=wx.Size(826, 435), style=wx.DEFAULT_FRAME_STYLE,
+              name=u'pembuatan_surat_keluar', parent=prnt, pos=wx.Point(437,
+              189), size=wx.Size(826, 435), style=wx.DEFAULT_FRAME_STYLE,
               title=u'Pembuatan Surat Keluar')
         self.SetClientSize(wx.Size(826, 435))
         self.Center(wx.BOTH)
@@ -115,6 +116,8 @@ class pembuatan_surat_keluar(wx.Frame):
         self.button1 = wx.Button(id=wxID_PEMBUATAN_SURAT_KELUARBUTTON1,
               label=u'Cari', name='button1', parent=self, pos=wx.Point(720,
               120), size=wx.Size(85, 30), style=0)
+        self.button1.Bind(wx.EVT_BUTTON, self.OnButton1Button,
+              id=wxID_PEMBUATAN_SURAT_KELUARBUTTON1)
 
         self.staticText2 = wx.StaticText(id=wxID_PEMBUATAN_SURAT_KELUARSTATICTEXT2,
               label=u'Nama Penduduk', name='staticText2', parent=self,
@@ -329,8 +332,8 @@ class pembuatan_surat_keluar(wx.Frame):
               size=wx.Size(80, 25), style=wx.TE_NOHIDESEL, value='')
 
         self.alamat_kantor = wx.TextCtrl(id=wxID_PEMBUATAN_SURAT_KELUARALAMAT_KANTOR,
-              name='alamat_kantor', parent=self, pos=wx.Point(-100, -100),
-              size=wx.Size(80, 25), style=wx.TE_NOHIDESEL, value='')
+              name=u'alamat_kantor', parent=self, pos=wx.Point(-100, -100),
+              size=wx.Size(152, 24), style=0, value=u'')
 
         self.website = wx.TextCtrl(id=wxID_PEMBUATAN_SURAT_KELUARWEBSITE,
               name='website', parent=self, pos=wx.Point(-100, -100),
@@ -341,21 +344,58 @@ class pembuatan_surat_keluar(wx.Frame):
               size=wx.Size(80, 25), style=wx.TE_NOHIDESEL, value='')
 
         self.no_telp = wx.TextCtrl(id=wxID_PEMBUATAN_SURAT_KELUARNO_TELP,
-              name='no_telp', parent=self, pos=wx.Point(-100, -100),
-              size=wx.Size(217, 25), style=wx.TE_NOHIDESEL, value='')
+              name=u'no_telp', parent=self, pos=wx.Point(-100, -100),
+              size=wx.Size(152, 24), style=0, value=u'')
 
         self.nama_kades = wx.TextCtrl(id=wxID_PEMBUATAN_SURAT_KELUARNAMA_KADES,
-              name='nama_kades', parent=self, pos=wx.Point(-100, -100),
-              size=wx.Size(177, 25), style=wx.TE_NOHIDESEL, value='')
+              name=u'nama_kades', parent=self, pos=wx.Point(-100, -100),
+              size=wx.Size(152, 24), style=0, value=u'')
 
         self.nama_sekdes = wx.TextCtrl(id=wxID_PEMBUATAN_SURAT_KELUARNAMA_SEKDES,
               name='nama_sekdes', parent=self, pos=wx.Point(-100, -100),
               size=wx.Size(80, 25), style=wx.TE_NOHIDESEL, value='')
 
+        self.propinsi = wx.TextCtrl(id=wxID_PEMBUATAN_SURAT_KELUARPROPINSI,
+              name=u'propinsi', parent=self, pos=wx.Point(-100, -100),
+              size=wx.Size(152, 24), style=0, value=u'')
+
+        self.kabupaten = wx.TextCtrl(id=wxID_PEMBUATAN_SURAT_KELUARKABUPATEN,
+              name=u'kabupaten', parent=self, pos=wx.Point(-100, -100),
+              size=wx.Size(152, 24), style=0, value=u'')
+
+        self.kecamatan = wx.TextCtrl(id=wxID_PEMBUATAN_SURAT_KELUARKECAMATAN,
+              name=u'kecamatan', parent=self, pos=wx.Point(-100, -100),
+              size=wx.Size(152, 24), style=0, value=u'')
+
+        self.desa = wx.TextCtrl(id=wxID_PEMBUATAN_SURAT_KELUARDESA,
+              name=u'desa', parent=self, pos=wx.Point(-100, -100),
+              size=wx.Size(152, 24), style=0, value=u'')
+
+        self.alamat_kantor = wx.TextCtrl(id=wxID_PEMBUATAN_SURAT_KELUARALAMAT_KANTOR,
+              name=u'alamat_kantor', parent=self, pos=wx.Point(-100, -100),
+              size=wx.Size(152, 24), style=0, value=u'')
+
+        self.no_telp = wx.TextCtrl(id=wxID_PEMBUATAN_SURAT_KELUARNO_TELP,
+              name=u'no_telp', parent=self, pos=wx.Point(-100, -100),
+              size=wx.Size(152, 24), style=0, value=u'')
+
+        self.nama_kades = wx.TextCtrl(id=wxID_PEMBUATAN_SURAT_KELUARNAMA_KADES,
+              name=u'nama_kades', parent=self, pos=wx.Point(-100, -100),
+              size=wx.Size(152, 24), style=0, value=u'')
+
+        self.nokode = wx.TextCtrl(id=wxID_PEMBUATAN_SURAT_KELUARNOKODE,
+              name=u'nokode', parent=self, pos=wx.Point(-100, -100),
+              size=wx.Size(152, 24), style=0, value=u'')
+
+        self.nama_camat = wx.TextCtrl(id=wxID_PEMBUATAN_SURAT_KELUARNAMA_CAMAT,
+              name=u'nama_camat', parent=self, pos=wx.Point(-100, -100),
+              size=wx.Size(152, 24), style=0, value=u'')
+
     def __init__(self, parent):
         self._init_ctrls(parent)
         self.IsiList()
         self.IsiList1()
+        self.dataprofil()
         
         
     def IsiList(self):    
@@ -364,10 +404,11 @@ class pembuatan_surat_keluar(wx.Frame):
         hasil = cur.fetchall() 
         nokk = self.penduduk.GetItemCount() 
         for i in hasil : 
-            self.penduduk.InsertStringItem(nokk, "%s"%i[45]) 
-            self.penduduk.SetStringItem(nokk,1,"%s"%i[44]) 
-            self.penduduk.SetStringItem(nokk,2,"%s"%i[16]) 
-            nokk = nokk + 1  
+            self.penduduk.InsertStringItem(nokk, "%s"%i[2]) 
+            self.penduduk.SetStringItem(nokk,1,"%s"%i[16]) 
+            self.penduduk.SetStringItem(nokk,2,"%s"%i[21])
+            self.penduduk.SetStringItem(nokk,3,"%s"%i[29])
+            nokk = nokk + 1
     
     def IsiList1(self):    
         sql = "SELECT * FROM suratkeluar"
@@ -383,7 +424,7 @@ class pembuatan_surat_keluar(wx.Frame):
             
     def Isi_Object(self) : 
         caripenduduk=str(self.cari_penduduk.GetValue())
-        sql="SELECT * FROM penduduk WHERE nama_lengkap='%s'"%(caripenduduk)
+        sql="SELECT * FROM penduduk WHERE nama='%s'"%(caripenduduk)
         cur.execute(sql)
         hasil = cur.fetchone()  
         if hasil : 
@@ -391,7 +432,6 @@ class pembuatan_surat_keluar(wx.Frame):
             self.negarakerja.SetValue(str(hasil[2]))
             self.pindahkerja.SetValue(str(hasil[3]))
             self.kematian.SetValue(str(hasil[4]))
-            
             self.kemiskinan.SetValue(str(hasil[13]))
             self.rw.SetValue(str(hasil[14]))
             self.rt.SetValue(str(hasil[15]))
@@ -400,7 +440,6 @@ class pembuatan_surat_keluar(wx.Frame):
             self.nama_ibu.SetValue(str(hasil[18]))
             self.nama_ayah.SetValue(str(hasil[19]))
             self.shdk.SetValue(str(hasil[20]))
-            
             self.kehamilan.SetValue(str(hasil[29]))
             self.kontrasepsi.SetValue(str(hasil[30]))
             self.difabelitas.SetValue(str(hasil[31]))
@@ -427,66 +466,93 @@ class pembuatan_surat_keluar(wx.Frame):
             self.cari_penduduk.Clear()
             self.cari_penduduk.SetFocus()   
 
-    
-    def create_pdf0(self):
-        nosurat=str(self.no_surat.GetValue())
-        aa=str(self.perusahaankerja.GetValue())
-        ab=str(self.negarakerja.GetValue())
-        ac=str(self.pindahkerja.GetValue())
-        ad=str(self.kematian.GetValue())
-        am=str(self.kemiskinan.GetValue())
-        ao=str(self.rw.GetValue())
-        ap=str(self.rt.GetValue())
-        aq=str(self.nama_dusun.GetValue())
-        ar=str(self.alamat.GetValue())
-        at=str(self.nama_ibu.GetValue())
-        au=str(self.nama_ayah.GetValue())
-        av=str(self.shdk.GetValue())
-        be=str(self.kehamilan.GetValue())
-        bf=str(self.kontrasepsi.GetValue())
-        bg=str(self.difabelitas.GetValue())
-        bh=str(self.status_tinggal.GetValue())
-        bi=str(self.status_kependudukan.GetValue())
-        bj=str(self.status_kawin.GetValue())
-        bk=str(self.pekerjaan_lain.GetValue())
-        bl=str(self.pekerjaan_utama.GetValue())
-        bm=str(self.pendidikan_saat_ini.GetValue())
-        bn=str(self.pendidikan_akhir.GetValue())
-        bo=str(self.warganegara.GetValue())
-        bp=str(self.agama.GetValue())
-        bq=str(self.gol_darah.GetValue())
-        br=str(self.tanggal_lahir.GetValue())
-        bs=str(self.tempat_lahir.GetValue())
-        bt=str(self.jenis_kelamin.GetValue())
-        bu=str(self.nama_lengkap.GetValue())
-        bv=str(self.no_nik.GetValue())
-        bw=str(self.no_kk.GetValue())             
+    def dataprofil(self): 
+        sql="SELECT * FROM identitas WHERE no=1"
+        cur.execute(sql)
+        hasil = cur.fetchone()  
+        if hasil : 
+            self.propinsi.SetValue(str(hasil[18]))
+            self.kabupaten.SetValue(str(hasil[17])) 
+            self.kecamatan.SetValue(str(hasil[16]))
+            self.desa.SetValue(str(hasil[15]))
+            self.alamat_kantor.SetValue(str(hasil[19]))
+            self.no_telp.SetValue(str(hasil[22]))
+            self.nama_kades.SetValue(str(hasil[21]))
+            self.nokode.SetValue(str(hasil[23]))
+            self.nama_camat.SetValue(str(hasil[6]))
+        else : 
+            self.pesan = wx.MessageDialog(self,"Cek Data Profil","Konfirmasi",wx.OK) 
+            self.pesan.ShowModal() 
+            
+    def create_odt0(self):
+        propinsi = str(self.propinsi.GetValue())
+        kabupaten = str(self.kabupaten.GetValue()) 
+        kecamatan = str(self.kecamatan.GetValue())
+        desa = str(self.desa.GetValue())
+        alamat = str(self.alamat_kantor.GetValue())
+        telp = str(self.no_telp.GetValue())
+        kades = str(self.nama_kades.GetValue())
+        kode = str(self.nokode.GetValue())
+        camat = str(self.nama_camat.GetValue())
+        #perbesarhuruf
+        kab = kabupaten.upper()
+        kec = kecamatan.upper()
+        des = desa.upper()
+        textdoc = OpenDocumentText()
+        a = P(text='PEMERINTAH KABUPATEN '+(kab))
+        b = P(text='KECAMATAN '+(kec))
+        c = P(text='DESA '+(des))
+        d = P(text='Alamat '+(alamat)+(telp))
+        e = P(text='No Kode Desa/Kelurahan '+(kode))
+        f = P(text='Surat ')
+        g = P(text='Nomor : ')
+        h = P(text='Yang bertanda tangan dibawah ini, menerangkan bahwa : ')
+        i = P(text='1. Nama                     :')
+        j = P(text='2. Tempat & Tanggal Lahir   :')
+        k = P(text='3. Kewarganegaraan  & Agama :')
+        l = P(text='4. Pekerjaan                :')
+        m = P(text='5. Tempat Tinggal           : RT..   RW..  Desa .. Kec. ... ')
+        n = P(text='   Kabupaten                : .....  Propinsi....')
+        o = P(text='6. Surat Bukti Diri         : KTP No.... KK No... ')
+        p = P(text='7. Keperluan                : ')
+        q = P(text='8. Berlaku Mulai            : Tgl s/d Selesai ')
+        r = P(text='9. Keterangan Lain-lain     : Orang Tersebut benar-benar Penduduk Desa .... ')
+        s = P(text='Demikian untuk menjadi malum bagi yang berkepentingan')
+        t = P(text='                                                    Desa ............ ')
+        u = P(text='Tanda Tangan Pemegang       Mengetahui              Kepala Desa...  ')
+        a1 = P(text='')
+        a2 = P(text='')
+        a3 = P(text='')
+        a4 = P(text='---------------------      Camat                   Kepala Desa ')
         
-        c = canvas.Canvas(""+bu+"+"+bv+".pdf", pagesize=letter)
-        c.setLineWidth(.3)
-        c.setFont('Helvetica', 12)
- 
-        c.drawString(30,750,'PEMERINTAH KABUPATEN')
-        c.drawString(30,736,'KECAMATAN')
-        c.drawString(30,722,'DESA')
-        c.drawString(30,690,'Alamat :')
-        c.line(30,676,580,676)
-        c.drawString(30,662,'Nomor Kode Kelurahan :')
-        c.drawString(30,648,'SURAT KETERANGAN')
-        c.drawString(30,634,'Nomor :')
-        c.drawString(30,620,'Yang bertanda tangan dibawah ini, menerangkan bahwa:')
-        c.drawString(30,606,'1. Nama                     :')
-        c.drawString(30,592,'2. Tempat & Tanggal Lahir   :')
-        c.drawString(30,578,'3. Kewarnegaraan & Agama    :')
-        c.drawString(30,564,'4. Pekerjaan                :')
-        c.drawString(30,564,'5. Tempat Tinggal           :')
-        c.drawString(30,564,'   Kabupaten                :')
-        c.drawString(30,564,'6. Surat Bukti Diri                :')
-        c.drawString(30,564,'7. Keperluan                :')
-        c.drawString(30,564,'8. Berlaku Mulai            :')
-        c.drawString(30,564,'9. Keterangan Lain-lain*)   :')
-        c.save()
-        call(["xpdf", ""+bu+"+"+bv+".pdf"])
+        textdoc.text.addElement(a)
+        textdoc.text.addElement(b)
+        textdoc.text.addElement(c)
+        textdoc.text.addElement(d)
+        textdoc.text.addElement(e)
+        textdoc.text.addElement(f)
+        textdoc.text.addElement(g)
+        textdoc.text.addElement(h)
+        textdoc.text.addElement(i)
+        textdoc.text.addElement(j)
+        textdoc.text.addElement(k)
+        textdoc.text.addElement(l)
+        textdoc.text.addElement(m)
+        textdoc.text.addElement(n)
+        textdoc.text.addElement(o)
+        textdoc.text.addElement(p)
+        textdoc.text.addElement(q)
+        textdoc.text.addElement(r)
+        textdoc.text.addElement(s)
+        textdoc.text.addElement(t)
+        textdoc.text.addElement(u)
+        textdoc.text.addElement(a1)
+        textdoc.text.addElement(a2)
+        textdoc.text.addElement(a3)
+        
+        textdoc.save("/opt/sidesa/test", True)
+        
+
         
     def create_pdf1(self):
              
@@ -557,7 +623,7 @@ class pembuatan_surat_keluar(wx.Frame):
     def OnButton2Button(self, event):
         pilihan = str(self.comboBox1.GetValue())
         if pilihan == 'Surat Keterangan Pengantar':
-           self.create_pdf0()
+           self.create_odt0()
         elif pilihan == 'Surat Keterangan Moyang':
            self.create_pdf1()
         elif pilihan == 'Surat Keterangan Wali Nikah':
@@ -566,4 +632,7 @@ class pembuatan_surat_keluar(wx.Frame):
            self.create_pdf3()
         else:         
             event.Skip()
+
+    def OnButton1Button(self, event):
+        self.Isi_Object()
 

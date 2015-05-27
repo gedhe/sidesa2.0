@@ -3,6 +3,7 @@
 import wx
 import wx.lib.buttons
 import frm_sideka_menu
+import piramidapenduduk
 
 def create(parent):
     return data_statistik_penduduk(parent)
@@ -24,8 +25,8 @@ class data_statistik_penduduk(wx.Frame):
     def _init_ctrls(self, prnt):
         # generated method, don't edit
         wx.Frame.__init__(self, id=wxID_DATA_STATISTIK_PENDUDUK,
-              name=u'data_statistik_penduduk', parent=prnt, pos=wx.Point(520,
-              209), size=wx.Size(306, 420), style=wx.FRAME_NO_TASKBAR,
+              name=u'data_statistik_penduduk', parent=prnt, pos=wx.Point(704,
+              199), size=wx.Size(306, 420), style=wx.FRAME_NO_TASKBAR,
               title=u'Data Statistik Penduduk')
         self.SetClientSize(wx.Size(306, 420))
         self.Center(wx.BOTH)
@@ -115,7 +116,11 @@ class data_statistik_penduduk(wx.Frame):
 
 
     def OnTombol_piramida_pendudukButton(self, event):
-        event.Skip()
+        self.main=piramidapenduduk.create(None)
+        self.main.Show()
+        self.Close()
+        self.Destroy()
+
 
     def OnTombol_perbandinganButton(self, event):
         event.Skip()
