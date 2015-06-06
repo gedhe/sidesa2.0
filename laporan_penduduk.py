@@ -10,123 +10,143 @@ cur = db.cursor()
 def create(parent):
     return laporan_penduduk(parent)
 
-[wxID_LAPORAN_PENDUDUK, wxID_LAPORAN_PENDUDUKBUTTON1, 
- wxID_LAPORAN_PENDUDUKBUTTON10, wxID_LAPORAN_PENDUDUKBUTTON11, 
- wxID_LAPORAN_PENDUDUKBUTTON12, wxID_LAPORAN_PENDUDUKBUTTON13, 
- wxID_LAPORAN_PENDUDUKBUTTON14, wxID_LAPORAN_PENDUDUKBUTTON15, 
- wxID_LAPORAN_PENDUDUKBUTTON2, wxID_LAPORAN_PENDUDUKBUTTON3, 
- wxID_LAPORAN_PENDUDUKBUTTON4, wxID_LAPORAN_PENDUDUKBUTTON5, 
- wxID_LAPORAN_PENDUDUKBUTTON6, wxID_LAPORAN_PENDUDUKBUTTON7, 
- wxID_LAPORAN_PENDUDUKBUTTON8, wxID_LAPORAN_PENDUDUKBUTTON9, 
- wxID_LAPORAN_PENDUDUKCOMBOBOX1, wxID_LAPORAN_PENDUDUKCOMBOBOX10, 
- wxID_LAPORAN_PENDUDUKCOMBOBOX2, wxID_LAPORAN_PENDUDUKCOMBOBOX3, 
- wxID_LAPORAN_PENDUDUKCOMBOBOX4, wxID_LAPORAN_PENDUDUKCOMBOBOX5, 
- wxID_LAPORAN_PENDUDUKCOMBOBOX6, wxID_LAPORAN_PENDUDUKCOMBOBOX7, 
- wxID_LAPORAN_PENDUDUKCOMBOBOX8, wxID_LAPORAN_PENDUDUKCOMBOBOX9, 
- wxID_LAPORAN_PENDUDUKLISTCTRL1, wxID_LAPORAN_PENDUDUKSTATICTEXT1, 
- wxID_LAPORAN_PENDUDUKSTATICTEXT10, wxID_LAPORAN_PENDUDUKSTATICTEXT11, 
- wxID_LAPORAN_PENDUDUKSTATICTEXT12, wxID_LAPORAN_PENDUDUKSTATICTEXT13, 
- wxID_LAPORAN_PENDUDUKSTATICTEXT14, wxID_LAPORAN_PENDUDUKSTATICTEXT15, 
- wxID_LAPORAN_PENDUDUKSTATICTEXT16, wxID_LAPORAN_PENDUDUKSTATICTEXT17, 
- wxID_LAPORAN_PENDUDUKSTATICTEXT18, wxID_LAPORAN_PENDUDUKSTATICTEXT19, 
- wxID_LAPORAN_PENDUDUKSTATICTEXT2, wxID_LAPORAN_PENDUDUKSTATICTEXT20, 
- wxID_LAPORAN_PENDUDUKSTATICTEXT21, wxID_LAPORAN_PENDUDUKSTATICTEXT22, 
- wxID_LAPORAN_PENDUDUKSTATICTEXT23, wxID_LAPORAN_PENDUDUKSTATICTEXT24, 
- wxID_LAPORAN_PENDUDUKSTATICTEXT25, wxID_LAPORAN_PENDUDUKSTATICTEXT26, 
- wxID_LAPORAN_PENDUDUKSTATICTEXT27, wxID_LAPORAN_PENDUDUKSTATICTEXT28, 
- wxID_LAPORAN_PENDUDUKSTATICTEXT3, wxID_LAPORAN_PENDUDUKSTATICTEXT4, 
- wxID_LAPORAN_PENDUDUKSTATICTEXT5, wxID_LAPORAN_PENDUDUKSTATICTEXT6, 
- wxID_LAPORAN_PENDUDUKSTATICTEXT7, wxID_LAPORAN_PENDUDUKSTATICTEXT8, 
- wxID_LAPORAN_PENDUDUKSTATICTEXT9, wxID_LAPORAN_PENDUDUKTEXTCTRL1, 
- wxID_LAPORAN_PENDUDUKTEXTCTRL10, wxID_LAPORAN_PENDUDUKTEXTCTRL11, 
- wxID_LAPORAN_PENDUDUKTEXTCTRL12, wxID_LAPORAN_PENDUDUKTEXTCTRL13, 
- wxID_LAPORAN_PENDUDUKTEXTCTRL14, wxID_LAPORAN_PENDUDUKTEXTCTRL2, 
- wxID_LAPORAN_PENDUDUKTEXTCTRL3, wxID_LAPORAN_PENDUDUKTEXTCTRL4, 
- wxID_LAPORAN_PENDUDUKTEXTCTRL5, wxID_LAPORAN_PENDUDUKTEXTCTRL6, 
- wxID_LAPORAN_PENDUDUKTEXTCTRL7, wxID_LAPORAN_PENDUDUKTEXTCTRL8, 
- wxID_LAPORAN_PENDUDUKTEXTCTRL9, 
-] = [wx.NewId() for _init_ctrls in range(69)]
+[wxID_LAPORAN_PENDUDUK, wxID_LAPORAN_PENDUDUKAGAMA, 
+ wxID_LAPORAN_PENDUDUKBUTTON15, wxID_LAPORAN_PENDUDUKCBAGAMA, 
+ wxID_LAPORAN_PENDUDUKCBDIF, wxID_LAPORAN_PENDUDUKCBDOK, 
+ wxID_LAPORAN_PENDUDUKCBHAMIL, wxID_LAPORAN_PENDUDUKCBPDDK, 
+ wxID_LAPORAN_PENDUDUKCBPEK, wxID_LAPORAN_PENDUDUKCBPENDUDUK, 
+ wxID_LAPORAN_PENDUDUKCBSAAT, wxID_LAPORAN_PENDUDUKCBSTAT, 
+ wxID_LAPORAN_PENDUDUKCBTINGGAL, wxID_LAPORAN_PENDUDUKCBWARGA, 
+ wxID_LAPORAN_PENDUDUKDIFABEL, wxID_LAPORAN_PENDUDUKDOK, 
+ wxID_LAPORAN_PENDUDUKHAMIL, wxID_LAPORAN_PENDUDUKISIAGAMA, 
+ wxID_LAPORAN_PENDUDUKISIDIFABEL, wxID_LAPORAN_PENDUDUKISIDOKUMEN, 
+ wxID_LAPORAN_PENDUDUKISIPEKERJAAN, wxID_LAPORAN_PENDUDUKISIPENDUDUK, 
+ wxID_LAPORAN_PENDUDUKISIRESIKO, wxID_LAPORAN_PENDUDUKISISTATUS, 
+ wxID_LAPORAN_PENDUDUKISISTATUSPENDUDUK, 
+ wxID_LAPORAN_PENDUDUKISISTATUSTINGGAL, wxID_LAPORAN_PENDUDUKISIWARGANEGARA, 
+ wxID_LAPORAN_PENDUDUKJMLKK, wxID_LAPORAN_PENDUDUKJMLPENDIDIKANAKHIR, 
+ wxID_LAPORAN_PENDUDUKJMLPENDIDIKANSAATINI, wxID_LAPORAN_PENDUDUKKK, 
+ wxID_LAPORAN_PENDUDUKKKLAKI, wxID_LAPORAN_PENDUDUKKKLK, 
+ wxID_LAPORAN_PENDUDUKKKPEREMPUAN, wxID_LAPORAN_PENDUDUKKKPR, 
+ wxID_LAPORAN_PENDUDUKLK, wxID_LAPORAN_PENDUDUKPEKERJAAN, 
+ wxID_LAPORAN_PENDUDUKPENDAKHIR, wxID_LAPORAN_PENDUDUKPENDSAAT, 
+ wxID_LAPORAN_PENDUDUKPENDUDUK, wxID_LAPORAN_PENDUDUKPENDUDUKLAKI, 
+ wxID_LAPORAN_PENDUDUKPENDUDUKPEREMPUAN, wxID_LAPORAN_PENDUDUKPR, 
+ wxID_LAPORAN_PENDUDUKSTATICTEXT1, wxID_LAPORAN_PENDUDUKSTATICTEXT10, 
+ wxID_LAPORAN_PENDUDUKSTATICTEXT11, wxID_LAPORAN_PENDUDUKSTATICTEXT12, 
+ wxID_LAPORAN_PENDUDUKSTATICTEXT13, wxID_LAPORAN_PENDUDUKSTATICTEXT14, 
+ wxID_LAPORAN_PENDUDUKSTATICTEXT15, wxID_LAPORAN_PENDUDUKSTATICTEXT16, 
+ wxID_LAPORAN_PENDUDUKSTATICTEXT17, wxID_LAPORAN_PENDUDUKSTATICTEXT18, 
+ wxID_LAPORAN_PENDUDUKSTATICTEXT19, wxID_LAPORAN_PENDUDUKSTATICTEXT2, 
+ wxID_LAPORAN_PENDUDUKSTATICTEXT20, wxID_LAPORAN_PENDUDUKSTATICTEXT21, 
+ wxID_LAPORAN_PENDUDUKSTATICTEXT22, wxID_LAPORAN_PENDUDUKSTATICTEXT23, 
+ wxID_LAPORAN_PENDUDUKSTATICTEXT24, wxID_LAPORAN_PENDUDUKSTATICTEXT25, 
+ wxID_LAPORAN_PENDUDUKSTATICTEXT26, wxID_LAPORAN_PENDUDUKSTATICTEXT27, 
+ wxID_LAPORAN_PENDUDUKSTATICTEXT28, wxID_LAPORAN_PENDUDUKSTATICTEXT29, 
+ wxID_LAPORAN_PENDUDUKSTATICTEXT3, wxID_LAPORAN_PENDUDUKSTATICTEXT30, 
+ wxID_LAPORAN_PENDUDUKSTATICTEXT31, wxID_LAPORAN_PENDUDUKSTATICTEXT32, 
+ wxID_LAPORAN_PENDUDUKSTATICTEXT4, wxID_LAPORAN_PENDUDUKSTATICTEXT5, 
+ wxID_LAPORAN_PENDUDUKSTATICTEXT6, wxID_LAPORAN_PENDUDUKSTATICTEXT7, 
+ wxID_LAPORAN_PENDUDUKSTATICTEXT8, wxID_LAPORAN_PENDUDUKSTATICTEXT9, 
+ wxID_LAPORAN_PENDUDUKSTATUS, wxID_LAPORAN_PENDUDUKTINGGAL, 
+ wxID_LAPORAN_PENDUDUKWARGA, 
+] = [wx.NewId() for _init_ctrls in range(78)]
 
 class laporan_penduduk(wx.Frame):
+    
+    def _init_coll_isipenduduk_Columns(self, parent):
+        # generated method, don't edit
+
+        parent.InsertColumn(col=0, format=wx.LIST_FORMAT_LEFT,
+              heading='Nomor NIK', width=150)
+        parent.InsertColumn(col=1, format=wx.LIST_FORMAT_LEFT,
+              heading='Nama Lengkap', width=250)
+        parent.InsertColumn(col=2, format=wx.LIST_FORMAT_LEFT,
+              heading='Jenis Kelamin', width=100)
+        parent.InsertColumn(col=3, format=wx.LIST_FORMAT_LEFT, heading='Alamat',
+              width=260)
+
     def _init_ctrls(self, prnt):
         # generated method, don't edit
         wx.Frame.__init__(self, id=wxID_LAPORAN_PENDUDUK,
-              name=u'laporan_penduduk', parent=prnt, pos=wx.Point(386, 154),
+              name=u'laporan_penduduk', parent=prnt, pos=wx.Point(387, 154),
               size=wx.Size(928, 506), style=wx.FRAME_NO_TASKBAR,
               title=u'Sistem Laporan Penduduk')
         self.SetClientSize(wx.Size(928, 506))
         self.Center(wx.BOTH)
 
         self.staticText1 = wx.StaticText(id=wxID_LAPORAN_PENDUDUKSTATICTEXT1,
-              label=u'Jumlah Keluarga KK Sementara', name='staticText1',
-              parent=self, pos=wx.Point(16, 184), size=wx.Size(216, 15),
-              style=0)
+              label=u'Jumlah Kepala Keluarga', name='staticText1', parent=self,
+              pos=wx.Point(16, 184), size=wx.Size(216, 17), style=0)
 
         self.staticText2 = wx.StaticText(id=wxID_LAPORAN_PENDUDUKSTATICTEXT2,
-              label=u'Jumlah Keluarga KK Tetap', name='staticText2',
-              parent=self, pos=wx.Point(16, 224), size=wx.Size(200, 15),
-              style=0)
+              label=u'Jumlah KK Lak-laki', name='staticText2', parent=self,
+              pos=wx.Point(16, 216), size=wx.Size(200, 17), style=0)
 
         self.staticText3 = wx.StaticText(id=wxID_LAPORAN_PENDUDUKSTATICTEXT3,
               label=u'Jumlah Penduduk Laki - Laki', name='staticText3',
-              parent=self, pos=wx.Point(16, 256), size=wx.Size(224, 15),
+              parent=self, pos=wx.Point(16, 280), size=wx.Size(224, 15),
               style=0)
 
         self.staticText4 = wx.StaticText(id=wxID_LAPORAN_PENDUDUKSTATICTEXT4,
               label=u'Jumlah Penduduk Perempuan', name='staticText4',
-              parent=self, pos=wx.Point(16, 288), size=wx.Size(224, 15),
+              parent=self, pos=wx.Point(16, 312), size=wx.Size(224, 15),
               style=0)
 
-        self.textCtrl1 = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKTEXTCTRL1,
-              name='textCtrl1', parent=self, pos=wx.Point(248, 184),
+        self.jmlkk = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKJMLKK, name=u'jmlkk',
+              parent=self, pos=wx.Point(248, 184), size=wx.Size(50, 25),
+              style=0, value='')
+
+        self.kklaki = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKKKLAKI,
+              name=u'kklaki', parent=self, pos=wx.Point(248, 216),
               size=wx.Size(50, 25), style=0, value='')
 
-        self.textCtrl2 = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKTEXTCTRL2,
-              name='textCtrl2', parent=self, pos=wx.Point(248, 216),
+        self.kkperempuan = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKKKPEREMPUAN,
+              name=u'kkperempuan', parent=self, pos=wx.Point(248, 248),
               size=wx.Size(50, 25), style=0, value='')
 
-        self.textCtrl3 = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKTEXTCTRL3,
-              name='textCtrl3', parent=self, pos=wx.Point(248, 248),
+        self.penduduklaki = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKPENDUDUKLAKI,
+              name=u'penduduklaki', parent=self, pos=wx.Point(248, 280),
               size=wx.Size(50, 25), style=0, value='')
 
-        self.textCtrl4 = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKTEXTCTRL4,
-              name='textCtrl4', parent=self, pos=wx.Point(248, 280),
-              size=wx.Size(50, 25), style=0, value='')
+        self.kklk = wx.Button(id=wxID_LAPORAN_PENDUDUKKKLK, label=u'Lihat Data',
+              name=u'kklk', parent=self, pos=wx.Point(336, 216),
+              size=wx.Size(96, 24), style=0)
+        self.kklk.Bind(wx.EVT_BUTTON, self.OnKklkButton,
+              id=wxID_LAPORAN_PENDUDUKKKLK)
 
-        self.button1 = wx.Button(id=wxID_LAPORAN_PENDUDUKBUTTON1,
-              label=u'Lihat Data', name='button1', parent=self,
-              pos=wx.Point(336, 216), size=wx.Size(96, 24), style=0)
-        self.button1.Bind(wx.EVT_BUTTON, self.OnButton1Button,
-              id=wxID_LAPORAN_PENDUDUKBUTTON1)
+        self.kkpr = wx.Button(id=wxID_LAPORAN_PENDUDUKKKPR, label=u'Lihat Data',
+              name=u'kkpr', parent=self, pos=wx.Point(336, 248),
+              size=wx.Size(96, 24), style=0)
+        self.kkpr.Bind(wx.EVT_BUTTON, self.OnKkprButton,
+              id=wxID_LAPORAN_PENDUDUKKKPR)
 
-        self.button2 = wx.Button(id=wxID_LAPORAN_PENDUDUKBUTTON2,
-              label=u'Lihat Data', name='button2', parent=self,
-              pos=wx.Point(336, 248), size=wx.Size(96, 24), style=0)
-        self.button2.Bind(wx.EVT_BUTTON, self.OnButton2Button,
-              id=wxID_LAPORAN_PENDUDUKBUTTON2)
-
-        self.button3 = wx.Button(id=wxID_LAPORAN_PENDUDUKBUTTON3,
-              label=u'Lihat Data', name='button3', parent=self,
+        self.difabel = wx.Button(id=wxID_LAPORAN_PENDUDUKDIFABEL,
+              label=u'Lihat Data', name=u'difabel', parent=self,
               pos=wx.Point(816, 312), size=wx.Size(96, 24), style=0)
-        self.button3.Bind(wx.EVT_BUTTON, self.OnButton3Button,
-              id=wxID_LAPORAN_PENDUDUKBUTTON3)
+        self.difabel.Bind(wx.EVT_BUTTON, self.OnDifabelButton,
+              id=wxID_LAPORAN_PENDUDUKDIFABEL)
 
-        self.button4 = wx.Button(id=wxID_LAPORAN_PENDUDUKBUTTON4,
-              label=u'Lihat Data', name='button4', parent=self,
+        self.pendakhir = wx.Button(id=wxID_LAPORAN_PENDUDUKPENDAKHIR,
+              label=u'Lihat Data', name=u'pendakhir', parent=self,
               pos=wx.Point(816, 184), size=wx.Size(96, 24), style=0)
-        self.button4.Bind(wx.EVT_BUTTON, self.OnButton4Button,
-              id=wxID_LAPORAN_PENDUDUKBUTTON4)
+        self.pendakhir.Bind(wx.EVT_BUTTON, self.OnPendakhirButton,
+              id=wxID_LAPORAN_PENDUDUKPENDAKHIR)
 
         self.staticText7 = wx.StaticText(id=wxID_LAPORAN_PENDUDUKSTATICTEXT7,
               label=u'Jumlah Pendidikan Akhir', name='staticText7', parent=self,
               pos=wx.Point(448, 192), size=wx.Size(176, 15), style=0)
 
-        self.comboBox1 = wx.ComboBox(choices=[],
-              id=wxID_LAPORAN_PENDUDUKCOMBOBOX1, name='comboBox1', parent=self,
+        self.cbpddk = wx.ComboBox(choices=['Tidak/Belum Sekolah',
+              'Tidak Tamat SD/Sederajat', 'Tamat SD/Sederajat',
+              'SLTP/Sederajat', 'SLTA/Sederajat', 'Diploma I/II',
+              'Akademi/Diploma III/S. Muda', 'Diploma IV/Strata I',
+              'Tamat Strata II', 'Tamat Strata III', 'Pendidikan Non Formal'],
+              id=wxID_LAPORAN_PENDUDUKCBPDDK, name=u'cbpddk', parent=self,
               pos=wx.Point(624, 184), size=wx.Size(96, 25), style=0, value='')
 
-        self.textCtrl5 = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKTEXTCTRL5,
-              name='textCtrl5', parent=self, pos=wx.Point(728, 184),
+        self.jmlpendidikanakhir = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKJMLPENDIDIKANAKHIR,
+              name=u'jmlpendidikanakhir', parent=self, pos=wx.Point(728, 184),
               size=wx.Size(50, 25), style=0, value='')
 
         self.staticText8 = wx.StaticText(id=wxID_LAPORAN_PENDUDUKSTATICTEXT8,
@@ -134,153 +154,186 @@ class laporan_penduduk(wx.Frame):
               parent=self, pos=wx.Point(448, 224), size=wx.Size(200, 15),
               style=0)
 
-        self.comboBox2 = wx.ComboBox(choices=[],
-              id=wxID_LAPORAN_PENDUDUKCOMBOBOX2, name='comboBox2', parent=self,
+        self.cbsaat = wx.ComboBox(choices=['PAUD Sederajat', 'TK Sederajat',
+              'SD Sederajat', 'SLTP Sederajat', 'SLTA Sederajat',
+              'D1 Sederajat', 'D2 Sederajat', 'D3 Sederajat' , 'S1 Sederajat' ,
+              'S2 Sederajat' , 'S3 Sederajat' , 'Pendidikan Non Formal'],
+              id=wxID_LAPORAN_PENDUDUKCBSAAT, name=u'cbsaat', parent=self,
               pos=wx.Point(624, 216), size=wx.Size(96, 25), style=0, value='')
 
-        self.textCtrl6 = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKTEXTCTRL6,
-              name='textCtrl6', parent=self, pos=wx.Point(728, 216),
+        self.jmlpendidikansaatini = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKJMLPENDIDIKANSAATINI,
+              name=u'jmlpendidikansaatini', parent=self, pos=wx.Point(728, 216),
               size=wx.Size(50, 25), style=0, value='')
 
         self.staticText9 = wx.StaticText(id=wxID_LAPORAN_PENDUDUKSTATICTEXT9,
               label=u'Status Perkawinan', name='staticText9', parent=self,
-              pos=wx.Point(448, 288), size=wx.Size(152, 15), style=0)
+              pos=wx.Point(448, 288), size=wx.Size(152, 17), style=0)
 
-        self.comboBox3 = wx.ComboBox(choices=[],
-              id=wxID_LAPORAN_PENDUDUKCOMBOBOX3, name='comboBox3', parent=self,
-              pos=wx.Point(624, 248), size=wx.Size(96, 25), style=0, value='')
+        self.cbpek = wx.ComboBox(choices=['Belum/Tidak Bekerja',
+              'Mengurus Rumah Tangga', 'Pelajar/Mahasiswa', 'Pensiunan',
+              'Pegawai Negeri Sipil', 'Tentara Nasional Indonesia',
+              'Kepolisian RI', 'Perdagangan', 'Petani/Pekebun', 'Peternak',
+              'Nelayan/Perikanan', 'Industri', 'Konstruksi', 'Transportasi',
+              'Karyawan Swasta', 'Karyawan BUMN', 'Karyawan BUMD',
+              'Karyawan Honorer', 'Buruh Harian Lepas', 'Buruh Tani/Perkebunan',
+              'Buruh Nelayan/Perikanan', 'Buruh Peternakan',
+              'Pembantu Rumah Tangga', 'Tukang Cukur', 'Tukang Listrik',
+              'Tukang Batu', 'Tukang Kayu', 'Tukang Sol Sepatu',
+              'Tukang Las/Pandai Besi', 'Tukang Jahit', 'Penata Rambut',
+              'Penata Rias', 'Penata Busana', 'Mekanik', 'Tukang Gigi',
+              'Seniman', 'Tabib', 'Paraji', 'Perancang Busana', 'Penterjemah',
+              'Imam Masjid', 'Pendeta', 'Pastur', 'Wartawan', 'Ustadz/Mubaligh',
+              'Juru Masak', 'Promotor Acara', 'Anggota DPR-RI', 'Anggota DPD',
+              'Anggota BPK', 'Presiden', 'Wakil Presiden',
+              'Anggota Mahkamah Konstitusi', 'Anggota Kabinet/Kementerian',
+              'Duta Besar', 'Gubernur', 'Wakil Gubernur', 'Bupati',
+              'Wakil Bupati', 'Walikota', 'Wakil Walikota',
+              'Anggota DPRD Propinsi', 'Anggota DPRD Kabupaten/Kota', 'Dosen',
+              'Guru', 'Pilot', 'Pengacara', 'Notaris', 'Arsitek', 'Akuntan',
+              'Konsultan', 'Dokter', 'Bidan', 'Perawat', 'Apoteker',
+              'Psikiater/Psikolog', 'Penyiar Televisi', 'Penyiar Radio',
+              'Pelaut', 'Peneliti', 'Sopir', 'Pialang', 'Paranormal',
+              'Pedagang', 'Perangkat Desa', 'Kepala Desa', 'Biarawati',
+              'Wiraswasta', 'Buruh Migran'], id=wxID_LAPORAN_PENDUDUKCBPEK,
+              name=u'cbpek', parent=self, pos=wx.Point(624, 248),
+              size=wx.Size(96, 25), style=0, value='')
 
-        self.button5 = wx.Button(id=wxID_LAPORAN_PENDUDUKBUTTON5,
-              label=u'Lihat Data', name='button5', parent=self,
+        self.pendsaat = wx.Button(id=wxID_LAPORAN_PENDUDUKPENDSAAT,
+              label=u'Lihat Data', name=u'pendsaat', parent=self,
               pos=wx.Point(816, 216), size=wx.Size(96, 24), style=0)
-        self.button5.Bind(wx.EVT_BUTTON, self.OnButton5Button,
-              id=wxID_LAPORAN_PENDUDUKBUTTON5)
+        self.pendsaat.Bind(wx.EVT_BUTTON, self.OnPendsaatButton,
+              id=wxID_LAPORAN_PENDUDUKPENDSAAT)
 
-        self.button6 = wx.Button(id=wxID_LAPORAN_PENDUDUKBUTTON6,
-              label=u'Lihat Data', name='button6', parent=self,
-              pos=wx.Point(336, 184), size=wx.Size(96, 24), style=0)
-        self.button6.Bind(wx.EVT_BUTTON, self.OnButton6Button,
-              id=wxID_LAPORAN_PENDUDUKBUTTON6)
+        self.kk = wx.Button(id=wxID_LAPORAN_PENDUDUKKK, label=u'Lihat Data',
+              name=u'kk', parent=self, pos=wx.Point(336, 184), size=wx.Size(96,
+              24), style=0)
+        self.kk.Bind(wx.EVT_BUTTON, self.OnKkButton, id=wxID_LAPORAN_PENDUDUKKK)
 
         self.staticText10 = wx.StaticText(id=wxID_LAPORAN_PENDUDUKSTATICTEXT10,
               label=u'Difabelitas', name='staticText10', parent=self,
               pos=wx.Point(448, 320), size=wx.Size(120, 15), style=0)
 
-        self.comboBox4 = wx.ComboBox(choices=[],
-              id=wxID_LAPORAN_PENDUDUKCOMBOBOX4, name='comboBox4', parent=self,
-              pos=wx.Point(624, 280), size=wx.Size(96, 25), style=0, value='')
+        self.cbstat = wx.ComboBox(choices=['Belum Kawin', 'Kawin', 'Cerai Mati',
+              'Cerai Hidup'], id=wxID_LAPORAN_PENDUDUKCBSTAT, name=u'cbstat',
+              parent=self, pos=wx.Point(624, 280), size=wx.Size(96, 25),
+              style=0, value='')
 
         self.staticText11 = wx.StaticText(id=wxID_LAPORAN_PENDUDUKSTATICTEXT11,
               label=u'Status Tinggal', name='staticText11', parent=self,
               pos=wx.Point(448, 352), size=wx.Size(152, 15), style=0)
 
-        self.comboBox5 = wx.ComboBox(choices=[],
-              id=wxID_LAPORAN_PENDUDUKCOMBOBOX5, name='comboBox5', parent=self,
+        self.cbdif = wx.ComboBox(choices=['Tidak cacat', 'Cacat Fisik',
+              'Cacat Netra/Buta', 'Cacat Rungu/Wicara', 'Cacat Mental/Jiwa',
+              'Cacat Fisik/Mental', 'Cacat Lainnya'],
+              id=wxID_LAPORAN_PENDUDUKCBDIF, name=u'cbdif', parent=self,
               pos=wx.Point(624, 312), size=wx.Size(96, 25), style=0, value='')
 
         self.staticText12 = wx.StaticText(id=wxID_LAPORAN_PENDUDUKSTATICTEXT12,
               label=u'Pekerjaan', name='staticText12', parent=self,
               pos=wx.Point(448, 256), size=wx.Size(120, 15), style=0)
 
-        self.textCtrl7 = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKTEXTCTRL7,
-              name='textCtrl7', parent=self, pos=wx.Point(248, 312),
+        self.pendudukperempuan = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKPENDUDUKPEREMPUAN,
+              name=u'pendudukperempuan', parent=self, pos=wx.Point(248, 312),
               size=wx.Size(50, 25), style=0, value='')
 
-        self.textCtrl8 = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKTEXTCTRL8,
-              name='textCtrl8', parent=self, pos=wx.Point(248, 344),
+        self.isiagama = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKISIAGAMA,
+              name=u'isiagama', parent=self, pos=wx.Point(248, 344),
               size=wx.Size(50, 25), style=0, value='')
 
         self.staticText13 = wx.StaticText(id=wxID_LAPORAN_PENDUDUKSTATICTEXT13,
               label=u'Status Penduduk', name='staticText13', parent=self,
               pos=wx.Point(448, 384), size=wx.Size(144, 15), style=0)
 
-        self.comboBox6 = wx.ComboBox(choices=[],
-              id=wxID_LAPORAN_PENDUDUKCOMBOBOX6, name='comboBox6', parent=self,
+        self.cbtinggal = wx.ComboBox(choices=['Tinggal Tetap',
+              'Tinggal Di Luar Desa*', 'Tinggal Di Luar Kota/Kabupaten',
+              'Tinggal Di Luar Propinsi', 'Tinggal Di Luar Negeri'],
+              id=wxID_LAPORAN_PENDUDUKCBTINGGAL, name=u'cbtinggal', parent=self,
               pos=wx.Point(624, 344), size=wx.Size(96, 25), style=0, value='')
 
-        self.comboBox7 = wx.ComboBox(choices=[],
-              id=wxID_LAPORAN_PENDUDUKCOMBOBOX7, name='comboBox7', parent=self,
-              pos=wx.Point(624, 376), size=wx.Size(96, 25), style=0, value='')
+        self.cbpenduduk = wx.ComboBox(choices=['Penduduk Tetap',
+              'Penduduk Sementara', 'Penduduk Pindah/Pindahan', 'Meninggal'],
+              id=wxID_LAPORAN_PENDUDUKCBPENDUDUK, name=u'cbpenduduk',
+              parent=self, pos=wx.Point(624, 376), size=wx.Size(96, 25),
+              style=0, value='')
 
         self.staticText14 = wx.StaticText(id=wxID_LAPORAN_PENDUDUKSTATICTEXT14,
               label=u'Resiko Kehamilan', name='staticText14', parent=self,
               pos=wx.Point(448, 416), size=wx.Size(160, 15), style=0)
 
-        self.comboBox8 = wx.ComboBox(choices=[],
-              id=wxID_LAPORAN_PENDUDUKCOMBOBOX8, name='comboBox8', parent=self,
-              pos=wx.Point(624, 408), size=wx.Size(96, 25), style=0, value='')
+        self.cbhamil = wx.ComboBox(choices=['Resiko Tinggi',
+              'Tidak Resiko Tinggi'], id=wxID_LAPORAN_PENDUDUKCBHAMIL,
+              name=u'cbhamil', parent=self, pos=wx.Point(624, 408),
+              size=wx.Size(96, 25), style=0, value='')
 
-        self.textCtrl9 = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKTEXTCTRL9,
-              name='textCtrl9', parent=self, pos=wx.Point(728, 248),
+        self.isipekerjaan = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKISIPEKERJAAN,
+              name=u'isipekerjaan', parent=self, pos=wx.Point(728, 248),
               size=wx.Size(50, 25), style=0, value='')
 
-        self.textCtrl10 = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKTEXTCTRL10,
-              name='textCtrl10', parent=self, pos=wx.Point(728, 280),
+        self.isistatus = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKISISTATUS,
+              name=u'isistatus', parent=self, pos=wx.Point(728, 280),
               size=wx.Size(50, 25), style=0, value='')
 
-        self.textCtrl11 = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKTEXTCTRL11,
-              name='textCtrl11', parent=self, pos=wx.Point(728, 312),
+        self.isistatustinggal = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKISISTATUSTINGGAL,
+              name=u'isistatustinggal', parent=self, pos=wx.Point(728, 344),
               size=wx.Size(50, 25), style=0, value='')
 
-        self.textCtrl12 = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKTEXTCTRL12,
-              name='textCtrl12', parent=self, pos=wx.Point(728, 344),
+        self.isidifabel = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKISIDIFABEL,
+              name=u'isidifabel', parent=self, pos=wx.Point(728, 312),
               size=wx.Size(50, 25), style=0, value='')
 
-        self.textCtrl13 = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKTEXTCTRL13,
-              name='textCtrl13', parent=self, pos=wx.Point(728, 376),
+        self.isistatuspenduduk = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKISISTATUSPENDUDUK,
+              name=u'isistatuspenduduk', parent=self, pos=wx.Point(728, 376),
               size=wx.Size(50, 25), style=0, value='')
 
-        self.textCtrl14 = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKTEXTCTRL14,
-              name='textCtrl14', parent=self, pos=wx.Point(728, 408),
+        self.isiresiko = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKISIRESIKO,
+              name=u'isiresiko', parent=self, pos=wx.Point(728, 408),
               size=wx.Size(50, 25), style=0, value='')
 
-        self.button7 = wx.Button(id=wxID_LAPORAN_PENDUDUKBUTTON7,
-              label=u'Lihat Data', name='button7', parent=self,
-              pos=wx.Point(336, 344), size=wx.Size(96, 24), style=0)
-        self.button7.Bind(wx.EVT_BUTTON, self.OnButton7Button,
-              id=wxID_LAPORAN_PENDUDUKBUTTON7)
+        self.warga = wx.Button(id=wxID_LAPORAN_PENDUDUKWARGA,
+              label=u'Lihat Data', name=u'warga', parent=self, pos=wx.Point(336,
+              376), size=wx.Size(96, 24), style=0)
+        self.warga.Bind(wx.EVT_BUTTON, self.OnWargaButton,
+              id=wxID_LAPORAN_PENDUDUKWARGA)
 
-        self.button8 = wx.Button(id=wxID_LAPORAN_PENDUDUKBUTTON8,
-              label=u'Lihat Data', name='button8', parent=self,
+        self.pekerjaan = wx.Button(id=wxID_LAPORAN_PENDUDUKPEKERJAAN,
+              label=u'Lihat Data', name=u'pekerjaan', parent=self,
               pos=wx.Point(816, 248), size=wx.Size(96, 24), style=0)
-        self.button8.Bind(wx.EVT_BUTTON, self.OnButton8Button,
-              id=wxID_LAPORAN_PENDUDUKBUTTON8)
+        self.pekerjaan.Bind(wx.EVT_BUTTON, self.OnPekerjaanButton,
+              id=wxID_LAPORAN_PENDUDUKPEKERJAAN)
 
-        self.button9 = wx.Button(id=wxID_LAPORAN_PENDUDUKBUTTON9,
-              label=u'Lihat Data', name='button9', parent=self,
+        self.status = wx.Button(id=wxID_LAPORAN_PENDUDUKSTATUS,
+              label=u'Lihat Data', name=u'status', parent=self,
               pos=wx.Point(816, 280), size=wx.Size(96, 24), style=0)
-        self.button9.Bind(wx.EVT_BUTTON, self.OnButton9Button,
-              id=wxID_LAPORAN_PENDUDUKBUTTON9)
+        self.status.Bind(wx.EVT_BUTTON, self.OnStatusButton,
+              id=wxID_LAPORAN_PENDUDUKSTATUS)
 
-        self.button10 = wx.Button(id=wxID_LAPORAN_PENDUDUKBUTTON10,
-              label=u'Lihat Data', name='button10', parent=self,
-              pos=wx.Point(336, 312), size=wx.Size(96, 24), style=0)
-        self.button10.Bind(wx.EVT_BUTTON, self.OnButton10Button,
-              id=wxID_LAPORAN_PENDUDUKBUTTON10)
+        self.pr = wx.Button(id=wxID_LAPORAN_PENDUDUKPR, label=u'Lihat Data',
+              name=u'pr', parent=self, pos=wx.Point(336, 312), size=wx.Size(96,
+              24), style=0)
+        self.pr.Bind(wx.EVT_BUTTON, self.OnPrButton, id=wxID_LAPORAN_PENDUDUKPR)
 
-        self.button11 = wx.Button(id=wxID_LAPORAN_PENDUDUKBUTTON11,
-              label=u'Lihat Data', name='button11', parent=self,
+        self.tinggal = wx.Button(id=wxID_LAPORAN_PENDUDUKTINGGAL,
+              label=u'Lihat Data', name=u'tinggal', parent=self,
               pos=wx.Point(816, 344), size=wx.Size(96, 24), style=0)
-        self.button11.Bind(wx.EVT_BUTTON, self.OnButton11Button,
-              id=wxID_LAPORAN_PENDUDUKBUTTON11)
+        self.tinggal.Bind(wx.EVT_BUTTON, self.OnTinggalButton,
+              id=wxID_LAPORAN_PENDUDUKTINGGAL)
 
-        self.button12 = wx.Button(id=wxID_LAPORAN_PENDUDUKBUTTON12,
-              label=u'Lihat Data', name='button12', parent=self,
+        self.penduduk = wx.Button(id=wxID_LAPORAN_PENDUDUKPENDUDUK,
+              label=u'Lihat Data', name=u'penduduk', parent=self,
               pos=wx.Point(816, 376), size=wx.Size(96, 24), style=0)
-        self.button12.Bind(wx.EVT_BUTTON, self.OnButton12Button,
-              id=wxID_LAPORAN_PENDUDUKBUTTON12)
+        self.penduduk.Bind(wx.EVT_BUTTON, self.OnPendudukButton,
+              id=wxID_LAPORAN_PENDUDUKPENDUDUK)
 
-        self.button13 = wx.Button(id=wxID_LAPORAN_PENDUDUKBUTTON13,
-              label=u'Lihat Data', name='button13', parent=self,
-              pos=wx.Point(816, 408), size=wx.Size(96, 24), style=0)
-        self.button13.Bind(wx.EVT_BUTTON, self.OnButton13Button,
-              id=wxID_LAPORAN_PENDUDUKBUTTON13)
+        self.hamil = wx.Button(id=wxID_LAPORAN_PENDUDUKHAMIL,
+              label=u'Lihat Data', name=u'hamil', parent=self, pos=wx.Point(816,
+              408), size=wx.Size(96, 24), style=0)
+        self.hamil.Bind(wx.EVT_BUTTON, self.OnHamilButton,
+              id=wxID_LAPORAN_PENDUDUKHAMIL)
 
-        self.button14 = wx.Button(id=wxID_LAPORAN_PENDUDUKBUTTON14,
-              label=u'Lihat Data', name='button14', parent=self,
-              pos=wx.Point(336, 280), size=wx.Size(96, 24), style=0)
-        self.button14.Bind(wx.EVT_BUTTON, self.OnButton14Button,
-              id=wxID_LAPORAN_PENDUDUKBUTTON14)
+        self.lk = wx.Button(id=wxID_LAPORAN_PENDUDUKLK, label=u'Lihat Data',
+              name=u'lk', parent=self, pos=wx.Point(336, 280), size=wx.Size(96,
+              24), style=0)
+        self.lk.Bind(wx.EVT_BUTTON, self.OnLkButton, id=wxID_LAPORAN_PENDUDUKLK)
 
         self.button15 = wx.Button(id=wxID_LAPORAN_PENDUDUKBUTTON15,
               label=u'Kembali Ke Menu', name='button15', parent=self,
@@ -290,32 +343,26 @@ class laporan_penduduk(wx.Frame):
 
         self.staticText5 = wx.StaticText(id=wxID_LAPORAN_PENDUDUKSTATICTEXT5,
               label=u'Agama', name='staticText5', parent=self, pos=wx.Point(16,
-              320), size=wx.Size(42, 17), style=0)
-
-        self.comboBox9 = wx.ComboBox(choices=['Islam', 'Kristen Protestan',
-              'Kristen Katolik', 'Hindu', 'Budha', 'Konghuchu',
-              'Aliran Kepercayaan', 'Agama Lainnya'],
-              id=wxID_LAPORAN_PENDUDUKCOMBOBOX9, name='comboBox9', parent=self,
-              pos=wx.Point(144, 312), size=wx.Size(96, 24), style=0, value=u'')
-        self.comboBox9.SetLabel(u'')
-        self.comboBox9.Bind(wx.EVT_COMBOBOX, self.OnComboBox9Combobox,
-              id=wxID_LAPORAN_PENDUDUKCOMBOBOX9)
+              344), size=wx.Size(42, 17), style=0)
 
         self.staticText6 = wx.StaticText(id=wxID_LAPORAN_PENDUDUKSTATICTEXT6,
               label=u'Kewarganegaraan', name='staticText6', parent=self,
-              pos=wx.Point(16, 344), size=wx.Size(108, 17), style=0)
+              pos=wx.Point(16, 376), size=wx.Size(108, 17), style=0)
 
-        self.comboBox10 = wx.ComboBox(choices=[],
-              id=wxID_LAPORAN_PENDUDUKCOMBOBOX10, name='comboBox10',
-              parent=self, pos=wx.Point(144, 344), size=wx.Size(96, 24),
-              style=0, value=u'')
-        self.comboBox10.SetLabel(u'')
-        self.comboBox10.Bind(wx.EVT_COMBOBOX, self.OnComboBox9Combobox,
-              id=wxID_LAPORAN_PENDUDUKCOMBOBOX10)
+        self.cbagama = wx.ComboBox(choices=['Islam', 'Kristen Protestan',
+              'Kristen Katolik', 'Hindu', 'Budha', 'Konghuchu',
+              'Aliran Kepercayaan', 'Agama Lainnya'],
+              id=wxID_LAPORAN_PENDUDUKCBAGAMA, name=u'cbagama', parent=self,
+              pos=wx.Point(144, 344), size=wx.Size(96, 24), style=0, value=u'')
+        self.cbagama.SetLabel(u'')
 
-        self.listCtrl1 = wx.ListCtrl(id=wxID_LAPORAN_PENDUDUKLISTCTRL1,
-              name='listCtrl1', parent=self, pos=wx.Point(16, 8),
-              size=wx.Size(888, 168), style=wx.LC_ICON)
+        self.isipenduduk = wx.ListCtrl(id=wxID_LAPORAN_PENDUDUKISIPENDUDUK,
+              name='isipenduduk', parent=self, pos=wx.Point(16, 8),
+              size=wx.Size(888, 168), style=wx.LC_REPORT)
+        self._init_coll_isipenduduk_Columns(self.isipenduduk)
+        self.isipenduduk.Bind(wx.EVT_LIST_ITEM_SELECTED,
+              self.OnIsipendudukListItemSelected,
+              id=wxID_LAPORAN_PENDUDUKISIPENDUDUK)
 
         self.staticText15 = wx.StaticText(id=wxID_LAPORAN_PENDUDUKSTATICTEXT15,
               label=u'KK', name='staticText15', parent=self, pos=wx.Point(304,
@@ -335,7 +382,7 @@ class laporan_penduduk(wx.Frame):
 
         self.staticText19 = wx.StaticText(id=wxID_LAPORAN_PENDUDUKSTATICTEXT19,
               label=u'Jiwa', name='staticText19', parent=self, pos=wx.Point(304,
-              352), size=wx.Size(25, 17), style=0)
+              384), size=wx.Size(25, 17), style=0)
 
         self.staticText20 = wx.StaticText(id=wxID_LAPORAN_PENDUDUKSTATICTEXT20,
               label=u'Jiwa', name='staticText20', parent=self, pos=wx.Point(784,
@@ -358,7 +405,7 @@ class laporan_penduduk(wx.Frame):
               352), size=wx.Size(25, 17), style=0)
 
         self.staticText25 = wx.StaticText(id=wxID_LAPORAN_PENDUDUKSTATICTEXT25,
-              label=u'Jiwa', name='staticText25', parent=self, pos=wx.Point(304,
+              label=u'KK', name='staticText25', parent=self, pos=wx.Point(304,
               256), size=wx.Size(25, 17), style=0)
 
         self.staticText26 = wx.StaticText(id=wxID_LAPORAN_PENDUDUKSTATICTEXT26,
@@ -373,6 +420,54 @@ class laporan_penduduk(wx.Frame):
               label=u'Jiwa', name='staticText28', parent=self, pos=wx.Point(784,
               320), size=wx.Size(25, 17), style=0)
 
+        self.dok = wx.Button(id=wxID_LAPORAN_PENDUDUKDOK, label=u'Lihat Data',
+              name=u'dok', parent=self, pos=wx.Point(336, 408), size=wx.Size(96,
+              24), style=0)
+        self.dok.Bind(wx.EVT_BUTTON, self.OnDokButton,
+              id=wxID_LAPORAN_PENDUDUKDOK)
+
+        self.agama = wx.Button(id=wxID_LAPORAN_PENDUDUKAGAMA,
+              label=u'Lihat Data', name=u'agama', parent=self, pos=wx.Point(336,
+              344), size=wx.Size(96, 24), style=0)
+        self.agama.Bind(wx.EVT_BUTTON, self.OnAgamaButton,
+              id=wxID_LAPORAN_PENDUDUKAGAMA)
+
+        self.isiwarganegara = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKISIWARGANEGARA,
+              name=u'isiwarganegara', parent=self, pos=wx.Point(248, 376),
+              size=wx.Size(50, 25), style=0, value='')
+
+        self.isidokumen = wx.TextCtrl(id=wxID_LAPORAN_PENDUDUKISIDOKUMEN,
+              name=u'isidokumen', parent=self, pos=wx.Point(248, 408),
+              size=wx.Size(50, 25), style=0, value='')
+
+        self.staticText29 = wx.StaticText(id=wxID_LAPORAN_PENDUDUKSTATICTEXT29,
+              label=u'Jiwa', name='staticText29', parent=self, pos=wx.Point(304,
+              416), size=wx.Size(25, 17), style=0)
+
+        self.staticText30 = wx.StaticText(id=wxID_LAPORAN_PENDUDUKSTATICTEXT30,
+              label=u'Jiwa', name='staticText30', parent=self, pos=wx.Point(304,
+              352), size=wx.Size(25, 17), style=0)
+
+        self.cbwarga = wx.ComboBox(choices=['WNI', 'WNA'],
+              id=wxID_LAPORAN_PENDUDUKCBWARGA, name=u'cbwarga', parent=self,
+              pos=wx.Point(144, 376), size=wx.Size(96, 24), style=0, value=u'')
+        self.cbwarga.SetLabel(u'')
+
+        self.cbdok = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
+              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
+              'Paspor'], id=wxID_LAPORAN_PENDUDUKCBDOK, name=u'cbdok',
+              parent=self, pos=wx.Point(144, 408), size=wx.Size(96, 24),
+              style=0, value=u'')
+        self.cbdok.SetLabel(u'')
+
+        self.staticText31 = wx.StaticText(id=wxID_LAPORAN_PENDUDUKSTATICTEXT31,
+              label=u'Jumlah KK Perempuan', name='staticText31', parent=self,
+              pos=wx.Point(16, 248), size=wx.Size(131, 17), style=0)
+
+        self.staticText32 = wx.StaticText(id=wxID_LAPORAN_PENDUDUKSTATICTEXT32,
+              label=u'Dokumen', name='staticText32', parent=self,
+              pos=wx.Point(16, 408), size=wx.Size(58, 17), style=0)
+
     def __init__(self, parent):
         self._init_ctrls(parent)
 
@@ -380,61 +475,930 @@ class laporan_penduduk(wx.Frame):
         
         self.Close()
 
-    def OnButton1Button(self, event):
-        sql = "SELECT COUNT(*) FROM penduduk WHERE jenis_kelamin='Laki-laki'"
+    
+    def lihatmiskin(self):
+        self.isipenduduk.DeleteAllItems()    
+        sql = "SELECT * FROM penduduk WHERE kemiskinan='Miskin' AND kematian='Tidak'"
+        cur.execute(sql) 
+        hasil = cur.fetchall() 
+        nokk = self.isipenduduk.GetItemCount() 
+        for i in hasil : 
+            self.isipenduduk.InsertStringItem(nokk, "%s"%i[1]) 
+            self.isipenduduk.SetStringItem(nokk,1,"%s"%i[2]) 
+            self.isipenduduk.SetStringItem(nokk,2,"%s"%i[21])
+            self.isipenduduk.SetStringItem(nokk,3,"%s"%i[30])
+            
+            nokk = nokk + 1    
+
+    def OnIsipendudukListItemSelected(self, event):
+        
+        event.Skip()  
+
+    def OnKklkButton(self, event):
+        sql = "SELECT COUNT(*) FROM penduduk WHERE jk='L' AND shdk='Kepala Keluarga' AND kematian='Tidak'"
         cur.execute(sql) 
         hasil = cur.fetchone()[0] 
-        self.textCtrl2.SetValue(str(hasil))
+        self.kklaki.SetValue(str(hasil))
+        event.Skip()
+
+    def OnKkprButton(self, event):
+        sql = "SELECT COUNT(*) FROM penduduk WHERE jk='P' AND shdk='Kepala Keluarga' AND kematian='Tidak'"
+        cur.execute(sql) 
+        hasil = cur.fetchone()[0] 
+        self.kkperempuan.SetValue(str(hasil))
+        event.Skip()
+
+    def OnDifabelButton(self, event):
+        event.Skip()
+
+    def OnPendakhirButton(self, event):
+        pdka = str(self.cbpddk.GetValue())
+        if pdka == 'Tidak/Belum Sekolah':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_akhir='Tidak/Belum Sekolah' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikanakhir.SetValue(str(hasil))
+            
+        elif pdka == 'Tidak Tamat SD/Sederajat':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_akhir='Tidak Tamat SD/Sederajat' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikanakhir.SetValue(str(hasil))
+            
+        elif pdka == 'Tamat SD/Sederajat':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_akhir='Tamat SD/Sederajat' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikanakhir.SetValue(str(hasil))
+            
+        elif pdka == 'SLTP/Sederajat':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_akhir='SLTP/Sederajat' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikanakhir.SetValue(str(hasil))
+            
+        elif pdka == 'SLTA/Sederajat':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_akhir='SLTA/Sederajat' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikanakhir.SetValue(str(hasil))
+            
+        elif pdka == 'Diploma I/II':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_akhir='Diploma I/II' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikanakhir.SetValue(str(hasil))
+            
+        elif pdka == 'Akademi/Diploma III/S. Muda':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_akhir='Akademi/Diploma III/S. Muda' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikanakhir.SetValue(str(hasil))
+            
+        elif pdka == 'Diploma IV/Strata I':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_akhir='Diploma IV/Strata I' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikanakhir.SetValue(str(hasil))
+            
+        elif pdka == 'Strata II':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_akhir='Strata II' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikanakhir.SetValue(str(hasil))
+            
+        elif pdka == 'Strata III':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_akhir='Strata III' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikanakhir.SetValue(str(hasil))
+            
+        elif pdka == 'Pendidikan Non Formal':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_akhir='Pendidikan Non Formal' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikanakhir.SetValue(str(hasil))
+
+        else :
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_akhir='' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikanakhir.SetValue(str(hasil))
+            
+        event.Skip()
+
+    def OnPendsaatButton(self, event):
+        pdks = str(self.cbsaat.GetValue())
+        if pdks == 'PAUD Sederajat':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_saat_ini='PAUD Sederajat' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikansaatini.SetValue(str(hasil)) 
+            
+        elif pdks == 'TK Sederajat':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_saat_ini='TK Sederajat' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikansaatini.SetValue(str(hasil))
+        elif pdks == 'SD Sederajat':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_saat_ini='SD Sederajat' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikansaatini.SetValue(str(hasil))
+        elif pdks == 'SLTP Sederajat':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_saat_ini='SLTP Sederajat' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikansaatini.SetValue(str(hasil))
+        elif pdks == 'SLTA Sederajat':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_saat_ini='SLTA Sederajat' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikansaatini.SetValue(str(hasil))
+        elif pdks == 'D1 Sederajat':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_saat_ini='D1 Sederajat' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikansaatini.SetValue(str(hasil))
+        elif pdks == 'D2 Sederajat':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_saat_ini='D2 Sederajat' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikansaatini.SetValue(str(hasil))
+        elif pdks == 'D3 Sederajat':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_saat_ini='D3 Sederajat' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikansaatini.SetValue(str(hasil))
+        elif pdks == 'S1 Sederajat':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_saat_ini='S1 Sederajat' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikansaatini.SetValue(str(hasil))
+        elif pdks == 'S2 Sederajat':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_saat_ini='S2 Sederajat' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikansaatini.SetValue(str(hasil))
+            
+        elif pdks == 'S3 Sederajat':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_saat_ini='S3 Sederajat' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikansaatini.SetValue(str(hasil))
+            
+        elif pdks == 'Pendidikan Non Formal':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_saat_ini='Pendidikan Non Formal' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikansaatini.SetValue(str(hasil))
+        else :
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pddk_saat_ini='' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.jmlpendidikansaatini.SetValue(str(hasil))    
+        
+        event.Skip()
+
+    def OnKkButton(self, event):
+        sql = "SELECT COUNT(*) FROM penduduk WHERE shdk='Kepala Keluarga' AND kematian='Tidak'"
+        cur.execute(sql) 
+        hasil = cur.fetchone()[0] 
+        self.jmlkk.SetValue(str(hasil))
+        event.Skip()
+       
+
+    def OnWargaButton(self, event):
+        wrg = str(self.cbwarga.GetValue())
+        if wrg == 'WNI':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE warganegara='WNI' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isiwarganegara.SetValue(str(hasil))
+        elif wrg == 'WNA':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE warganegara='WNA' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isiwarganegara.SetValue(str(hasil))
+        else :
+            sql = "SELECT COUNT(*) FROM penduduk WHERE warganegara='' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isiwarganegara.SetValue(str(hasil))        
+        event.Skip()
+
+    def OnPekerjaanButton(self, event):
+        pek = str(self.cbpek.GetValue())
+        if pek == 'Belum/Tidak Bekerja':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Belum/Tidak Bekerja' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Mengurus Rumah Tangga':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Mengurus Rumah Tangga' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Pelajar/Mahasiswa':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Pelajar/Mahasiswa' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Pensiunan':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Pensiunan' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Pegawai Negeri Sipil':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Pegawai Negeri Sipil' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Tentara Nasional Indonesia':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Tentara Nasional Indonesia' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Kepolisian RI':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Kepolisian RI' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Perdagangan':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Perdagangan' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Petani/Pekebun':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Petani/Pekebun' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Peternak':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Peternak' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Nelayan/Perikanan':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Nelayan/Perikanan' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Industri':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Industri' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Konstruksi':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Konstruksi' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Transportasi':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Transportasi' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Karyawan Swasta':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Karyawan Swasta' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Karyawan BUMN':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Karyawan BUMN' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Karyawan BUMD':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Karyawan BUMD' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Karyawan Honorer':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Karyawan Honorer' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Buruh Harian Lepas':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Buruh Harian Lepas' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Buruh Tani/Perkebunan':           
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Buruh Tani/Perkebunan' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Buruh Nelayan/Perikanan':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Buruh Nelayan/Perikanan' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Buruh Peternakan':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Buruh Peternakan' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Pembantu Rumah Tangga':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Pembantu Rumah Tangga' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+             
+        elif pek == 'Tukang Cukur':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Tukang Cukur' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Tukang Listrik':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Tukang Listrik' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Tukang Batu':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Tukang Batu' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Tukang Kayu':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Tukang Kayu' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Tukang Sol Sepatu':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Tukang Sol Sepatu' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Tukang Las/Pandai Besi':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Tukang Las/Pandai Besi' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Tukang Jahit':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Tukang Jahit' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Penata Rambut':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Penata Rambut' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Penata Rias':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Penata Rias' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+             
+        elif pek == 'Penata Busana':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Penata Busana' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+             
+        elif pek == 'Mekanik':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Mekanik' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Tukang Gigi':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Tukang Gigi' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+             
+        elif pek == 'Seniman':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Seniman' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+             
+        elif pek == 'Tabib':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Tabib' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Paraji':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Paraji' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Perancang Busana':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Perancang Busana' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Penterjemah':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Penterjemah' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Imam Masjid':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Imam Masjid' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Pendeta':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Pendeta' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Pastur':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Pastur' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Wartawan':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Wartawan' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Ustadz/Mubaligh':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Ustadz/Mubaligh' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Juru Masak':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Juru Masak' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+             
+        elif pek == 'Promotor Acara':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Promotor Acara' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Anggota DPR-RI':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Anggota DPR-RI' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+             
+        elif pek == 'Anggota DPD':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Anggota DPD' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+             
+        elif pek == 'Anggota BPK':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Anggota BPK' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+             
+        elif pek == 'Presiden':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Presiden' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Wakil Presiden':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Wakil Presiden' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Anggota Mahkamah Konstitusi':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Anggota Mahkamah Konstitusi' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Anggota Kabinet/Kementerian':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Anggota Kabinet/Kementerian' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Duta Besar':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Duta Besar' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Gubernur':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Gubernur' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Wakil Gubernur':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Wakil Gubernur' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Bupati':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Bupati' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Wakil Bupati':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Wakil Bupati' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Walikota':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Walikota' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Wakil Walikota':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Wakil Walikota' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+             
+        elif pek == 'Anggota DPRD Propinsi':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Anggota DPRD Propinsi' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Anggota DPRD Kabupaten/Kota':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Anggota DPRD Kabupaten/Kota' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Dosen':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Dosen' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Guru':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Guru' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Pilot':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Pilot' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Pengacara':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Pengacara' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+             
+        elif pek == 'Notaris':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Notaris' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+             
+        elif pek == 'Arsitek':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Arsitek' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+             
+        elif pek == 'Akuntan':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Akuntan' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+             
+        elif pek == 'Konsultan':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Konsultan' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Dokter':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Dokter' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Bidan':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Bidan' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Perawat':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Perawat' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Apoteker':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Apoteker' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+             
+        elif pek == 'Psikiater/Psikolog':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Psikiater/Psikolog' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Penyiar Televisi':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Penyiar Televisi' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Penyiar Radio':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Penyiar Radio' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Pelaut':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Pelaut' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+             
+        elif pek == 'Peneliti':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Peneliti' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Sopir':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Sopir' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Pialang':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Pialang' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+             
+        elif pek == 'Paranormal':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Paranormal' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+             
+        elif pek == 'Pedagang':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Pedagang' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+             
+        elif pek == 'Perangkat Desa':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Perangkat Desa' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Kepala Desa':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Kepala Desa' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Biarawati':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Biarawati' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Wiraswasta':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Wiraswasta' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+            
+        elif pek == 'Buruh Migran':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='Buruh Migran' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+        else :
+            sql = "SELECT COUNT(*) FROM penduduk WHERE pekerjaan='' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isipekerjaan.SetValue(str(hasil))
+        event.Skip()
+
+    def OnStatusButton(self, event):
+        sta = str(self.cbstat.GetValue())
+        if sta == 'Kawin':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE status='Kawin' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isistatus.SetValue(str(hasil))
+            
+        elif sta == 'Belum Kawin':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE status='Belum Kawin' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isistatus.SetValue(str(hasil))
+            
+        elif sta == 'Cerai Mati':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE status='Cerai Mati' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isistatus.SetValue(str(hasil))
+            
+        elif sta == 'Cerai Hidup':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE status='Cerai Hidup' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isistatus.SetValue(str(hasil))
+        
+        else :
+            sql = "SELECT COUNT(*) FROM penduduk WHERE status='' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isistatus.SetValue(str(hasil))
+                    
+        event.Skip()
+
+    def OnPrButton(self, event):
+        sql = "SELECT COUNT(*) FROM penduduk WHERE jk='P' AND kematian='Tidak'"
+        cur.execute(sql) 
+        hasil = cur.fetchone()[0] 
+        self.pendudukperempuan.SetValue(str(hasil))
+        event.Skip()
+
+    def OnTinggalButton(self, event):
+        event.Skip()
+
+    def OnPendudukButton(self, event):
+        event.Skip()
+
+    def OnHamilButton(self, event):
+        event.Skip()
+
+    def OnLkButton(self, event):
+        sql = "SELECT COUNT(*) FROM penduduk WHERE jk='L' AND kematian='Tidak'"
+        cur.execute(sql) 
+        hasil = cur.fetchone()[0] 
+        self.penduduklaki.SetValue(str(hasil))
         event.Skip()
         
-
-    def OnButton2Button(self, event):
+    def OnDokButton(self, event):
+        dok = str(self.cbdok.GetValue())
+        if dok == 'Akta Kelahiran':
+           sql = "SELECT COUNT(*) FROM penduduk WHERE dok1='Akta Kelahiran' AND kematian='Tidak'"
+           cur.execute(sql) 
+           hasil = cur.fetchone()[0] 
+           self.isidokumen.SetValue(str(hasil)) 
+        
+        elif dok == 'Akta Nikah':
+           sql = "SELECT COUNT(*) FROM penduduk WHERE dok2='Akta Nikah' AND kematian='Tidak'"
+           cur.execute(sql) 
+           hasil = cur.fetchone()[0] 
+           self.isidokumen.SetValue(str(hasil))
+           
+        elif dok == 'Akta Cerai':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE dok3='Akta Cerai' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isidokumen.SetValue(str(hasil))
+            
+        elif dok == 'Akta Kematian':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE dok4='Akta Kematian' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isidokumen.SetValue(str(hasil))
+            
+        elif dok == 'KTP Sementara':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE dok5='KTP Sementara' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isidokumen.SetValue(str(hasil))
+            
+        elif dok == 'KITAS':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE dok6='KITAS' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isidokumen.SetValue(str(hasil))
+            
+        elif dok == 'VISA':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE dok7='VISA' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isidokumen.SetValue(str(hasil))
+            
+        elif dok == 'Paspor':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE dok8='Paspor' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isidokumen.SetValue(str(hasil))
+            
+        else :
+            sql = "SELECT COUNT(*) FROM penduduk WHERE dok1='' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isidokumen.SetValue(str(hasil))
+            
         event.Skip()
 
-    def OnButton3Button(self, event):
-        event.Skip()
-
-    def OnButton4Button(self, event):
-        event.Skip()
-
-    def OnButton5Button(self, event):
-        event.Skip()
-
-    def OnButton6Button(self, event):
-        sql = "SELECT COUNT(*) FROM penduduk WHERE shdk='Kepala Keluarga'"
-        cur.execute(sql) 
-        hasil = cur.fetchone()[0] 
-        self.textCtrl1.SetValue(str(hasil))
-        event.Skip()
-
-    def OnButton7Button(self, event):
-        event.Skip()
-
-    def OnButton8Button(self, event):
-        event.Skip()
-
-    def OnButton9Button(self, event):
-        event.Skip()
-
-    def OnButton10Button(self, event):
-        event.Skip()
-
-    def OnButton11Button(self, event):
-        event.Skip()
-
-    def OnButton12Button(self, event):
-        event.Skip()
-
-    def OnButton13Button(self, event):
-        event.Skip()
-
-    def OnButton14Button(self, event):
-        sql = "SELECT COUNT(*) FROM penduduk WHERE jenis_kelamin='Perempuan'"
-        cur.execute(sql) 
-        hasil = cur.fetchone()[0] 
-        self.textCtrl4.SetValue(str(hasil))
-        event.Skip()
-        event.Skip()
-
-    def OnComboBox9Combobox(self, event):
+    def OnAgamaButton(self, event):
+        aga = str(self.cbagama.GetValue())
+        if aga == 'Islam':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE agama='Islam' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isiagama.SetValue(str(hasil))
+            
+                
+        elif aga == 'Kristen Protestan':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE agama='Kristen Protestan' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isiagama.SetValue(str(hasil))
+                        
+        elif aga == 'Kristen Katolik':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE agama='Kristen Katolik' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isiagama.SetValue(str(hasil))
+                        
+        elif aga == 'Hindu':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE agama='Hindu' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isiagama.SetValue(str(hasil))
+            
+        elif aga == 'Budha':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE agama='Budha' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isiagama.SetValue(str(hasil))
+            
+        elif aga == 'Konghuchu':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE agama='Konghuchu' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isiagama.SetValue(str(hasil))
+            
+        elif aga == 'Aliran Kepercayaan':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE agama='Aliran Kepercayaan' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isiagama.SetValue(str(hasil))
+            
+        elif aga == 'Agama Lainnya':
+            sql = "SELECT COUNT(*) FROM penduduk WHERE agama='Agama Lainnya' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isiagama.SetValue(str(hasil))
+            
+        else :
+            sql = "SELECT COUNT(*) FROM penduduk WHERE agama='' AND kematian='Tidak'"
+            cur.execute(sql) 
+            hasil = cur.fetchone()[0] 
+            self.isiagama.SetValue(str(hasil))    
+        
         event.Skip()

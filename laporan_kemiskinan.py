@@ -18,6 +18,7 @@ def create(parent):
  wxID_LAPORAN_KEMISKINANBUTTON6, wxID_LAPORAN_KEMISKINANBUTTON7, 
  wxID_LAPORAN_KEMISKINANBUTTON8, wxID_LAPORAN_KEMISKINANBUTTON9, 
  wxID_LAPORAN_KEMISKINANISIPENDUDUK, wxID_LAPORAN_KEMISKINANJKN, 
+ wxID_LAPORAN_KEMISKINANKKMISKIN, wxID_LAPORAN_KEMISKINANKKTDKMISKIN, 
  wxID_LAPORAN_KEMISKINANMISKIN, wxID_LAPORAN_KEMISKINANPKH, 
  wxID_LAPORAN_KEMISKINANPROGKESDAERAH, wxID_LAPORAN_KEMISKINANPROGLAIN, 
  wxID_LAPORAN_KEMISKINANPROGPENDAERAH, wxID_LAPORAN_KEMISKINANRASKIN, 
@@ -28,11 +29,14 @@ def create(parent):
  wxID_LAPORAN_KEMISKINANSTATICTEXT17, wxID_LAPORAN_KEMISKINANSTATICTEXT18, 
  wxID_LAPORAN_KEMISKINANSTATICTEXT19, wxID_LAPORAN_KEMISKINANSTATICTEXT2, 
  wxID_LAPORAN_KEMISKINANSTATICTEXT20, wxID_LAPORAN_KEMISKINANSTATICTEXT21, 
+ wxID_LAPORAN_KEMISKINANSTATICTEXT22, wxID_LAPORAN_KEMISKINANSTATICTEXT23, 
  wxID_LAPORAN_KEMISKINANSTATICTEXT3, wxID_LAPORAN_KEMISKINANSTATICTEXT4, 
  wxID_LAPORAN_KEMISKINANSTATICTEXT5, wxID_LAPORAN_KEMISKINANSTATICTEXT6, 
  wxID_LAPORAN_KEMISKINANSTATICTEXT7, wxID_LAPORAN_KEMISKINANSTATICTEXT8, 
  wxID_LAPORAN_KEMISKINANSTATICTEXT9, wxID_LAPORAN_KEMISKINANTIDAKMISKIN, 
-] = [wx.NewId() for _init_ctrls in range(44)]
+ wxID_LAPORAN_KEMISKINANTOMBOLKKMISKIN, 
+ wxID_LAPORAN_KEMISKINANTOMBOLKKTIDAKMISKIN, 
+] = [wx.NewId() for _init_ctrls in range(50)]
 
 class laporan_kemiskinan(wx.Frame):
     def _init_coll_isipenduduk_Columns(self, parent):
@@ -50,7 +54,7 @@ class laporan_kemiskinan(wx.Frame):
     def _init_ctrls(self, prnt):
         # generated method, don't edit
         wx.Frame.__init__(self, id=wxID_LAPORAN_KEMISKINAN,
-              name=u'laporan_kemiskinan', parent=prnt, pos=wx.Point(394, 134),
+              name=u'laporan_kemiskinan', parent=prnt, pos=wx.Point(396, 134),
               size=wx.Size(911, 545), style=wx.FRAME_NO_TASKBAR,
               title=u'Sistem Laporan Data Kemiskinan')
         self.SetClientSize(wx.Size(911, 545))
@@ -256,6 +260,36 @@ class laporan_kemiskinan(wx.Frame):
               label=u'Jiwa', name='staticText21', parent=self, pos=wx.Point(384,
               288), size=wx.Size(25, 17), style=0)
 
+        self.kkmiskin = wx.TextCtrl(id=wxID_LAPORAN_KEMISKINANKKMISKIN,
+              name=u'kkmiskin', parent=self, pos=wx.Point(584, 280),
+              size=wx.Size(80, 27), style=0, value=u'')
+
+        self.kktdkmiskin = wx.TextCtrl(id=wxID_LAPORAN_KEMISKINANKKTDKMISKIN,
+              name=u'kktdkmiskin', parent=self, pos=wx.Point(584, 312),
+              size=wx.Size(80, 27), style=0, value=u'')
+
+        self.staticText22 = wx.StaticText(id=wxID_LAPORAN_KEMISKINANSTATICTEXT22,
+              label=u'KK', name='staticText22', parent=self, pos=wx.Point(672,
+              288), size=wx.Size(17, 17), style=0)
+
+        self.staticText23 = wx.StaticText(id=wxID_LAPORAN_KEMISKINANSTATICTEXT23,
+              label=u'KK', name='staticText23', parent=self, pos=wx.Point(672,
+              320), size=wx.Size(17, 17), style=0)
+
+        self.tombolkktidakmiskin = wx.Button(id=wxID_LAPORAN_KEMISKINANTOMBOLKKTIDAKMISKIN,
+              label=u'Lihat Laporan KK', name=u'tombolkktidakmiskin',
+              parent=self, pos=wx.Point(696, 312), size=wx.Size(144, 24),
+              style=0)
+        self.tombolkktidakmiskin.Bind(wx.EVT_BUTTON,
+              self.OnTombolkktidakmiskinButton,
+              id=wxID_LAPORAN_KEMISKINANTOMBOLKKTIDAKMISKIN)
+
+        self.tombolkkmiskin = wx.Button(id=wxID_LAPORAN_KEMISKINANTOMBOLKKMISKIN,
+              label=u'Lihat Laporan KK', name=u'tombolkkmiskin', parent=self,
+              pos=wx.Point(696, 280), size=wx.Size(144, 24), style=0)
+        self.tombolkkmiskin.Bind(wx.EVT_BUTTON, self.OnTombolkkmiskinButton,
+              id=wxID_LAPORAN_KEMISKINANTOMBOLKKMISKIN)
+
     def __init__(self, parent):
         self._init_ctrls(parent)
 
@@ -280,6 +314,34 @@ class laporan_kemiskinan(wx.Frame):
     def lihattidakmiskin(self):
         self.isipenduduk.DeleteAllItems()    
         sql = "SELECT * FROM penduduk WHERE kemiskinan='Tidak Miskin' AND kematian='Tidak'"
+        cur.execute(sql) 
+        hasil = cur.fetchall() 
+        nokk = self.isipenduduk.GetItemCount() 
+        for i in hasil : 
+            self.isipenduduk.InsertStringItem(nokk, "%s"%i[1]) 
+            self.isipenduduk.SetStringItem(nokk,1,"%s"%i[2]) 
+            self.isipenduduk.SetStringItem(nokk,2,"%s"%i[21])
+            self.isipenduduk.SetStringItem(nokk,3,"%s"%i[30])
+            
+            nokk = nokk + 1
+    
+    def lihatmiskin1(self):
+        self.isipenduduk.DeleteAllItems()    
+        sql = "SELECT * FROM penduduk WHERE kemiskinan='Miskin' AND kematian='Tidak' AND shdk='Kepala Keluarga'"
+        cur.execute(sql) 
+        hasil = cur.fetchall() 
+        nokk = self.isipenduduk.GetItemCount() 
+        for i in hasil : 
+            self.isipenduduk.InsertStringItem(nokk, "%s"%i[1]) 
+            self.isipenduduk.SetStringItem(nokk,1,"%s"%i[2]) 
+            self.isipenduduk.SetStringItem(nokk,2,"%s"%i[21])
+            self.isipenduduk.SetStringItem(nokk,3,"%s"%i[30])
+            
+            nokk = nokk + 1
+    
+    def lihatmiskin2(self):
+        self.isipenduduk.DeleteAllItems()    
+        sql = "SELECT * FROM penduduk WHERE kemiskinan='Tidak Miskin' AND kematian='Tidak' AND shdk='Kepala Keluarga'"
         cur.execute(sql) 
         hasil = cur.fetchall() 
         nokk = self.isipenduduk.GetItemCount() 
@@ -491,6 +553,23 @@ class laporan_kemiskinan(wx.Frame):
         cur.execute(sql) 
         hasil = cur.fetchone()[0] 
         self.tidakmiskin.SetValue(str(hasil))
+        event.Skip()
+
+    def OnTombolkktidakmiskinButton(self, event):
+        self.lihatmiskin2()
+        sql = "SELECT COUNT(*) FROM penduduk WHERE kemiskinan='Tidak Miskin' AND kematian='Tidak' AND shdk='Kepala Keluarga'"
+        cur.execute(sql) 
+        hasil = cur.fetchone()[0] 
+        self.kktdkmiskin.SetValue(str(hasil))
+        event.Skip()
+        
+
+    def OnTombolkkmiskinButton(self, event):
+        self.lihatmiskin1()
+        sql = "SELECT COUNT(*) FROM penduduk WHERE kemiskinan='Miskin' AND kematian='Tidak' AND shdk='Kepala Keluarga'"
+        cur.execute(sql) 
+        hasil = cur.fetchone()[0] 
+        self.kkmiskin.SetValue(str(hasil))
         event.Skip()
             
                 

@@ -6,7 +6,7 @@ pendukung tata kelola sumber daya desa yang bersifat dekstop online.
 
 # Fitur terbaru :
 
-Import Data , anda dapat menggunakan data dari Disukcapil yang berbentuk 
+Import Data, anda dapat menggunakan data dari Disukcapil yang berbentuk 
 Excel yan telah anda rubah ke CSV yang langsung dapat di Import seluruh 
 data tersebut kedalam aplikasi ini , sehingga proses input data tidak 
 lagi dilakukan satu satu kembali.

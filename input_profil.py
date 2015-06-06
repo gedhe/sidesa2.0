@@ -4,9 +4,11 @@ import wx
 import sqlite3
 import shutil
 import os
+import frm_sideka_menu
 
 db = sqlite3.connect('/opt/sidesa/sidesa')
 cur = db.cursor()
+
 
 def create(parent):
     return input_profil_desa(parent)
@@ -45,7 +47,7 @@ class input_profil_desa(wx.Frame):
     def _init_ctrls(self, prnt):
         # generated method, don't edit
         wx.Frame.__init__(self, id=wxID_INPUT_PROFIL_DESA,
-              name=u'input_profil_desa', parent=prnt, pos=wx.Point(394, 189),
+              name=u'input_profil_desa', parent=prnt, pos=wx.Point(396, 189),
               size=wx.Size(911, 435), style=wx.DEFAULT_FRAME_STYLE,
               title=u'Input Profil Desa')
         self.SetClientSize(wx.Size(911, 435))
@@ -330,6 +332,7 @@ class input_profil_desa(wx.Frame):
             self.loadgambar()
             self.tombol_simpan.Enable()
             self.button1.Enable()
+      
             
     def loadgambar(self):
         self.PhotoMaxSize = 150
@@ -348,8 +351,11 @@ class input_profil_desa(wx.Frame):
  
   
     def OnTombol_kembaliButton(self, event):
+        
+        
         self.Close()
         self.Destroy()
+        
 
     def OnTombol_simpanButton(self, event):
         desa = str(self.desa.GetValue())

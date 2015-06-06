@@ -3,7 +3,6 @@
 import wx
 import wx.lib.buttons
 import frm_sideka_menu
-import input_penduduk
 import edit_kejadian_kelahiran
 import edit_kejadian_kematian
 import edit_kejadian_lain
@@ -25,7 +24,7 @@ class edit_penduduk(wx.Frame):
     def _init_ctrls(self, prnt):
         # generated method, don't edit
         wx.Frame.__init__(self, id=wxID_EDIT_PENDUDUK, name=u'edit_penduduk',
-              parent=prnt, pos=wx.Point(622, 300), size=wx.Size(455, 213),
+              parent=prnt, pos=wx.Point(624, 300), size=wx.Size(455, 213),
               style=wx.FRAME_NO_TASKBAR, title=u'Edit Data Penduduk')
         self.SetClientSize(wx.Size(455, 213))
         self.Center(wx.BOTH)

@@ -5,10 +5,7 @@ import wx.lib.buttons
 import kk_sementara
 import frm_sideka_menu
 import kk_tetap
-import tambah_kk_sementara
-import tambah_kk_tetap
 import tambah_anggota_keluarga
-import input_penduduk
 import pecah_keluarga
 import kejadian_kelahiran
 import kejadian_kematian
@@ -40,8 +37,8 @@ class menu_data_kependudukan(wx.Dialog):
     def _init_ctrls(self, prnt):
         # generated method, don't edit
         wx.Dialog.__init__(self, id=wxID_MENU_DATA_KEPENDUDUKAN,
-              name=u'menu_data_kependudukan', parent=prnt, pos=wx.Point(620,
-              273), size=wx.Size(455, 261),
+              name=u'menu_data_kependudukan', parent=prnt, pos=wx.Point(622,
+              276), size=wx.Size(455, 261),
               style=wx.FRAME_NO_TASKBAR | wx.TAB_TRAVERSAL,
               title=u'Kependudukan')
         self.SetClientSize(wx.Size(455, 261))

@@ -71,16 +71,12 @@ class edit_anggota(wx.Dialog):
         parent.InsertColumn(col=0, format=wx.LIST_FORMAT_LEFT,
               heading='Nomor NIK', width=150)
         parent.InsertColumn(col=1, format=wx.LIST_FORMAT_LEFT,
-              heading='Nama Lengkap', width=250)
-        parent.InsertColumn(col=2, format=wx.LIST_FORMAT_LEFT, heading='Alamat',
+              heading='Nomor KK', width=250)
+        parent.InsertColumn(col=2, format=wx.LIST_FORMAT_LEFT, heading='Nama Lengkap',
               width=260)
-        parent.InsertColumn(col=3, format=wx.LIST_FORMAT_LEFT, heading='Dusun',
-              width=100)
-        parent.InsertColumn(col=4, format=wx.LIST_FORMAT_LEFT, heading='RT',
-              width=40)
-        parent.InsertColumn(col=5, format=wx.LIST_FORMAT_LEFT, heading='RW',
-              width=40)
-
+        parent.InsertColumn(col=3, format=wx.LIST_FORMAT_LEFT, heading='Alamat',
+              width=180)
+        
     def _init_ctrls(self, prnt):
         # generated method, don't edit
         wx.Dialog.__init__(self, id=wxID_EDIT_ANGGOTA, name=u'edit_anggota',
@@ -133,8 +129,8 @@ class edit_anggota(wx.Dialog):
               label=u'Jenis Kelamin', name=u'label_jenis_kelamin', parent=self,
               pos=wx.Point(192, 272), size=wx.Size(152, 17), style=0)
 
-        self.pilihan_jenis_kelamin = wx.ComboBox(choices=['Laki-laki',
-              'Perempuan'], id=wxID_EDIT_ANGGOTAPILIHAN_JENIS_KELAMIN,
+        self.pilihan_jenis_kelamin = wx.ComboBox(choices=['L',
+              'P'], id=wxID_EDIT_ANGGOTAPILIHAN_JENIS_KELAMIN,
               name=u'pilihan_jenis_kelamin', parent=self, pos=wx.Point(192,
               288), size=wx.Size(200, 27), style=0)
 
@@ -191,12 +187,12 @@ class edit_anggota(wx.Dialog):
               parent=self, pos=wx.Point(400, 272), size=wx.Size(184, 17),
               style=0)
 
-        self.pilihan_pendidikan_terakhir = wx.ComboBox(choices=['Tidak / Belum Sekolah',
-              'Tidak tamat SD / sederajat', 'Tamat SD / sederajat',
-              'Tamat SLTP / sederajat', 'Tamat SLTA / sederajat',
-              'Tamat Diploma I / II',
-              'Tamat Akademi / Diploma III / Sarjana Muda',
-              'Tamat D IV / Strata I', 'Tamat Strata II', 'Tamat Strata III',
+        self.pilihan_pendidikan_terakhir = wx.ComboBox(choices=['Tidak/Belum Sekolah',
+              'Tidak Tamat SD/Sederajat', 'Tamat SD/Sederajat',
+              'SLTP/Sederajat', 'SLTA/Sederajat',
+              'Diploma I/II',
+              'Akademi/Diploma III/S. Muda',
+              'Diploma IV/Strata I', 'Strata II', 'Strata III',
               'Pendidikan Non Formal'],
               id=wxID_EDIT_ANGGOTAPILIHAN_PENDIDIKAN_TERAKHIR,
               name=u'pilihan_pendidikan_terakhir', parent=self,
@@ -208,10 +204,10 @@ class edit_anggota(wx.Dialog):
               312), size=wx.Size(264, 17), style=0)
 
         self.pilihan_pendidikan_ditempuh = wx.ComboBox(choices=['PAUD sederajat',
-              'TK sederajat', 'SD  sederajat', 'SLTP  sederajat',
-              'SLTA  sederajat', 'D1  sederajat', 'D2  sederajat',
-              'D3  sederajat' , 'S1 sederajat' , 'S2  sederajat' ,
-              'S3  sederajat' , 'Pendidikan Non Formal'],
+              'TK Sederajat', 'SD Sederajat', 'SLTP Sederajat',
+              'SLTA Sederajat', 'D1 Sederajat', 'D2 Sederajat',
+              'D3 Sederajat' , 'S1 Sederajat' , 'S2 Sederajat' ,
+              'S3 Sederajat' , 'Pendidikan Non Formal'],
               id=wxID_EDIT_ANGGOTAPILIHAN_PENDIDIKAN_DITEMPUH,
               name=u'pilihan_pendidikan_ditempuh', parent=self,
               pos=wx.Point(400, 328), size=wx.Size(216, 25), style=0)
@@ -220,29 +216,29 @@ class edit_anggota(wx.Dialog):
               label=u'Pekerjaan Utama', name=u'label_pekerjaan', parent=self,
               pos=wx.Point(400, 352), size=wx.Size(200, 17), style=0)
 
-        self.pilihan_pekerjaan = wx.ComboBox(choices=['Belum / Tidak Bekerja',
-              'Mengurus Rumah Tangga', 'Pelajar / Mahasiswa', 'Pensiunan',
+        self.pilihan_pekerjaan = wx.ComboBox(choices=['Belum/Tidak Bekerja',
+              'Mengurus Rumah Tangga', 'Pelajar/Mahasiswa', 'Pensiunan',
               'Pegawai Negeri Sipil', 'Tentara Nasional Indonesia',
-              'Kepolisian RI', 'Perdagangan', 'Petani / Pekebun', 'Peternak',
-              'Nelayan / Perikanan', 'Industri', 'Konstruksi', 'Transportasi',
+              'Kepolisian RI', 'Perdagangan', 'Petani/Pekebun', 'Peternak',
+              'Nelayan/Perikanan', 'Industri', 'Konstruksi', 'Transportasi',
               'Karyawan Swasta', 'Karyawan BUMN', 'Karyawan BUMD',
               'Karyawan Honorer', 'Buruh Harian Lepas',
-              'Buruh Tani / Perkebunan', 'Buruh Nelayan / Perikanan',
+              'Buruh Tani/Perkebunan', 'Buruh Nelayan/Perikanan',
               'Buruh Peternakan', 'Pembantu Rumah Tangga', 'Tukang Cukur',
               'Tukang Listrik', 'Tukang Batu', 'Tukang Kayu',
-              'Tukang Sol Sepatu', 'Tukang Las / Pandai Besi', 'Tukang Jahit',
+              'Tukang Sol Sepatu', 'Tukang Las/Pandai Besi', 'Tukang Jahit',
               'Penata Rambut', 'Penata Rias', 'Penata Busana', 'Mekanik',
               'Tukang Gigi', 'Seniman', 'Tabib', 'Paraji', 'Perancang Busana',
               'Penterjemah', 'Imam Masjid', 'Pendeta', 'Pastur', 'Wartawan',
-              'Ustadz / Mubaligh', 'Juru Masak', 'Promotor Acara',
+              'Ustadz/Mubaligh', 'Juru Masak', 'Promotor Acara',
               'Anggota DPR-RI', 'Anggota DPD', 'Anggota BPK', 'Presiden',
               'Wakil Presiden', 'Anggota Mahkamah Konstitusi',
-              'Anggota Kabinet / Kementerian', 'Duta Besar', 'Gubernur',
+              'Anggota Kabinet/Kementerian', 'Duta Besar', 'Gubernur',
               'Wakil Gubernur', 'Bupati', 'Wakil Bupati', 'Walikota',
               'Wakil Walikota', 'Anggota DPRD Propinsi',
-              'Anggota DPRD Kabupaten / Kota', 'Dosen', 'Guru', 'Pilot',
+              'Anggota DPRD Kabupaten/Kota', 'Dosen', 'Guru', 'Pilot',
               'Pengacara', 'Notaris', 'Arsitek', 'Akuntan', 'Konsultan',
-              'Dokter', 'Bidan', 'Perawat', 'Apoteker', 'Psikiater / Psikolog',
+              'Dokter', 'Bidan', 'Perawat', 'Apoteker', 'Psikiater/Psikolog',
               'Penyiar Televisi', 'Penyiar Radio', 'Pelaut', 'Peneliti',
               'Sopir', 'Pialang', 'Paranormal', 'Pedagang', 'Perangkat Desa',
               'Kepala Desa', 'Biarawati', 'Wiraswasta', 'Buruh Migran'],
@@ -266,10 +262,9 @@ class edit_anggota(wx.Dialog):
               parent=self, pos=wx.Point(624, 192), size=wx.Size(176, 17),
               style=0)
 
-        self.pilihan_status = wx.ComboBox(choices=['Belum Kawin', 'Kawin'],
-              id=wxID_EDIT_ANGGOTAPILIHAN_STATUS, name=u'pilihan_status',
-              parent=self, pos=wx.Point(624, 208), size=wx.Size(248, 25),
-              style=0)
+        self.pilihan_status = wx.ComboBox(choices=['Belum Kawin', 'Kawin',
+              'Cerai Mati', 'Cerai Hidup'], parent=self, pos=wx.Point(624, 208),
+              size=wx.Size(248, 25), style=0)
 
         self.label_status_kependudukan = wx.StaticText(id=wxID_EDIT_ANGGOTALABEL_STATUS_KEPENDUDUKAN,
               label=u'Status Kependudukan', name=u'label_status_kependudukan',
@@ -277,7 +272,7 @@ class edit_anggota(wx.Dialog):
               style=0)
 
         self.pilihan_status_kependudukan = wx.ComboBox(choices=['Penduduk Tetap',
-              'Penduduk Sementara', 'Penduduk Pindah / Pindahan', 'Meninggal'],
+              'Penduduk Sementara', 'Penduduk Pindah/Pindahan'],
               id=wxID_EDIT_ANGGOTAPILIHAN_STATUS_KEPENDUDUKAN,
               name=u'pilihan_status_kependudukan', parent=self,
               pos=wx.Point(624, 248), size=wx.Size(248, 25), style=0)
@@ -288,8 +283,8 @@ class edit_anggota(wx.Dialog):
               style=0)
 
         self.pilihan_status_tinggal = wx.ComboBox(choices=['Tinggal Tetap',
-              'Tinggal di Luar Desa*', 'Tinggal di Luar Kota / Kabupaten',
-              'Tinggal di Luar Propinsi', 'Tinggal di Luar Negeri'],
+              'Tinggal Di Luar Desa*', 'Tinggal Di Luar Kota/Kabupaten',
+              'Tinggal Di Luar Propinsi', 'Tinggal Di Luar Negeri'],
               id=wxID_EDIT_ANGGOTAPILIHAN_STATUS_TINGGAL,
               name=u'pilihan_status_tinggal', parent=self, pos=wx.Point(624,
               288), size=wx.Size(248, 25), style=0)
@@ -299,9 +294,9 @@ class edit_anggota(wx.Dialog):
               parent=self, pos=wx.Point(624, 312), size=wx.Size(184, 17),
               style=0)
 
-        self.pilihan_difabelitas = wx.ComboBox(choices=['Tidak cacat',
-              'Cacat Fisik', 'Cacat Netra / Buta', 'Cacat Rungu / Wicara',
-              'Cacat Mental / Jiwa', 'Cacat Fisik / Mental', 'Cacat Lainnya'],
+        self.pilihan_difabelitas = wx.ComboBox(choices=['Tidak Cacat',
+              'Cacat Fisik', 'Cacat Netra / Buta', 'Cacat Rungu/Wicara',
+              'Cacat Mental/Jiwa', 'Cacat Fisik/Mental', 'Cacat Lainnya'],
               id=wxID_EDIT_ANGGOTAPILIHAN_DIFABELITAS,
               name=u'pilihan_difabelitas', parent=self, pos=wx.Point(624, 328),
               size=wx.Size(248, 25), style=0)
@@ -415,39 +410,37 @@ class edit_anggota(wx.Dialog):
               label=u'RW', name='staticText3', parent=self, pos=wx.Point(824,
               152), size=wx.Size(19, 17), style=0)
 
-        self.dokumen1 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
-              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
-              'Paspor'], id=wxID_EDIT_ANGGOTADOKUMEN1, name=u'dokumen1',
+        self.dokumen1 = wx.ComboBox(choices=['Akta Kelahiran'], id=wxID_EDIT_ANGGOTADOKUMEN1, name=u'dokumen1',
               parent=self, pos=wx.Point(24, 464), size=wx.Size(187, 27),
               style=0, value='')
 
-        self.dokumen3 = wx.ComboBox(choices=['Akta Kelahiran'], id=wxID_EDIT_ANGGOTADOKUMEN3, name=u'dokumen3',
-              parent=self, pos=wx.Point(224, 464), size=wx.Size(187, 27),
-              style=0, value='')
+        self.dokumen3 = wx.ComboBox(choices=['Akta Cerai'],
+              id=wxID_EDIT_ANGGOTADOKUMEN3, name=u'dokumen3', parent=self,
+              pos=wx.Point(224, 464), size=wx.Size(187, 27), style=0, value='')
 
-        self.dokumen5 = wx.ComboBox(choices=['Akta Nikah'], id=wxID_EDIT_ANGGOTADOKUMEN5, name=u'dokumen5',
-              parent=self, pos=wx.Point(424, 464), size=wx.Size(187, 27),
-              style=0, value='')
+        self.dokumen5 = wx.ComboBox(choices=['KTP Sementara'],
+              id=wxID_EDIT_ANGGOTADOKUMEN5, name=u'dokumen5', parent=self,
+              pos=wx.Point(424, 464), size=wx.Size(187, 27), style=0, value='')
 
-        self.dokumen7 = wx.ComboBox(choices=['Akta Cerai'], id=wxID_EDIT_ANGGOTADOKUMEN7, name=u'dokumen7',
-              parent=self, pos=wx.Point(632, 464), size=wx.Size(187, 27),
-              style=0, value='')
+        self.dokumen7 = wx.ComboBox(choices=['VISA'],
+              id=wxID_EDIT_ANGGOTADOKUMEN7, name=u'dokumen7', parent=self,
+              pos=wx.Point(632, 464), size=wx.Size(187, 27), style=0, value='')
 
-        self.dokumen2 = wx.ComboBox(choices=['Akta Kematian'], id=wxID_EDIT_ANGGOTADOKUMEN2, name=u'dokumen2',
-              parent=self, pos=wx.Point(24, 504), size=wx.Size(187, 27),
-              style=0, value='')
+        self.dokumen2 = wx.ComboBox(choices=['Akta Nikah'],
+              id=wxID_EDIT_ANGGOTADOKUMEN2, name=u'dokumen2', parent=self,
+              pos=wx.Point(24, 504), size=wx.Size(187, 27), style=0, value='')
 
-        self.dokumen4 = wx.ComboBox(choices=['KTP Sementara'], id=wxID_EDIT_ANGGOTADOKUMEN4, name=u'dokumen4',
-              parent=self, pos=wx.Point(224, 504), size=wx.Size(187, 27),
-              style=0, value='')
+        self.dokumen4 = wx.ComboBox(choices=['Akta Kematian'],
+              id=wxID_EDIT_ANGGOTADOKUMEN4, name=u'dokumen4', parent=self,
+              pos=wx.Point(224, 504), size=wx.Size(187, 27), style=0, value='')
 
-        self.dokumen6 = wx.ComboBox(choices=['KITAS'], id=wxID_EDIT_ANGGOTADOKUMEN6, name=u'dokumen6',
-              parent=self, pos=wx.Point(424, 504), size=wx.Size(187, 27),
-              style=0, value='')
+        self.dokumen6 = wx.ComboBox(choices=['KITAS'],
+              id=wxID_EDIT_ANGGOTADOKUMEN6, name=u'dokumen6', parent=self,
+              pos=wx.Point(424, 504), size=wx.Size(187, 27), style=0, value='')
 
-        self.dokumen8 = wx.ComboBox(choices=['VISA'], id=wxID_EDIT_ANGGOTADOKUMEN8, name=u'dokumen8',
-              parent=self, pos=wx.Point(632, 504), size=wx.Size(187, 27),
-              style=0, value='')
+        self.dokumen8 = wx.ComboBox(choices=['Paspor'],
+              id=wxID_EDIT_ANGGOTADOKUMEN8, name=u'dokumen8', parent=self,
+              pos=wx.Point(632, 504), size=wx.Size(187, 27), style=0, value='')
 
         self.tgllahir = wx.TextCtrl(id=wxID_EDIT_ANGGOTATGLLAHIR,
               name=u'tgllahir', parent=self, pos=wx.Point(-100, -100),
@@ -552,11 +545,9 @@ class edit_anggota(wx.Dialog):
         nokk = self.isipenduduk.GetItemCount() 
         for i in hasil : 
             self.isipenduduk.InsertStringItem(nokk, "%s"%i[1]) 
-            self.isipenduduk.SetStringItem(nokk,1,"%s"%i[2]) 
-            self.isipenduduk.SetStringItem(nokk,2,"%s"%i[21])
-            self.isipenduduk.SetStringItem(nokk,3,"%s"%i[29])
-            self.isipenduduk.SetStringItem(nokk,4,"%s"%i[26]) 
-            self.isipenduduk.SetStringItem(nokk,5,"%s"%i[27])
+            self.isipenduduk.SetStringItem(nokk,1,"%s"%i[16]) 
+            self.isipenduduk.SetStringItem(nokk,2,"%s"%i[2])
+            self.isipenduduk.SetStringItem(nokk,3,"%s"%i[21])
             nokk = nokk + 1
      
     
@@ -694,16 +685,24 @@ class edit_anggota(wx.Dialog):
             self.awal()
         
         elif filepath == gbr+nik+'.jpg':
-            add_keluarga="UPDATE penduduk SET nik='"+nik+"', nama='"+nama+"', jk='"+jk+"', tmpt_lahir='"+tmplahir+"', tgl_lahir='"+tgllahir+"', umur='', gdr='"+gdr+"', agama='"+agama+"', status='"+status+"', shdk='"+shdk+"', shdrt='', pddk_akhir='"+pddkakhir+"', pekerjaan='"+pekerjaan+"', nama_ibu='"+ibu+"', nama_ayah='"+ayah+"', no_kk='"+nokk+"', nama_kep_kel='"+namakk+"', petugas='', pekerjaan_lain='"+pekerjaanlain+"', nama_petugas='', alamat='"+alamat+"', nama_prop='"+propinsi+"', nama_kab='"+kabupaten+"', nama_kec='"+kecamatan+"', nama_kel='"+desa+"', rt='"+rt+"', rw='"+rw+"', warganegara='"+warganegara+"', nama_dusun='"+dusun+"', kemiskinan='Tidak Miskin', pddk_saat_ini='"+pddktempuh+"', status_pddk='"+statuskependudukan+"', status_tgl='"+statustinggal+"', difabelitas='"+difabelitas+"', kontrasepsi='"+kontrasepsi+"', resiko='"+kehamilan+"', kelahiran='', kematian='Tidak', kejadianlain='', pindah='', dok1='"+dok1+"', dok2='"+dok2+"', dok3='"+dok3+"', dok4='"+dok4+"', dok5='"+dok5+"', dok6='"+dok6+"', dok7='"+dok7+"', dok8='"+dok8+"', promis1='', promis2='',promis3='', promis4='', promis5='', promis6='', promis7='', promis8='', photo='"+gbr+"', keterangan='' WHERE no='"+nom+"'"        
+            add_keluarga="UPDATE penduduk SET nik='"+nik+"', nama='"+nama+"', jk='"+jk+"', tmpt_lahir='"+tmplahir+"', tgl_lahir='"+tgllahir+"', umur='', gdr='"+gdr+"', agama='"+agama+"', status='"+status+"', shdk='"+shdk+"', shdrt='', pddk_akhir='"+pddkakhir+"', pekerjaan='"+pekerjaan+"', nama_ibu='"+ibu+"', nama_ayah='"+ayah+"', no_kk='"+nokk+"', nama_kep_kel='"+namakk+"', petugas='', pekerjaan_lain='"+pekerjaanlain+"', nama_petugas='', alamat='"+alamat+"', nama_prop='"+propinsi+"', nama_kab='"+kabupaten+"', nama_kec='"+kecamatan+"', nama_kel='"+desa+"', rt='"+rt+"', rw='"+rw+"', warganegara='"+warganegara+"', nama_dusun='"+dusun+"', kemiskinan='Tidak Miskin', pddk_saat_ini='"+pddktempuh+"', status_pddk='"+statuskependudukan+"', status_tgl='"+statustinggal+"', difabelitas='"+difabelitas+"', kontrasepsi='"+kontrasepsi+"', resiko='"+kehamilan+"', kelahiran='', kematian='Tidak', kejadianlain='', pindah='', dok1='"+dok1+"', dok2='"+dok2+"', dok3='"+dok3+"', dok4='"+dok4+"', dok5='"+dok5+"', dok6='"+dok6+"', dok7='"+dok7+"', dok8='"+dok8+"', promis1='', promis2='',promis3='', promis4='', promis5='', promis6='', promis7='', promis8='', photo='"+gbr+nik+".jpg', keterangan='' WHERE no='"+nom+"'"        
             cur.execute(add_keluarga)
             db.commit()
             self.pesan = wx.MessageDialog(self,"Data Sudah Terupdate","Konfirmasi",wx.OK) 
             self.pesan.ShowModal()
-            self.awal()    
+            self.awal()
+        
+        elif filepath == gbr+'blank.jpg':
+            add_keluarga="UPDATE penduduk SET nik='"+nik+"' , nama='"+nama+"' , jk='"+jk+"', tmpt_lahir='"+tmplahir+"', tgl_lahir='"+tgllahir+"', umur='', gdr='"+gdr+"', agama='"+agama+"', status='"+status+"', shdk='"+shdk+"', shdrt='', pddk_akhir='"+pddkakhir+"', pekerjaan='"+pekerjaan+"', nama_ibu='"+ibu+"', nama_ayah='"+ayah+"', no_kk='"+nokk+"', nama_kep_kel='"+namakk+"', petugas='"+''+"', pekerjaan_lain='"+pekerjaanlain+"', nama_petugas='"+''+"', alamat='"+alamat+"', nama_prop='"+propinsi+"', nama_kab='"+kabupaten+"', nama_kec='"+kecamatan+"', nama_kel='"+desa+"', rt='"+rt+"', rw='"+rw+"', warganegara='"+warganegara+"', nama_dusun='"+dusun+"', kemiskinan='Tidak Miskin', pddk_saat_ini='"+pddktempuh+"', status_pddk='"+statuskependudukan+"', status_tgl='"+statustinggal+"', difabelitas='"+difabelitas+"', kontrasepsi='"+kontrasepsi+"', resiko='"+kehamilan+"', kelahiran='', kematian='Tidak', kejadianlain='', pindah='', dok1='"+dok1+"', dok2='"+dok2+"', dok3='"+dok3+"', dok4='"+dok4+"', dok5='"+dok5+"', dok6='"+dok6+"', dok7='"+dok7+"', dok8='"+dok8+"', promis1='', promis2='',promis3='', promis4='', promis5='', promis6='', promis7='', promis8='', photo='"+gbr+"blank.jpg', keterangan='' WHERE no = '"+nom+"'"        
+            cur.execute(add_keluarga)
+            db.commit()
+            self.pesan = wx.MessageDialog(self,"Data Sudah Tersimpan","Konfirmasi",wx.OK) 
+            self.pesan.ShowModal()
+            self.awal()        
             
         else:
             shutil.copy2(filepath, gbr+nik+'.jpg')
-            add_keluarga="UPDATE penduduk SET nik='"+nik+"', nama='"+nama+"', jk='"+jk+"', tmpt_lahir='"+tmplahir+"', tgl_lahir='"+tgllahir+"', umur='', gdr='"+gdr+"', agama='"+agama+"', status='"+status+"', shdk='"+shdk+"', shdrt='', pddk_akhir='"+pddkakhir+"', pekerjaan='"+pekerjaan+"', nama_ibu='"+ibu+"', nama_ayah='"+ayah+"', no_kk='"+nokk+"', nama_kep_kel='"+namakk+"', petugas='', pekerjaan_lain='"+pekerjaanlain+"', nama_petugas='', alamat='"+alamat+"', nama_prop='"+propinsi+"', nama_kab='"+kabupaten+"', nama_kec='"+kecamatan+"', nama_kel='"+desa+"', rt='"+rt+"', rw='"+rw+"', warganegara='"+warganegara+"', nama_dusun='"+dusun+"', kemiskinan='Tidak Miskin', pddk_saat_ini='"+pddktempuh+"', status_pddk='"+statuskependudukan+"', status_tgl='"+statustinggal+"', difabelitas='"+difabelitas+"', kontrasepsi='"+kontrasepsi+"', resiko='"+kehamilan+"', kelahiran='', kematian='Tidak', kejadianlain='', pindah='', dok1='"+dok1+"', dok2='"+dok2+"', dok3='"+dok3+"', dok4='"+dok4+"', dok5='"+dok5+"', dok6='"+dok6+"', dok7='"+dok7+"', dok8='"+dok8+"', promis1='', promis2='',promis3='', promis4='', promis5='', promis6='', promis7='', promis8='', photo='"+gbr+"blank.jpg', keterangan='' WHERE no='"+nom+"'"        
+            add_keluarga="UPDATE penduduk SET nik='"+nik+"', nama='"+nama+"', jk='"+jk+"', tmpt_lahir='"+tmplahir+"', tgl_lahir='"+tgllahir+"', umur='', gdr='"+gdr+"', agama='"+agama+"', status='"+status+"', shdk='"+shdk+"', shdrt='', pddk_akhir='"+pddkakhir+"', pekerjaan='"+pekerjaan+"', nama_ibu='"+ibu+"', nama_ayah='"+ayah+"', no_kk='"+nokk+"', nama_kep_kel='"+namakk+"', petugas='', pekerjaan_lain='"+pekerjaanlain+"', nama_petugas='', alamat='"+alamat+"', nama_prop='"+propinsi+"', nama_kab='"+kabupaten+"', nama_kec='"+kecamatan+"', nama_kel='"+desa+"', rt='"+rt+"', rw='"+rw+"', warganegara='"+warganegara+"', nama_dusun='"+dusun+"', kemiskinan='Tidak Miskin', pddk_saat_ini='"+pddktempuh+"', status_pddk='"+statuskependudukan+"', status_tgl='"+statustinggal+"', difabelitas='"+difabelitas+"', kontrasepsi='"+kontrasepsi+"', resiko='"+kehamilan+"', kelahiran='', kematian='Tidak', kejadianlain='', pindah='', dok1='"+dok1+"', dok2='"+dok2+"', dok3='"+dok3+"', dok4='"+dok4+"', dok5='"+dok5+"', dok6='"+dok6+"', dok7='"+dok7+"', dok8='"+dok8+"', promis1='', promis2='',promis3='', promis4='', promis5='', promis6='', promis7='', promis8='', photo='"+gbr+nik+".jpg', keterangan='' WHERE no='"+nom+"'"        
             cur.execute(add_keluarga)
             db.commit()
             self.pesan = wx.MessageDialog(self,"Data Sudah Tersimpan","Konfirmasi",wx.OK) 

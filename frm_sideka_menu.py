@@ -425,6 +425,7 @@ class sidesa(wx.Frame):
         self.button2.Disable()
                    
     def OnTombol_bantuanButton(self, event):
+        
         self.main=bantuan.create(None)
         self.main.Show()
 
@@ -432,7 +433,9 @@ class sidesa(wx.Frame):
         self.main=input_profil.create(None)
         self.main.Show()
         
+        
     def OnTombol_edit_profilButton(self, event):
+        
         self.main=edit_profil.create(None)
         self.main.Show()
         
@@ -533,6 +536,7 @@ class sidesa(wx.Frame):
         self.main.Show()
         
     def OnTombol_keluarButton(self, event):
+        
         self.Close()
         self.Destroy()  
 
@@ -580,6 +584,7 @@ class sidesa(wx.Frame):
     def OnGenBitmapTextButton1Button(self, event):
         self.main=pilihanimport.create(None)
         self.main.Show()
+        
     def OnButton2Button(self, event):
         self.tombol_input_profil.Disable()
         self.tombol_edit_profil.Disable()

@@ -15,8 +15,8 @@ class laporan_statistik_desa(wx.Frame):
     def _init_ctrls(self, prnt):
         # generated method, don't edit
         wx.Frame.__init__(self, id=wxID_LAPORAN_STATISTIK_DESA,
-              name=u'laporan_statistik_desa', parent=prnt, pos=wx.Point(696,
-              281), size=wx.Size(321, 255), style=wx.FRAME_NO_TASKBAR,
+              name=u'laporan_statistik_desa', parent=prnt, pos=wx.Point(689,
+              279), size=wx.Size(321, 255), style=wx.FRAME_NO_TASKBAR,
               title=u'Laporan Statistik Desa')
         self.SetClientSize(wx.Size(321, 255))
         self.Center(wx.BOTH)

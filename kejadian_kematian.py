@@ -350,8 +350,8 @@ class kejadian_kematian(wx.Dialog):
               id=wxID_KEJADIAN_KEMATIANISIPENDUDUK)
 
         self.staticText1 = wx.StaticText(id=wxID_KEJADIAN_KEMATIANSTATICTEXT1,
-              label=u'Nama Lengkap', name='staticText1', parent=self,
-              pos=wx.Point(400, 128), size=wx.Size(145, 17), style=0)
+              label=u'Nomor NIK', name='staticText1', parent=self,
+              pos=wx.Point(432, 128), size=wx.Size(145, 17), style=0)
 
         self.cari_kk = wx.TextCtrl(id=wxID_KEJADIAN_KEMATIANCARI_KK,
               name=u'cari_kk', parent=self, pos=wx.Point(552, 128),
@@ -622,8 +622,8 @@ class kejadian_kematian(wx.Dialog):
         self.Isi_Object()
    
     def OnIsipendudukListItemSelected(self, event):
-        self.currentItem = event.m_itemIndex # mengambil no index baris yang dipilih 
-        b=self.isipenduduk.GetItem(self.currentItem).GetText() # no index baris dikonversi ke text/ string 
+        self.currentItem = event.m_itemIndex
+        b=self.isipenduduk.GetItem(self.currentItem).GetText()
         self.cari_kk.SetValue(b) 
         self.Isi_Object()
         event.Skip()

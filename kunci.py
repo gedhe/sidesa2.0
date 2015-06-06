@@ -18,7 +18,7 @@ class kunci(wx.Dialog):
     def _init_ctrls(self, prnt):
         # generated method, don't edit
         wx.Dialog.__init__(self, id=wxID_KUNCI, name=u'kunci', parent=prnt,
-              pos=wx.Point(693, 350), size=wx.Size(340, 133),
+              pos=wx.Point(680, 340), size=wx.Size(340, 133),
               style=wx.DEFAULT_DIALOG_STYLE, title=u'Ganti Password')
         self.SetClientSize(wx.Size(340, 133))
         self.Center(wx.BOTH)
@@ -28,8 +28,8 @@ class kunci(wx.Dialog):
               pos=wx.Point(16, 24), size=wx.Size(60, 15), style=0)
 
         self.textCtrl1 = wx.TextCtrl(id=wxID_KUNCITEXTCTRL1, name='textCtrl1',
-              parent=self, pos=wx.Point(88, 16), size=wx.Size(232, 25), style=0,
-              value='')
+              parent=self, pos=wx.Point(88, 16), size=wx.Size(232, 25),
+              style=wx.TE_PASSWORD, value=u'')
 
         self.button1 = wx.Button(id=wxID_KUNCIBUTTON1, label=u'Simpan',
               name='button1', parent=self, pos=wx.Point(48, 88),

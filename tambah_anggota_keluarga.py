@@ -109,7 +109,7 @@ class tambah_anggota_keluarga(wx.Dialog):
         # generated method, don't edit
         wx.Dialog.__init__(self, id=wxID_TAMBAH_ANGGOTA_KELUARGA,
               name=u'tambah_anggota_keluarga', parent=prnt, pos=wx.Point(406,
-              79), size=wx.Size(888, 639), style=wx.FRAME_NO_TASKBAR,
+              80), size=wx.Size(888, 639), style=wx.FRAME_NO_TASKBAR,
               title=u'Tambah Anggota Keluarga')
         self.SetClientSize(wx.Size(888, 639))
         self.Center(wx.BOTH)
@@ -247,29 +247,29 @@ class tambah_anggota_keluarga(wx.Dialog):
               label=u'Pekerjaan Utama', name=u'label_pekerjaan', parent=self,
               pos=wx.Point(400, 352), size=wx.Size(200, 17), style=0)
 
-        self.pilihan_pekerjaan = wx.ComboBox(choices=['Belum / Tidak Bekerja',
-              'Mengurus Rumah Tangga', 'Pelajar / Mahasiswa', 'Pensiunan',
+        self.pilihan_pekerjaan = wx.ComboBox(choices=['Belum/Tidak Bekerja',
+              'Mengurus Rumah Tangga', 'Pelajar/Mahasiswa', 'Pensiunan',
               'Pegawai Negeri Sipil', 'Tentara Nasional Indonesia',
-              'Kepolisian RI', 'Perdagangan', 'Petani / Pekebun', 'Peternak',
-              'Nelayan / Perikanan', 'Industri', 'Konstruksi', 'Transportasi',
+              'Kepolisian RI', 'Perdagangan', 'Petani/Pekebun', 'Peternak',
+              'Nelayan/Perikanan', 'Industri', 'Konstruksi', 'Transportasi',
               'Karyawan Swasta', 'Karyawan BUMN', 'Karyawan BUMD',
               'Karyawan Honorer', 'Buruh Harian Lepas',
-              'Buruh Tani / Perkebunan', 'Buruh Nelayan / Perikanan',
+              'Buruh Tani/Perkebunan', 'Buruh Nelayan/Perikanan',
               'Buruh Peternakan', 'Pembantu Rumah Tangga', 'Tukang Cukur',
               'Tukang Listrik', 'Tukang Batu', 'Tukang Kayu',
-              'Tukang Sol Sepatu', 'Tukang Las / Pandai Besi', 'Tukang Jahit',
+              'Tukang Sol Sepatu', 'Tukang Las/Pandai Besi', 'Tukang Jahit',
               'Penata Rambut', 'Penata Rias', 'Penata Busana', 'Mekanik',
               'Tukang Gigi', 'Seniman', 'Tabib', 'Paraji', 'Perancang Busana',
               'Penterjemah', 'Imam Masjid', 'Pendeta', 'Pastur', 'Wartawan',
-              'Ustadz / Mubaligh', 'Juru Masak', 'Promotor Acara',
+              'Ustadz/Mubaligh', 'Juru Masak', 'Promotor Acara',
               'Anggota DPR-RI', 'Anggota DPD', 'Anggota BPK', 'Presiden',
               'Wakil Presiden', 'Anggota Mahkamah Konstitusi',
-              'Anggota Kabinet / Kementerian', 'Duta Besar', 'Gubernur',
+              'Anggota Kabinet/Kementerian', 'Duta Besar', 'Gubernur',
               'Wakil Gubernur', 'Bupati', 'Wakil Bupati', 'Walikota',
               'Wakil Walikota', 'Anggota DPRD Propinsi',
-              'Anggota DPRD Kabupaten / Kota', 'Dosen', 'Guru', 'Pilot',
+              'Anggota DPRD Kabupaten/Kota', 'Dosen', 'Guru', 'Pilot',
               'Pengacara', 'Notaris', 'Arsitek', 'Akuntan', 'Konsultan',
-              'Dokter', 'Bidan', 'Perawat', 'Apoteker', 'Psikiater / Psikolog',
+              'Dokter', 'Bidan', 'Perawat', 'Apoteker', 'Psikiater/Psikolog',
               'Penyiar Televisi', 'Penyiar Radio', 'Pelaut', 'Peneliti',
               'Sopir', 'Pialang', 'Paranormal', 'Pedagang', 'Perangkat Desa',
               'Kepala Desa', 'Biarawati', 'Wiraswasta', 'Buruh Migran'],
@@ -294,7 +294,7 @@ class tambah_anggota_keluarga(wx.Dialog):
               parent=self, pos=wx.Point(624, 192), size=wx.Size(176, 17),
               style=0)
 
-        self.pilihan_status = wx.ComboBox(choices=['Belum Kawin', 'Kawin'],
+        self.pilihan_status = wx.ComboBox(choices=['Belum Kawin', 'Kawin', 'Cerai Mati','Cerai Hidup'],
               id=wxID_TAMBAH_ANGGOTA_KELUARGAPILIHAN_STATUS,
               name=u'pilihan_status', parent=self, pos=wx.Point(624, 208),
               size=wx.Size(248, 25), style=0)
@@ -305,7 +305,7 @@ class tambah_anggota_keluarga(wx.Dialog):
               style=0)
 
         self.pilihan_status_kependudukan = wx.ComboBox(choices=['Penduduk Tetap',
-              'Penduduk Sementara', 'Penduduk Pindah / Pindahan', 'Meninggal'],
+              'Penduduk Sementara', 'Penduduk Pindah/Pindahan', 'Meninggal'],
               id=wxID_TAMBAH_ANGGOTA_KELUARGAPILIHAN_STATUS_KEPENDUDUKAN,
               name=u'pilihan_status_kependudukan', parent=self,
               pos=wx.Point(624, 248), size=wx.Size(248, 25), style=0)
@@ -316,7 +316,7 @@ class tambah_anggota_keluarga(wx.Dialog):
               style=0)
 
         self.pilihan_status_tinggal = wx.ComboBox(choices=['Tinggal Tetap',
-              'Tinggal di Luar Desa*', 'Tinggal di Luar Kota / Kabupaten',
+              'Tinggal di Luar Desa*', 'Tinggal di Luar Kota/Kabupaten',
               'Tinggal di Luar Propinsi', 'Tinggal di Luar Negeri'],
               id=wxID_TAMBAH_ANGGOTA_KELUARGAPILIHAN_STATUS_TINGGAL,
               name=u'pilihan_status_tinggal', parent=self, pos=wx.Point(624,
@@ -328,8 +328,8 @@ class tambah_anggota_keluarga(wx.Dialog):
               style=0)
 
         self.pilihan_difabelitas = wx.ComboBox(choices=['Tidak cacat',
-              'Cacat Fisik', 'Cacat Netra / Buta', 'Cacat Rungu / Wicara',
-              'Cacat Mental / Jiwa', 'Cacat Fisik / Mental', 'Cacat Lainnya'],
+              'Cacat Fisik', 'Cacat Netra/Buta', 'Cacat Rungu/Wicara',
+              'Cacat Mental/Jiwa', 'Cacat Fisik/Mental', 'Cacat Lainnya'],
               id=wxID_TAMBAH_ANGGOTA_KELUARGAPILIHAN_DIFABELITAS,
               name=u'pilihan_difabelitas', parent=self, pos=wx.Point(624, 328),
               size=wx.Size(248, 25), style=0)
@@ -443,51 +443,35 @@ class tambah_anggota_keluarga(wx.Dialog):
               label=u'RW', name='staticText3', parent=self, pos=wx.Point(824,
               152), size=wx.Size(19, 17), style=0)
 
-        self.dokumen1 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
-              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
-              'Paspor'], id=wxID_TAMBAH_ANGGOTA_KELUARGADOKUMEN1,
+        self.dokumen1 = wx.ComboBox(choices=['Akta Kelahiran'], id=wxID_TAMBAH_ANGGOTA_KELUARGADOKUMEN1,
               name=u'dokumen1', parent=self, pos=wx.Point(24, 464),
               size=wx.Size(187, 27), style=0, value='')
 
-        self.dokumen3 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
-              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
-              'Paspor'], id=wxID_TAMBAH_ANGGOTA_KELUARGADOKUMEN3,
+        self.dokumen3 = wx.ComboBox(choices=['Akta Cerai'], id=wxID_TAMBAH_ANGGOTA_KELUARGADOKUMEN3,
               name=u'dokumen3', parent=self, pos=wx.Point(224, 464),
               size=wx.Size(187, 27), style=0, value='')
 
-        self.dokumen5 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
-              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
-              'Paspor'], id=wxID_TAMBAH_ANGGOTA_KELUARGADOKUMEN5,
+        self.dokumen5 = wx.ComboBox(choices=['KTP Sementara'], id=wxID_TAMBAH_ANGGOTA_KELUARGADOKUMEN5,
               name=u'dokumen5', parent=self, pos=wx.Point(424, 464),
               size=wx.Size(187, 27), style=0, value='')
 
-        self.dokumen7 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
-              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
-              'Paspor'], id=wxID_TAMBAH_ANGGOTA_KELUARGADOKUMEN7,
+        self.dokumen7 = wx.ComboBox(choices=['VISA'], id=wxID_TAMBAH_ANGGOTA_KELUARGADOKUMEN7,
               name=u'dokumen7', parent=self, pos=wx.Point(632, 464),
               size=wx.Size(187, 27), style=0, value='')
 
-        self.dokumen2 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
-              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
-              'Paspor'], id=wxID_TAMBAH_ANGGOTA_KELUARGADOKUMEN2,
+        self.dokumen2 = wx.ComboBox(choices=['Akta Nikah'], id=wxID_TAMBAH_ANGGOTA_KELUARGADOKUMEN2,
               name=u'dokumen2', parent=self, pos=wx.Point(24, 504),
               size=wx.Size(187, 27), style=0, value='')
 
-        self.dokumen4 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
-              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
-              'Paspor'], id=wxID_TAMBAH_ANGGOTA_KELUARGADOKUMEN4,
+        self.dokumen4 = wx.ComboBox(choices=['Akta Kematian'], id=wxID_TAMBAH_ANGGOTA_KELUARGADOKUMEN4,
               name=u'dokumen4', parent=self, pos=wx.Point(224, 504),
               size=wx.Size(187, 27), style=0, value='')
 
-        self.dokumen6 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
-              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
-              'Paspor'], id=wxID_TAMBAH_ANGGOTA_KELUARGADOKUMEN6,
+        self.dokumen6 = wx.ComboBox(choices=['KITAS'], id=wxID_TAMBAH_ANGGOTA_KELUARGADOKUMEN6,
               name=u'dokumen6', parent=self, pos=wx.Point(424, 504),
               size=wx.Size(187, 27), style=0, value='')
 
-        self.dokumen8 = wx.ComboBox(choices=['Akta Kelahiran', 'Akta Nikah',
-              'Akta Cerai', 'Akta Kematian', 'KTP Sementara', 'KITAS', 'VISA',
-              'Paspor'], id=wxID_TAMBAH_ANGGOTA_KELUARGADOKUMEN8,
+        self.dokumen8 = wx.ComboBox(choices=['Paspor'], id=wxID_TAMBAH_ANGGOTA_KELUARGADOKUMEN8,
               name=u'dokumen8', parent=self, pos=wx.Point(632, 504),
               size=wx.Size(187, 27), style=0, value='')
 
@@ -612,7 +596,7 @@ class tambah_anggota_keluarga(wx.Dialog):
     
     def Isi_Object(self) : 
         carikk=str(self.cari_kk.GetValue())
-        sql="SELECT * FROM penduduk WHERE no_kk='%s'"%(carikk)
+        sql="SELECT * FROM penduduk WHERE no_kk='%s' AND kematian='Tidak' AND shdk='Kepala Keluarga'"%(carikk)
         cur.execute(sql)
         hasil = cur.fetchone()  
         if hasil : 
@@ -746,6 +730,7 @@ class tambah_anggota_keluarga(wx.Dialog):
         self.main=data_penduduk.create(None)
         self.main.Show()
         self.Close()
+        self.Destroy()
 
     def OnTombol_cariButton(self, event):
         self.Isi_Object()

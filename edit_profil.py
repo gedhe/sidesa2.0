@@ -8,6 +8,7 @@ import os
 db = sqlite3.connect('/opt/sidesa/sidesa')
 cur = db.cursor()
 
+
 def create(parent):
     return edit_profil(parent)
 
@@ -328,6 +329,7 @@ class edit_profil(wx.Frame):
             self.pesan.ShowModal() 
             self.Close()
             self.Destroy()
+        
             
     def loadgambar(self):
         self.PhotoMaxSize = 150
