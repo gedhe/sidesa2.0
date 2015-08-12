@@ -122,8 +122,8 @@ class edit_kk(wx.Dialog):
               label=u'Jenis Kelamin', name=u'label_jenis_kelamin', parent=self,
               pos=wx.Point(192, 272), size=wx.Size(152, 17), style=0)
 
-        self.pilihan_jenis_kelamin = wx.ComboBox(choices=['L',
-              'P'], id=wxID_EDIT_KKPILIHAN_JENIS_KELAMIN,
+        self.pilihan_jenis_kelamin = wx.ComboBox(choices=['L', 'P'],
+              id=wxID_EDIT_KKPILIHAN_JENIS_KELAMIN,
               name=u'pilihan_jenis_kelamin', parent=self, pos=wx.Point(192,
               288), size=wx.Size(200, 27), style=0)
 
@@ -181,11 +181,9 @@ class edit_kk(wx.Dialog):
 
         self.pilihan_pendidikan_terakhir = wx.ComboBox(choices=['Tidak/Belum Sekolah',
               'Tidak Tamat SD/Sederajat', 'Tamat SD/Sederajat',
-              'SLTP/Sederajat', 'SLTA/Sederajat',
-              'Diploma I/II',
-              'Akademi/Diploma III/S. Muda',
-              'Diploma IV/Strata I', 'Strata II', 'Strata III',
-              'Pendidikan Non Formal'],
+              'SLTP/Sederajat', 'SLTA/Sederajat', 'Diploma I/II',
+              'Akademi/Diploma III/S. Muda', 'Diploma IV/Strata I', 'Strata II',
+              'Strata III', 'Pendidikan Non Formal'],
               id=wxID_EDIT_KKPILIHAN_PENDIDIKAN_TERAKHIR,
               name=u'pilihan_pendidikan_terakhir', parent=self,
               pos=wx.Point(400, 288), size=wx.Size(216, 25), style=0)
@@ -197,9 +195,9 @@ class edit_kk(wx.Dialog):
 
         self.pilihan_pendidikan_ditempuh = wx.ComboBox(choices=['PAUD sederajat',
               'TK Sederajat', 'SD Sederajat', 'SLTP Sederajat',
-              'SLTA Sederajat', 'D1 Sederajat', 'D2 Sederajat',
-              'D3 Sederajat' , 'S1 Sederajat' , 'S2 Sederajat' ,
-              'S3 Sederajat' , 'Pendidikan Non Formal'],
+              'SLTA Sederajat', 'D1 Sederajat', 'D2 Sederajat', 'D3 Sederajat' ,
+              'S1 Sederajat' , 'S2 Sederajat' , 'S3 Sederajat' ,
+              'Pendidikan Non Formal'],
               id=wxID_EDIT_KKPILIHAN_PENDIDIKAN_DITEMPUH,
               name=u'pilihan_pendidikan_ditempuh', parent=self,
               pos=wx.Point(400, 328), size=wx.Size(216, 25), style=0)
@@ -214,29 +212,28 @@ class edit_kk(wx.Dialog):
               'Kepolisian RI', 'Perdagangan', 'Petani/Pekebun', 'Peternak',
               'Nelayan/Perikanan', 'Industri', 'Konstruksi', 'Transportasi',
               'Karyawan Swasta', 'Karyawan BUMN', 'Karyawan BUMD',
-              'Karyawan Honorer', 'Buruh Harian Lepas',
-              'Buruh Tani/Perkebunan', 'Buruh Nelayan/Perikanan',
-              'Buruh Peternakan', 'Pembantu Rumah Tangga', 'Tukang Cukur',
-              'Tukang Listrik', 'Tukang Batu', 'Tukang Kayu',
-              'Tukang Sol Sepatu', 'Tukang Las/Pandai Besi', 'Tukang Jahit',
-              'Penata Rambut', 'Penata Rias', 'Penata Busana', 'Mekanik',
-              'Tukang Gigi', 'Seniman', 'Tabib', 'Paraji', 'Perancang Busana',
-              'Penterjemah', 'Imam Masjid', 'Pendeta', 'Pastur', 'Wartawan',
-              'Ustadz/Mubaligh', 'Juru Masak', 'Promotor Acara',
-              'Anggota DPR-RI', 'Anggota DPD', 'Anggota BPK', 'Presiden',
-              'Wakil Presiden', 'Anggota Mahkamah Konstitusi',
-              'Anggota Kabinet/Kementerian', 'Duta Besar', 'Gubernur',
-              'Wakil Gubernur', 'Bupati', 'Wakil Bupati', 'Walikota',
-              'Wakil Walikota', 'Anggota DPRD Propinsi',
-              'Anggota DPRD Kabupaten/Kota', 'Dosen', 'Guru', 'Pilot',
-              'Pengacara', 'Notaris', 'Arsitek', 'Akuntan', 'Konsultan',
-              'Dokter', 'Bidan', 'Perawat', 'Apoteker', 'Psikiater/Psikolog',
-              'Penyiar Televisi', 'Penyiar Radio', 'Pelaut', 'Peneliti',
-              'Sopir', 'Pialang', 'Paranormal', 'Pedagang', 'Perangkat Desa',
-              'Kepala Desa', 'Biarawati', 'Wiraswasta', 'Buruh Migran'],
-              id=wxID_EDIT_KKPILIHAN_PEKERJAAN, name=u'pilihan_pekerjaan',
-              parent=self, pos=wx.Point(400, 370), size=wx.Size(216, 25),
-              style=0)
+              'Karyawan Honorer', 'Buruh Harian Lepas', 'Buruh Tani/Perkebunan',
+              'Buruh Nelayan/Perikanan', 'Buruh Peternakan',
+              'Pembantu Rumah Tangga', 'Tukang Cukur', 'Tukang Listrik',
+              'Tukang Batu', 'Tukang Kayu', 'Tukang Sol Sepatu',
+              'Tukang Las/Pandai Besi', 'Tukang Jahit', 'Penata Rambut',
+              'Penata Rias', 'Penata Busana', 'Mekanik', 'Tukang Gigi',
+              'Seniman', 'Tabib', 'Paraji', 'Perancang Busana', 'Penterjemah',
+              'Imam Masjid', 'Pendeta', 'Pastur', 'Wartawan', 'Ustadz/Mubaligh',
+              'Juru Masak', 'Promotor Acara', 'Anggota DPR-RI', 'Anggota DPD',
+              'Anggota BPK', 'Presiden', 'Wakil Presiden',
+              'Anggota Mahkamah Konstitusi', 'Anggota Kabinet/Kementerian',
+              'Duta Besar', 'Gubernur', 'Wakil Gubernur', 'Bupati',
+              'Wakil Bupati', 'Walikota', 'Wakil Walikota',
+              'Anggota DPRD Propinsi', 'Anggota DPRD Kabupaten/Kota', 'Dosen',
+              'Guru', 'Pilot', 'Pengacara', 'Notaris', 'Arsitek', 'Akuntan',
+              'Konsultan', 'Dokter', 'Bidan', 'Perawat', 'Apoteker',
+              'Psikiater/Psikolog', 'Penyiar Televisi', 'Penyiar Radio',
+              'Pelaut', 'Peneliti', 'Sopir', 'Pialang', 'Paranormal',
+              'Pedagang', 'Perangkat Desa', 'Kepala Desa', 'Biarawati',
+              'Wiraswasta', 'Buruh Migran'], id=wxID_EDIT_KKPILIHAN_PEKERJAAN,
+              name=u'pilihan_pekerjaan', parent=self, pos=wx.Point(400, 370),
+              size=wx.Size(216, 25), style=0)
 
         self.label_pekerjaan_lainnya = wx.StaticText(id=wxID_EDIT_KKLABEL_PEKERJAAN_LAINNYA,
               label=u'Pekerjaan Lainnya', name=u'label_pekerjaan_lainnya',
@@ -254,10 +251,10 @@ class edit_kk(wx.Dialog):
               parent=self, pos=wx.Point(624, 192), size=wx.Size(176, 17),
               style=0)
 
-        self.pilihan_status = wx.ComboBox(choices=['Belum Kawin', 'Kawin', 'Cerai Mati', 'Cerai Hidup'],
-              id=wxID_EDIT_KKPILIHAN_STATUS, name=u'pilihan_status',
-              parent=self, pos=wx.Point(624, 208), size=wx.Size(248, 25),
-              style=0)
+        self.pilihan_status = wx.ComboBox(choices=['Belum Kawin', 'Kawin',
+              'Cerai Mati', 'Cerai Hidup'], id=wxID_EDIT_KKPILIHAN_STATUS,
+              name=u'pilihan_status', parent=self, pos=wx.Point(624, 208),
+              size=wx.Size(248, 25), style=0)
 
         self.label_status_kependudukan = wx.StaticText(id=wxID_EDIT_KKLABEL_STATUS_KEPENDUDUKAN,
               label=u'Status Kependudukan', name=u'label_status_kependudukan',
@@ -399,29 +396,37 @@ class edit_kk(wx.Dialog):
               label=u'RW', name='staticText3', parent=self, pos=wx.Point(824,
               152), size=wx.Size(19, 17), style=0)
 
-        self.dokumen1 = wx.ComboBox(choices=['Akta Kelahiran'], id=wxID_EDIT_KKDOKUMEN1, name=u'dokumen1', parent=self,
+        self.dokumen1 = wx.ComboBox(choices=['Akta Kelahiran'],
+              id=wxID_EDIT_KKDOKUMEN1, name=u'dokumen1', parent=self,
               pos=wx.Point(24, 464), size=wx.Size(187, 27), style=0, value='')
 
-        self.dokumen3 = wx.ComboBox(choices=['Akta Cerai'], id=wxID_EDIT_KKDOKUMEN3, name=u'dokumen3', parent=self,
+        self.dokumen3 = wx.ComboBox(choices=['Akta Cerai'],
+              id=wxID_EDIT_KKDOKUMEN3, name=u'dokumen3', parent=self,
               pos=wx.Point(224, 464), size=wx.Size(187, 27), style=0, value='')
 
-        self.dokumen5 = wx.ComboBox(choices=['KTP Sementara'], id=wxID_EDIT_KKDOKUMEN5, name=u'dokumen5', parent=self,
+        self.dokumen5 = wx.ComboBox(choices=['KTP Sementara'],
+              id=wxID_EDIT_KKDOKUMEN5, name=u'dokumen5', parent=self,
               pos=wx.Point(424, 464), size=wx.Size(187, 27), style=0, value='')
 
-        self.dokumen7 = wx.ComboBox(choices=['VISA'], id=wxID_EDIT_KKDOKUMEN7, name=u'dokumen7', parent=self,
-              pos=wx.Point(632, 464), size=wx.Size(187, 27), style=0, value='')
+        self.dokumen7 = wx.ComboBox(choices=['VISA'], id=wxID_EDIT_KKDOKUMEN7,
+              name=u'dokumen7', parent=self, pos=wx.Point(632, 464),
+              size=wx.Size(187, 27), style=0, value='')
 
-        self.dokumen2 = wx.ComboBox(choices=['Akta Nikah'], id=wxID_EDIT_KKDOKUMEN2, name=u'dokumen2', parent=self,
+        self.dokumen2 = wx.ComboBox(choices=['Akta Nikah'],
+              id=wxID_EDIT_KKDOKUMEN2, name=u'dokumen2', parent=self,
               pos=wx.Point(24, 504), size=wx.Size(187, 27), style=0, value='')
 
-        self.dokumen4 = wx.ComboBox(choices=['Akta Kematian'], id=wxID_EDIT_KKDOKUMEN4, name=u'dokumen4', parent=self,
+        self.dokumen4 = wx.ComboBox(choices=['Akta Kematian'],
+              id=wxID_EDIT_KKDOKUMEN4, name=u'dokumen4', parent=self,
               pos=wx.Point(224, 504), size=wx.Size(187, 27), style=0, value='')
 
-        self.dokumen6 = wx.ComboBox(choices=['KITAS'], id=wxID_EDIT_KKDOKUMEN6, name=u'dokumen6', parent=self,
-              pos=wx.Point(424, 504), size=wx.Size(187, 27), style=0, value='')
+        self.dokumen6 = wx.ComboBox(choices=['KITAS'], id=wxID_EDIT_KKDOKUMEN6,
+              name=u'dokumen6', parent=self, pos=wx.Point(424, 504),
+              size=wx.Size(187, 27), style=0, value='')
 
-        self.dokumen8 = wx.ComboBox(choices=['Paspor'], id=wxID_EDIT_KKDOKUMEN8, name=u'dokumen8', parent=self,
-              pos=wx.Point(632, 504), size=wx.Size(187, 27), style=0, value='')
+        self.dokumen8 = wx.ComboBox(choices=['Paspor'], id=wxID_EDIT_KKDOKUMEN8,
+              name=u'dokumen8', parent=self, pos=wx.Point(632, 504),
+              size=wx.Size(187, 27), style=0, value='')
 
         self.staticText4 = wx.StaticText(id=wxID_EDIT_KKSTATICTEXT4,
               label=u'Kode KK SMT- adalah NoKK Sementara', name='staticText4',

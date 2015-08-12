@@ -21,9 +21,9 @@ class dialog_bantuan(wx.Dialog):
         self.Center(wx.BOTH)
 
         self.isi_bantuan = wx.StaticText(id=wxID_DIALOG_BANTUANISI_BANTUAN,
-              label=u'Developer  :\nTeam Gerakan Desa Membangun\n\nDibangun dan dikembangkan dengan Menggunakan\nPemrograman Python Dan SQLite3\n\nUntuk penjelasan Mengenai Bantuan Penggunaan Dapat\nMembuka Website Resmi Developer Pengembang\nAplikasi Gerakan Desa Membangun Desa 2.0  \ndi http://dev.gedhe.or.id\n\nLicense GPL 2.0',
+              label=u'Developer  :\nDeveloper Relawan TIK Kab. Pemalang\nBekerjasama Dengan BAPERMAS Kab. Pemalang\n\nDibangun dan dikembangkan dengan Menggunakan\nPemrograman Python Dan SQLite3\n\nUntuk penjelasan Mengenai Bantuan Penggunaan Dapat\nMembuka Website Resmi Developer Pengembang\nAplikasi Gros Sidekem \ndi http://sidekem.rakyat.id\n\nLicense GPL 2.0',
               name=u'isi_bantuan', parent=self, pos=wx.Point(16, 24),
-              size=wx.Size(367, 204), style=0)
+              size=wx.Size(367, 221), style=0)
 
         self.tombol_tutup_bantuan = wx.Button(id=wxID_DIALOG_BANTUANTOMBOL_TUTUP_BANTUAN,
               label=u'Tutup Bantuan', name=u'tombol_tutup_bantuan', parent=self,

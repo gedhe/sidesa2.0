@@ -31,6 +31,7 @@ modules ={u'bantuan': [0, u'bantuan', u'bantuan.py'],
  u'kejadian_kematian': [0, '', u'kejadian_kematian.py'],
  u'kejadian_lain': [0, '', u'kejadian_lain.py'],
  u'kejadian_pindah': [0, '', u'kejadian_pindah.py'],
+ u'keuangan': [0, '', u'keuangan.py'],
  u'kk_sementara': [0, '', u'kk_sementara.py'],
  u'kk_tetap': [0, '', u'kk_tetap.py'],
  u'kunci': [0, '', u'kunci.py'],
@@ -42,6 +43,7 @@ modules ={u'bantuan': [0, u'bantuan', u'bantuan.py'],
  u'laporan_statistik': [0, '', u'laporan_statistik.py'],
  u'pecah_keluarga': [0, '', u'pecah_keluarga.py'],
  u'pembuatan_surat_keluar': [0, '', u'pembuatan_surat_keluar.py'],
+ u'penyusunan': [0, '', u'penyusunan.py'],
  u'pilihanimport': [0, '', u'pilihanimport.py'],
  u'piramidapenduduk': [0, '', u'piramidapenduduk.py'],
  u'potensi_ekonomi': [0, '', u'potensi_ekonomi.py'],
@@ -62,7 +64,7 @@ Create a splash screen widget.
     """
     def __init__(self, parent=None):
         aBitmap = wx.Image(name = "/opt/sidesa/png/1.png").ConvertToBitmap()
-        aBitmap1 = wx.Image(name = "/opt/sidesa/png/2.png").ConvertToBitmap()
+        aBitmap1 = wx.Image(name = "/opt/sidesa/png/1.png").ConvertToBitmap()
         splashStyle = wx.SPLASH_CENTRE_ON_SCREEN | wx.SPLASH_TIMEOUT
         splashDuration = 2000 # milliseconds
         wx.SplashScreen.__init__(self, aBitmap1, splashStyle,

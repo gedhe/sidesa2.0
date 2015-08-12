@@ -33,6 +33,7 @@ import kunci
 import sqlite3
 import edit_data_penduduk
 import pilihanimport
+import keuangan
 
 def connect():
     db = sqlite3.connect('/opt/sidesa/sidesa')
@@ -44,12 +45,13 @@ def create(parent):
     return sidesa(parent)
 
 [wxID_SIDESA, wxID_SIDESABUTTON1, wxID_SIDESABUTTON2, wxID_SIDESAGARIS_PROFIL, 
- wxID_SIDESAGENBITMAPTEXTBUTTON1, wxID_SIDESAKOTAK_ADMINISTRASI, 
- wxID_SIDESAKOTAK_KEMISKINAN, wxID_SIDESAKOTAK_MENU_UTAMA, 
- wxID_SIDESAKOTAK_POTENSI, wxID_SIDESAKOTAK_STATISTIK, 
- wxID_SIDESAKOTA_PENDUDUK, wxID_SIDESAKUNCI, wxID_SIDESALABEL_PRAKARSA, 
- wxID_SIDESALABEL_PROFIL, wxID_SIDESALABEL_SIDEKA_ONLINE, 
- wxID_SIDESASTATICBITMAP1, wxID_SIDESASTATICTEXT1, wxID_SIDESATOMBOL_BANTUAN, 
+ wxID_SIDESAGENBITMAPTEXTBUTTON1, wxID_SIDESAKEUANGAN, 
+ wxID_SIDESAKOTAK_ADMINISTRASI, wxID_SIDESAKOTAK_KEMISKINAN, 
+ wxID_SIDESAKOTAK_MENU_UTAMA, wxID_SIDESAKOTAK_POTENSI, 
+ wxID_SIDESAKOTAK_STATISTIK, wxID_SIDESAKOTA_PENDUDUK, wxID_SIDESAKUNCI, 
+ wxID_SIDESALABEL_PRAKARSA, wxID_SIDESALABEL_PROFIL, 
+ wxID_SIDESALABEL_SIDEKA_ONLINE, wxID_SIDESASTATICBITMAP1, 
+ wxID_SIDESASTATICTEXT1, wxID_SIDESATOMBOL_BANTUAN, 
  wxID_SIDESATOMBOL_CARI_ADMINISTRASI, wxID_SIDESATOMBOL_CARI_PENDUDUK, 
  wxID_SIDESATOMBOL_EDIT_DATA_KEMISKINAN, wxID_SIDESATOMBOL_EDIT_PENDUDUK, 
  wxID_SIDESATOMBOL_EDIT_PROFIL, wxID_SIDESATOMBOL_EDIT_SURAT, 
@@ -65,14 +67,15 @@ def create(parent):
  wxID_SIDESATOMBOL_STATISTIK_POTENSI, wxID_SIDESATOMBOL_SURAT_MASUK, 
  wxID_SIDESATOMBOL_TAMBAH_DATA_KEMISKINAN, wxID_SIDESATOMBOL_TAMBAK, 
  wxID_SIDESATOMOBOL_INDIKATOR_KEMISKINAN, 
-] = [wx.NewId() for _init_ctrls in range(47)]
+] = [wx.NewId() for _init_ctrls in range(48)]
 
 class sidesa(wx.Frame):
     def _init_ctrls(self, prnt):
         # generated method, don't edit
         wx.Frame.__init__(self, id=wxID_SIDESA, name=u'sidesa', parent=prnt,
               pos=wx.Point(526, 99), size=wx.Size(647, 616),
-              style=wx.DEFAULT_FRAME_STYLE, title=u'SIDESA 2.0 Versi 1.0')
+              style=wx.DEFAULT_FRAME_STYLE,
+              title=u'SIDEKEM - Sistem Informasi Desa dan Kawasan Pemalang')
         self.SetClientSize(wx.Size(647, 616))
         self.Center(wx.BOTH)
 
@@ -281,9 +284,8 @@ class sidesa(wx.Frame):
               size=wx.Size(184, 2), style=0)
 
         self.label_prakarsa = wx.StaticText(id=wxID_SIDESALABEL_PRAKARSA,
-              label=u'Gerakan Desa Membangun', name=u'label_prakarsa',
-              parent=self, pos=wx.Point(464, 592), size=wx.Size(192, 17),
-              style=0)
+              label=u'RTIK Pemalang', name=u'label_prakarsa', parent=self,
+              pos=wx.Point(464, 592), size=wx.Size(192, 17), style=0)
 
         self.tombol_keluar = wx.lib.buttons.GenBitmapTextButton(bitmap=wx.Bitmap('/opt/sidesa/png/keluar.png',
               wx.BITMAP_TYPE_PNG), id=wxID_SIDESATOMBOL_KELUAR,
@@ -370,7 +372,7 @@ class sidesa(wx.Frame):
         self.staticBitmap1 = wx.StaticBitmap(bitmap=wx.Bitmap('/opt/sidesa/png/logo3.png',
               wx.BITMAP_TYPE_PNG), id=wxID_SIDESASTATICBITMAP1,
               name='staticBitmap1', parent=self, pos=wx.Point(8, 8),
-              size=wx.Size(200, 80), style=0)
+              size=wx.Size(248, 80), style=0)
         self.staticBitmap1.SetAutoLayout(False)
 
         self.kunci = wx.TextCtrl(id=wxID_SIDESAKUNCI, name=u'kunci',
@@ -400,6 +402,13 @@ class sidesa(wx.Frame):
         self.staticText1 = wx.StaticText(id=wxID_SIDESASTATICTEXT1,
               label=u'Kunci :', name='staticText1', parent=self,
               pos=wx.Point(288, 64), size=wx.Size(41, 17), style=0)
+
+        self.keuangan = wx.lib.buttons.GenBitmapTextButton(bitmap=wx.NullBitmap,
+              id=wxID_SIDESAKEUANGAN, label=u' Keuangan', name=u'keuangan',
+              parent=self, pos=wx.Point(32, 520), size=wx.Size(168, 32),
+              style=0)
+        self.keuangan.Bind(wx.EVT_BUTTON, self.OnKeuanganButton,
+              id=wxID_SIDESAKEUANGAN)
 
     def __init__(self, parent):
                 self._init_ctrls(parent)
@@ -604,4 +613,8 @@ class sidesa(wx.Frame):
         self.genBitmapTextButton1.Disable()
         self.button2.Disable()
         self.button1.Enable()
+
+    def OnKeuanganButton(self, event):
+        self.main=keuangan.create(None)
+        self.main.Show()
         

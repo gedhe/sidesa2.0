@@ -37,7 +37,7 @@ class data_statistik_penduduk(wx.Frame):
         # generated method, don't edit
         wx.Frame.__init__(self, id=wxID_DATA_STATISTIK_PENDUDUK,
               name=u'data_statistik_penduduk', parent=prnt, pos=wx.Point(569,
-              197), size=wx.Size(562, 385), style=wx.FRAME_NO_TASKBAR,
+              214), size=wx.Size(562, 385), style=wx.FRAME_NO_TASKBAR,
               title=u'Data Statistik Penduduk')
         self.SetClientSize(wx.Size(562, 385))
         self.Center(wx.BOTH)
@@ -206,8 +206,7 @@ class data_statistik_penduduk(wx.Frame):
         sizes = [hasil, hasil1]
         colors = ['blue', 'red']
         explode = (0, 0.1)
-        plt.pie(sizes, explode=explode, labels=labels, colors=colors,
-        autopct='%1f%%', shadow=True, startangle=90)
+        plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1f%%', shadow=True)
         plt.text(-2,-1.1, 'Jumlah Perempuan='+has1+' Jiwa',fontweight='bold')
         plt.text(-2,-1.2, 'Jumlah Laki-laki='+has+' Jiwa',fontweight='bold')
         
@@ -243,7 +242,7 @@ class data_statistik_penduduk(wx.Frame):
         colors = ['blue', 'red']
         explode = (0, 0.1)
         plt.pie(sizes, explode=explode, labels=labels, colors=colors,
-        autopct='%1f%%', shadow=True, startangle=90)
+        autopct='%1f%%', shadow=True)
         plt.text(-2,-1.1, 'Jumlah Perempuan='+has1+' Jiwa',fontweight='bold')
         plt.text(-2,-1.2, 'Jumlah Laki-laki='+has+' Jiwa',fontweight='bold')
         

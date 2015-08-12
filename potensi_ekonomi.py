@@ -36,9 +36,10 @@ class potensi_ekonomi(wx.Frame):
               heading='Keterangan', width=260)
 
     def _init_ctrls(self, prnt):
+        
         # generated method, don't edit
         wx.Frame.__init__(self, id=wxID_POTENSI_EKONOMI,
-              name=u'potensi_ekonomi', parent=prnt, pos=wx.Point(471, 194),
+              name=u'potensi_ekonomi', parent=prnt, pos=wx.Point(457, 184),
               size=wx.Size(784, 445), style=wx.DEFAULT_FRAME_STYLE,
               title=u'Potensi Ekonomi Sosial Budaya')
         self.SetClientSize(wx.Size(784, 445))
@@ -55,10 +56,11 @@ class potensi_ekonomi(wx.Frame):
               label=u'Nama Potensi', name='staticText1', parent=self,
               pos=wx.Point(16, 240), size=wx.Size(151, 15), style=0)
 
-        self.input_tambak = wx.ComboBox(choices=['Warung', 'Suparmarket', 'Pasar', 'Taman Hiburan', ],
-              id=wxID_POTENSI_EKONOMIINPUT_TAMBAK, name=u'input_tambak',
+    
+        self.input_tambak = wx.ComboBox(choices=['Warung', 'Suparmarket','Pasar', 'Taman Hiburan', 'Tambang'],id=wxID_POTENSI_EKONOMIINPUT_TAMBAK, name=u'input_tambak',
               parent=self, pos=wx.Point(168, 240), size=wx.Size(240, 25),
               style=0, value='')
+        
 
         self.staticText2 = wx.StaticText(id=wxID_POTENSI_EKONOMISTATICTEXT2,
               label=u'Jumlah / Luas', name='staticText2', parent=self,
@@ -113,6 +115,7 @@ class potensi_ekonomi(wx.Frame):
               id=wxID_POTENSI_EKONOMIKEMBALI)
 
     def __init__(self, parent):
+        
         self._init_ctrls(parent)
         self.IsiList()
 

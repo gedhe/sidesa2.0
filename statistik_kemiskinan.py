@@ -88,7 +88,7 @@ class data_statistik(wx.Frame):
         colors = ['blue', 'red']
         explode = (0, 0.1)
         plt.pie(sizes, explode=explode, labels=labels, colors=colors,
-        autopct='%1f%%', shadow=True, startangle=90)
+        autopct='%1f%%', shadow=True)
         plt.text(-2,-1.1, 'Jumlah KK Miskin='+has1+' KK',fontweight='bold')
         plt.text(-2,-1.2, 'Jumlah KK Tidak Miskin='+has+' KK',fontweight='bold')
         
@@ -155,7 +155,7 @@ class data_statistik(wx.Frame):
         
         
         explode = (0.1, 0.1, 0.1,0.1,0.1,0.1,0.1,0.1)
-        plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1f%%', shadow=True, startangle=0)
+        plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1f%%', shadow=True)
         plt.text(-2,-1.1, 'Jumlah KK Miskin='+has1+' KK',fontweight='bold')
         plt.text(-2,-1.2, 'Jumlah KK Tidak Miskin='+has+' KK',fontweight='bold')
         
